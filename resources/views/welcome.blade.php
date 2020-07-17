@@ -26,21 +26,16 @@
     </div>
     <section class="section">
         <div class="container">
-            <div class="columns level">
+            <div class="columns">
                 <div class="column is-6">
-                    <p class="title has-text-grey-dark level-item">
-                        Submit form to us. We'll <span class="has-text-primary">&nbsp;email&nbsp;</span> it to you.
-                    </p>
-                    <p class="subtitle level-item">No server, no database. It's simple as that.</p>
+                    <h1 class="is-size-1 has-text-grey-dark">Makes your form work.</h1>
+                    <h2 class="is-size-4">Submit the form to us, we'll email it to you. <br /> No server, no signup, no database.</h2>
+                    <h3 class="is-size-5 has-text-primary is-italic"> &mdash; Perfect for static sites!</h3>
                 </div>
-                <div class="column is-6 level-item">
+                <div class="column is-6">
                     <div class="card">
                         <div class="card-content">
-                            <pre><code>&lt;form action=&quot;<span class="has-text-primary">https://formzend.com/your@email.com</span>&quot; method=&quot;post&quot;&gt;
-  &lt;input type=&quot;email&quot; name=&quot;email&quot;&gt;
-  &lt;input type=&quot;text&quot; name=&quot;name&quot;&gt;
-  &lt;input type=&quot;text&quot; name=&quot;message&quot;&gt;
-&lt;/form&gt;</code></pre>
+                            
                         </div>
                     </div>
                 </div>
