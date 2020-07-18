@@ -1,1 +1,7 @@
-//
+$primary: #F57035;
+
+@import "~bulma/bulma";
+
+.has-text-primary {
+    color: #F57035 !important;
+}
