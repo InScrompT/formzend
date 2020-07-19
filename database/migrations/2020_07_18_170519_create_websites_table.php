@@ -17,7 +17,6 @@ class CreateWebsitesTable extends Migration
             $table->id();
             $table->integer('account_id');
             $table->string('url');
-            $table->string('');
             $table->timestamps();
         });
     }

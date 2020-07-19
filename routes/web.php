@@ -14,3 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::view('/', 'welcome');
+
+Route::post('/{email}', 'FormController@handleSubmission')
+    ->middleware('check.email', 'check.email.verified')
+    ->name('form');
