@@ -30,15 +30,18 @@ class CheckIfVerified
 
             event(new NewWebsite($newWebsite));
 
-            return response()->json([
-                'message' => 'old account, new url. Send verification email'
+            return response()->view('website.verify', [
+                'email' => $email,
+                'url' => $host
             ]);
         }
 
         if (!$accountWebsite->verified) {
             event(new NewWebsite($account->websites->firstWhere('url', $host)));
-            return response()->json([
-                'message' => 'old account, old url, not verified yet.'
+
+            return response()->view('website.verify', [
+                'email' => $email,
+                'url' => $host
             ]);
         }
 
