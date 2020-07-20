@@ -20,6 +20,9 @@ class EventServiceProvider extends ServiceProvider
         ],
         'App\Events\NewAccount' => [
             'App\Listeners\SaveNewAccount',
+        ],
+        'App\Events\NewWebsite' => [
+            'App\Listeners\SaveNewWebsite',
             'App\Listeners\SendVerification',
         ],
     ];
