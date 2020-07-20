@@ -3,13 +3,15 @@
 namespace App\Http\Controllers;
 
 use App\Account;
+use App\Jobs\ProcessVerifyWebsite;
 use App\Website;
-use Illuminate\Http\Request;
 
 class WebsiteController extends Controller
 {
     public function verify(Account $account, Website $website)
     {
-        //
+        ProcessVerifyWebsite::dispatch($website);
+
+        return ['message' => 'check the database'];
     }
 }

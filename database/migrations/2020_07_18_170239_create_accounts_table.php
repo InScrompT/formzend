@@ -15,7 +15,6 @@ class CreateAccountsTable extends Migration
     {
         Schema::create('accounts', function (Blueprint $table) {
             $table->id();
-            $table->integer('website_id')->nullable();
             $table->string('email');
             $table->unsignedBigInteger('recieved')->default(0);
             $table->integer('type')->default(0);

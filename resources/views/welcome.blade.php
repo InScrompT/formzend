@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('title', 'Make Your Form Work - Home')
+
 @section('content')
     <div class="container">
         <div class="navbar">
