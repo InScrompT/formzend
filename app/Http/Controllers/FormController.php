@@ -2,11 +2,21 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Account;
+use App\Mail\FormSubmission;
 
 class FormController extends Controller
 {
     public function handleSubmission($email) {
-        return request()->all();
+        $url = \request()->getSchemeAndHttpHost();
+        $account = Account::firstWhere('email', $email);
+        $website = $account->websites->firstWhere('url', $url);
+
+        \Mail::send(new FormSubmission($website, [
+            'url' => $url,
+            'form' => \request()->all()
+        ]));
+
+        return ['check email lol'];
     }
 }

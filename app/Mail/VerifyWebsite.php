@@ -33,7 +33,7 @@ class VerifyWebsite extends Mailable implements ShouldQueue
     {
         $signedURL = \URL::temporarySignedRoute('website.verify', now()->addDay(), [
             'account' => $this->website->account->id,
-            'website' => $this->website->url
+            'website' => $this->website->id
         ]);
 
         return $this->markdown('emails.website.verify')

@@ -2,7 +2,7 @@
     <div class="navbar">
         <div class="navbar-brand">
             <div class="navbar-item">
-                <p class="is-size-4 has-text-primary">FormZend</p>
+                <a class="is-size-4 has-text-primary" href="{{ route('home') }}">FormZend</a>
             </div>
         </div>
         <div class="navbar-end">

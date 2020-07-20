@@ -1,0 +1,49 @@
+<?php
+
+namespace App\Mail;
+
+use App\Website;
+use Illuminate\Bus\Queueable;
+use Illuminate\Contracts\Queue\ShouldQueue;
+use Illuminate\Mail\Mailable;
+use Illuminate\Queue\SerializesModels;
+
+class FormSubmission extends Mailable implements ShouldQueue
+{
+    use Queueable, SerializesModels;
+
+    /**
+     * @var Website
+     */
+    public $website;
+
+    /**
+     * @var array
+     */
+    public $data;
+
+    /**
+     * Create a new message instance.
+     *
+     * @param Website $website
+     * @param array $data
+     */
+    public function __construct(Website $website, array $data)
+    {
+        $this->website = $website;
+        $this->data = $data;
+    }
+
+    /**
+     * Build the message.
+     *
+     * @return $this
+     */
+    public function build()
+    {
+        return $this->markdown('emails.form.submit')
+            ->subject('New form submission at ' . $this->website->url)
+            ->to($this->website->account->email)
+            ->with($this->data);
+    }
+}
