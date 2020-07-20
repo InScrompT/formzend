@@ -6,7 +6,7 @@ use App\Events\NewAccount;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\InteractsWithQueue;
 
-class SaveNewAccount
+class SaveNewAccount implements ShouldQueue
 {
     /**
      * Create the event listener.

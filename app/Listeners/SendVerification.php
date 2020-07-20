@@ -6,7 +6,7 @@ use App\Events\NewWebsite;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\InteractsWithQueue;
 
-class SendVerification
+class SendVerification implements ShouldQueue
 {
     /**
      * Create the event listener.

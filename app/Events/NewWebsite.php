@@ -2,6 +2,7 @@
 
 namespace App\Events;
 
+use App\Website;
 use Illuminate\Broadcasting\Channel;
 use Illuminate\Broadcasting\InteractsWithSockets;
 use Illuminate\Broadcasting\PresenceChannel;
@@ -14,14 +15,16 @@ class NewWebsite
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
+    public $website;
+
     /**
      * Create a new event instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(Website $website)
     {
-        //
+        $this->website = $website;
     }
 
     /**

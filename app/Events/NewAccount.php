@@ -2,6 +2,7 @@
 
 namespace App\Events;
 
+use App\Account;
 use Illuminate\Broadcasting\Channel;
 use Illuminate\Broadcasting\InteractsWithSockets;
 use Illuminate\Broadcasting\PresenceChannel;
@@ -14,14 +15,16 @@ class NewAccount
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
+    public $account;
+
     /**
      * Create a new event instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(Account $account)
     {
-        //
+        $this->account = $account;
     }
 
     /**
