@@ -27,6 +27,8 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Website extends Model
 {
+    protected $fillable = ['url', 'verified', 'account_id'];
+
     public function account()
     {
         return $this->belongsTo(Account::class);

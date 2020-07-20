@@ -1,9 +1,9 @@
 @component('mail::message')
 # Hey there 👋
 
-It's good to have you on board. Just verify your email and you'll be good to recieve form submission from {{ url }}
+It's good to have you on board. Just verify your email and you'll be good to receive form submission from [{{ $url }}]({{ $url }})
 
-@component('mail::button', ['url' => ''])
+@component('mail::button', ['url' => '#'])
 Verify now 🔥
 @endcomponent
 

@@ -3,6 +3,7 @@
 namespace App\Http\Middleware;
 
 use App\Account;
+use App\Events\NewWebsite;
 use App\Website;
 use Closure;
 
@@ -20,23 +21,14 @@ class CheckIfVerifiedEmail
         $host = $request->getHost();
         $email = $request->route('email');
 
-        $account = Account::where('email', $email)->first();
-        if (!$account->exists()) {
-            $newAccount = new Account;
-            $newAccount->email = $email;
-            $newAccount->saveOrFail();
+        $account = Account::firstOrCreate([ 'email' => $email ]);
+        $accountWebsite = $account->websites->firstWhere('url', $host);
 
-            return response()->json([
-                'message' => 'new account. Save and send verification email'
-            ]);
-        }
-
-        $accountWebsite = $account->websites->where('url', $host)->first();
         if (is_null($accountWebsite)) {
-            $newAccountWebsite = new Website;
-            $newAccountWebsite->account_id = $account->id;
-            $newAccountWebsite->url = $host;
-            $newAccountWebsite->saveOrFail();
+            $newWebsite = new Website(['url' => $host, 'account_id' => $account->id]);
+            $newWebsite->save();
+
+            event(new NewWebsite($newWebsite));
 
             return response()->json([
                 'message' => 'old account, new url. Send verification email'
@@ -44,6 +36,7 @@ class CheckIfVerifiedEmail
         }
 
         if (!$accountWebsite->verified) {
+            event(new NewWebsite($account->websites->firstWhere('url', $host)));
             return response()->json([
                 'message' => 'old account, old url, not verified yet.'
             ]);

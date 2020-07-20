@@ -30,6 +30,8 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Account extends Model
 {
+    protected $fillable = ['email', 'recieved', 'type', 'website_id'];
+
     public function websites()
     {
         return $this->hasMany(Website::class);

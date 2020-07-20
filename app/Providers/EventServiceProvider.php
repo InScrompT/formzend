@@ -18,11 +18,7 @@ class EventServiceProvider extends ServiceProvider
         Registered::class => [
             SendEmailVerificationNotification::class,
         ],
-        'App\Events\NewAccount' => [
-            'App\Listeners\SaveNewAccount',
-        ],
         'App\Events\NewWebsite' => [
-            'App\Listeners\SaveNewWebsite',
             'App\Listeners\SendVerification',
         ],
     ];

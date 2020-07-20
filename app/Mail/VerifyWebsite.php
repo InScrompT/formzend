@@ -12,12 +12,12 @@ class VerifyWebsite extends Mailable implements ShouldQueue
 {
     use Queueable, SerializesModels;
 
-    private $website;
+    public $website;
 
     /**
      * Create a new message instance.
      *
-     * @return void
+     * @param Website $website
      */
     public function __construct(Website $website)
     {
