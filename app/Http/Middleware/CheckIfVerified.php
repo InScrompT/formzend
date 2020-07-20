@@ -7,7 +7,7 @@ use App\Events\NewWebsite;
 use App\Website;
 use Closure;
 
-class CheckIfVerifiedEmail
+class CheckIfVerified
 {
     /**
      * Handle an incoming request.
