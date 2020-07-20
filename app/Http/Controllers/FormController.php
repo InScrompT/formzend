@@ -17,6 +17,8 @@ class FormController extends Controller
             'form' => \request()->all()
         ]));
 
-        return ['check email lol'];
+        return view('form.submitted')->with([
+            'url' => $url
+        ]);
     }
 }
