@@ -14,6 +14,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::view('/', 'welcome');
+Route::get('/verify/{account}/website/{website:url}', 'WebsiteController@verify')
+    ->middleware('signed')
+    ->name('website.verify');
 
 Route::post('/{email}', 'FormController@handleSubmission')
     ->middleware('check.email', 'check.email.verified')

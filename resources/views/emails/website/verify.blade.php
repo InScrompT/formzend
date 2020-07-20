@@ -3,7 +3,7 @@
 
 It's good to have you on board. Just verify your email and you'll be good to receive form submission from [{{ $url }}]({{ $url }})
 
-@component('mail::button', ['url' => '#'])
+@component('mail::button', ['url' => $verify])
 Verify now 🔥
 @endcomponent
 

@@ -31,9 +31,16 @@ class VerifyWebsite extends Mailable implements ShouldQueue
      */
     public function build()
     {
+        $signedURL = \URL::temporarySignedRoute('website.verify', now()->addDay(), [
+            'account' => $this->website->account->id,
+            'website' => $this->website->url
+        ]);
+
         return $this->markdown('emails.website.verify')
+            ->subject('[FormZend] Verify new website | ' . $this->website->url)
             ->with([
-                'url' => $this->website->url
+                'url' => $this->website->url,
+                'verify' => $signedURL
             ]);
     }
 }
