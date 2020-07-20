@@ -1,5 +1,9 @@
 @charset "UTF-8";
 
+.has-text-primary {
+  color: #F57035 !important;
+}
+
 /*! bulma.io v0.9.0 | MIT License | github.com/jgthms/bulma */
 
 @-webkit-keyframes spinAround {
@@ -12491,9 +12495,5 @@ a.has-text-danger-dark:focus {
 .footer {
   background-color: #fafafa;
   padding: 3rem 1.5rem 6rem;
-}
-
-.has-text-primary {
-  color: #F57035 !important;
 }
 

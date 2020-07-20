@@ -18,6 +18,8 @@ Route::get('/verify/{account}/website/{website:id}', 'WebsiteController@verify')
     ->middleware('signed')
     ->name('website.verify');
 
+Route::post('/verify/resend/{account}/website/{website:id}', 'WebsiteController@resendVerification')
+    ->name('website.verify.resend');
 Route::post('/{email}', 'FormController@handleSubmission')
     ->middleware('check.email', 'check.email.verified')
     ->name('form');

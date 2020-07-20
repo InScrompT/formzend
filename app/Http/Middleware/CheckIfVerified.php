@@ -26,7 +26,7 @@ class CheckIfVerified
 
         if (is_null($accountWebsite)) {
             $newWebsite = new Website(['url' => $host, 'account_id' => $account->id]);
-            $newWebsite->save();
+            $newWebsite->saveOrFail();
 
             event(new NewWebsite($newWebsite));
 
@@ -37,11 +37,9 @@ class CheckIfVerified
         }
 
         if (!$accountWebsite->verified) {
-            event(new NewWebsite($account->websites->firstWhere('url', $host)));
-
-            return response()->view('website.verify', [
-                'email' => $email,
-                'url' => $host
+            return response()->view('website.remind', [
+                'account' => $account->id,
+                'website' => $accountWebsite->id
             ]);
         }
 
