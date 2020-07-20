@@ -12,6 +12,9 @@ class WebsiteController extends Controller
     {
         ProcessVerifyWebsite::dispatch($website);
 
-        return ['message' => 'check the database'];
+        return view('website.verified')->with([
+            'url' => $website->url,
+            'email' => $account->email
+        ]);
     }
 }
