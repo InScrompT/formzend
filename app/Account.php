@@ -4,6 +4,30 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * App\Account
+ *
+ * @property int $id
+ * @property int $website_id
+ * @property string $email
+ * @property int $recieved
+ * @property int $type
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Website[] $websites
+ * @property-read int|null $websites_count
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Account newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Account newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Account query()
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Account whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Account whereEmail($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Account whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Account whereRecieved($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Account whereType($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Account whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Account whereWebsiteId($value)
+ * @mixin \Eloquent
+ */
 class Account extends Model
 {
     public function websites()
