@@ -26,6 +26,6 @@ class SaveNewWebsite implements ShouldQueue
      */
     public function handle(NewWebsite $event)
     {
-        //
+        $event->website->saveOrFail();
     }
 }

@@ -26,6 +26,6 @@ class SaveNewAccount implements ShouldQueue
      */
     public function handle(NewAccount $event)
     {
-        //
+        $event->account->saveOrFail();
     }
 }
