@@ -2,7 +2,7 @@
     <div class="navbar">
         <div class="navbar-brand">
             <div class="navbar-item">
-                <a class="is-size-4 has-text-primary" href="{{ route('home') }}">FormZend</a>
+                <a class="is-size-4 has-text-primary" href="{{ route('home') }}">{{ config('app.name') }}</a>
             </div>
             <a role="button" class="navbar-burger" data-target="navMenu" aria-label="menu" aria-expanded="false">
                 <span aria-hidden="true"></span>
