@@ -60,4 +60,24 @@
             </div>
         </div>
     </section>
+    <footer class="footer">
+        <div class="content">
+            <div class="section">
+                <div class="container">
+                    <div class="columns">
+                        <div class="column is-half is-offset-3">
+                            <p>
+                                Made with ♥ by <a href="https://twitter.com/xXAlphaManXx" class="has-text-primary">Karan Sanjeev</a> • An another Indie Project.
+                                <br>
+                                This whole website is open sourced at <a href="https://github.com/InScrompT/FormZend" class="has-text-primary">Github</a>
+                            </p>
+                            <p>
+                                Need help? Tweet to me at <a href="https://twitter.com/xXAlphaManXx" class="has-text-primary">Twitter</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
 @endsection
