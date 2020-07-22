@@ -15,7 +15,7 @@
                 <div class="column is-6 level-item">
                     <div class="card">
                         <div class="card-content">
-                            <pre><code>&lt;form action=&quot;<span class="has-text-primary">{{ env('APP_URL') }}/your@email.com</span>&quot; method=&quot;POST&quot;&gt;
+                            <pre><code>&lt;form action=&quot;<span class="has-text-primary">{{ config('app.url') }}/your@email.com</span>&quot; method=&quot;POST&quot;&gt;
   &lt;input type=&quot;email&quot; name=&quot;email&quot;&gt;
   &lt;input type=&quot;text&quot; name=&quot;name&quot;&gt;
   &lt;input type=&quot;submit&quot; name=&quot;Send!&quot;&gt;
@@ -37,7 +37,7 @@
                         <p>Change your form's <code>action</code> attribute to this and replace <b>your@email.com</b> with your own email.</p>
                         <div class="field">
                             <div class="control">
-                                <input type="text" class="input is-primary" value="{{ env('APP_URL') }}/your@email.com" readonly>
+                                <input type="text" class="input is-primary" value="{{ config('app.url') }}/your@email.com" readonly>
                             </div>
                         </div>
 
