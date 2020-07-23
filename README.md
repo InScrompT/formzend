@@ -31,3 +31,10 @@ Go to your website and submit the form once. This will send you an email asking 
 #### 4. That's it 🎉!
 
 From now on, when someone submits that form, we'll forward you the data as email.
+
+## Thanks
+
+This project is heavily inspired by, or to be more exact, copied from the very old [FormSpree.io](https://github.com/formspree/formspree).
+Used to love it, but they're now cramping in features and trying to do a lot of stuffs.
+
+This project just plans on resurrecting the old FormSpree. No extra bells and whistles. Just does what it does.
