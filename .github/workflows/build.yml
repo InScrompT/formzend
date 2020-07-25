@@ -21,13 +21,3 @@ jobs:
           password: ${{ secrets.TOKEN }}
           dockerfile: docker/app.Dockerfile
           tags: edge
-
-      - name: Publish queue to github registry
-        uses: docker/build-push-action@v1
-        with:
-          repository: inscrompt/formzend/queue
-          registry: docker.pkg.github.com
-          username: ${{ secrets.USERNAME }}
-          password: ${{ secrets.TOKEN }}
-          dockerfile: docker/queue.Dockerfile
-          tags: edge
