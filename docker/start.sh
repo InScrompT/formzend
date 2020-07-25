@@ -7,7 +7,7 @@ env=${APP_ENV:-production}
 
 if [ "$env" != "local" ]; then
     echo "Caching configuration..."
-    (php artisan config:cache && php artisan route:cache && php artisan view:cache)
+    (composer install --optimize-autoloader --no-dev && php artisan config:cache && php artisan route:cache && php artisan view:cache)
 fi
 
 if [ "$role" = "app" ]; then
