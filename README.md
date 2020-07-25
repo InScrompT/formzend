@@ -1,5 +1,7 @@
 # [FormZend](https://formzend.com)
 
+![Build Edge](https://github.com/InScrompT/formzend/workflows/Build%20Edge/badge.svg)
+
 Get form submissions delivered directly to your email. No server, no signup, no database.
 
 *Perfect for static sites*
