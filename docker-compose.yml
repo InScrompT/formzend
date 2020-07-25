@@ -34,7 +34,7 @@ services:
   app:
     build:
       context: .
-      dockerfile: docker/app.Dockerfile
+      dockerfile: app.Dockerfile
     volumes:
       - formzend_app:/var/www/formzend
     env_file:
@@ -48,7 +48,7 @@ services:
   queue:
     build:
       context: .
-      dockerfile: docker/queue.Dockerfile
+      dockerfile: queue.Dockerfile
     env_file:
       - .env.docker
     volumes:
