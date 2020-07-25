@@ -1,4 +1,4 @@
-name: Build every commit
+name: Build docker packages every commit
 
 on:
   push:
@@ -10,9 +10,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Publish app to github registry
-        uses: elgohr/Publish-Docker-Github-Action@master
+        uses: docker/build-push-action@v1
         with:
-          name: InScrompT/FormZend/app
+          repository: InScrompT/FormZend/app
           registry: docker.pkg.github.com
           username: ${{ secrets.USERNAME }}
           password: ${{ secrets.TOKEN }}
@@ -20,9 +20,9 @@ jobs:
           tags: edge
 
       - name: Publish queue to github registry
-        uses: elgohr/Publish-Docker-Github-Action@master
+        uses: docker/build-push-action@v1
         with:
-          name: InScrompT/FormZend/queue
+          repository: InScrompT/FormZend/queue
           registry: docker.pkg.github.com
           username: ${{ secrets.USERNAME }}
           password: ${{ secrets.TOKEN }}
