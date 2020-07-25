@@ -16,7 +16,7 @@ jobs:
           registry: docker.pkg.github.com
           username: ${{ secrets.USERNAME }}
           password: ${{ secrets.TOKEN }}
-          dockerfile: docker/app.Dockerfile
+          dockerfile: ./docker/app.Dockerfile
           tags: edge
 
       - name: Publish queue to github registry
@@ -26,5 +26,5 @@ jobs:
           registry: docker.pkg.github.com
           username: ${{ secrets.USERNAME }}
           password: ${{ secrets.TOKEN }}
-          dockerfile: docker/queue.Dockerfile
+          dockerfile: ./docker/queue.Dockerfile
           tags: edge
