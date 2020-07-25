@@ -1,0 +1,30 @@
+name: Build every commit
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build-and-publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Publish app to github registry
+        uses: elgohr/Publish-Docker-Github-Action@master
+        with:
+          name: InScrompT/FormZend/app
+          registry: docker.pkg.github.com
+          username: ${{ secrets.USERNAME }}
+          password: ${{ secrets.TOKEN }}
+          dockerfile: docker/app.Dockerfile
+          tags: edge
+
+      - name: Publish queue to github registry
+        uses: elgohr/Publish-Docker-Github-Action@master
+        with:
+          name: InScrompT/FormZend/queue
+          registry: docker.pkg.github.com
+          username: ${{ secrets.USERNAME }}
+          password: ${{ secrets.TOKEN }}
+          dockerfile: docker/queue.Dockerfile
+          tags: edge
