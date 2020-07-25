@@ -12,7 +12,7 @@ jobs:
       - name: Publish app to github registry
         uses: docker/build-push-action@v1
         with:
-          repository: InScrompT/FormZend/app
+          repository: inscrompt/formzend/app
           registry: docker.pkg.github.com
           username: ${{ secrets.USERNAME }}
           password: ${{ secrets.TOKEN }}
@@ -22,7 +22,7 @@ jobs:
       - name: Publish queue to github registry
         uses: docker/build-push-action@v1
         with:
-          repository: InScrompT/FormZend/queue
+          repository: inscrompt/formzend/queue
           registry: docker.pkg.github.com
           username: ${{ secrets.USERNAME }}
           password: ${{ secrets.TOKEN }}
