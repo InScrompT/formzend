@@ -11,7 +11,8 @@ volumes:
 services:
   db:
     deploy:
-      restart_policy: on-failure
+      restart_policy:
+        condition: on-failure
     image: mysql
     environment:
       MYSQL_ROOT_PASSWORD: passw0rdR0FL
@@ -24,7 +25,8 @@ services:
   nginx:
     deploy:
       replicas: 2
-      restart_policy: on-failure
+      restart_policy:
+        condition: on-failure
     image: nginx:alpine
     volumes:
       - formzend_app:/var/www/formzend
@@ -42,7 +44,8 @@ services:
       dockerfile: docker/app.Dockerfile
     deploy:
       replicas: 2
-      restart_policy: on-failure
+      restart_policy:
+        condition: on-failure
     image: docker.pkg.github.com/inscrompt/formzend/app:edge
     volumes:
       - formzend_app:/var/www/formzend
@@ -60,7 +63,8 @@ services:
       dockerfile: docker/queue.Dockerfile
     deploy:
       replicas: 4
-      restart_policy: on-failure
+      restart_policy:
+        condition: on-failure
     image: docker.pkg.github.com/inscrompt/formzend/queue:edge
     env_file:
       - .env.docker
@@ -73,7 +77,8 @@ services:
 
   redis:
     deploy:
-      restart_policy: on-failure
+      restart_policy:
+        condition: on-failure
     image: redis:alpine
     networks:
       - formzend
