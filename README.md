@@ -1,7 +1,5 @@
 # [FormZend](https://formzend.com)
 
-![Build Edge](https://github.com/InScrompT/formzend/workflows/Build%20Edge/badge.svg)
-
 Get form submissions delivered directly to your email. No server, no signup, no database.
 
 *Perfect for static sites*
@@ -35,26 +33,6 @@ Go to your website and submit the form once. This will send you an email asking 
 From now on, when someone submits that form, we'll forward you the data as email.
 
 ## Deploying it
-
-### Using Docker
-
-Yeah, I know. I've made your life easy. 
-
-- Clone this project locally.
-
-- Copy `.env.example` to `.env.docker`
-```bash
-cp .env.example .env.docker
-```
-
-- Update the `.env.docker` file to the values you prefer.
-
-- Make sure you have docker-compose, then just...
-```bash
-docker-compose up -d
-```
-
-### Traditional way.
 
 This is a simple Laravel Project. So refer to [Laravel's Documentation](https://laravel.com/docs/7.x/deployment) on how to deploy.
 
