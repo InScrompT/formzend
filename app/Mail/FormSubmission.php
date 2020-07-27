@@ -4,11 +4,10 @@ namespace App\Mail;
 
 use App\Website;
 use Illuminate\Bus\Queueable;
-use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
-class FormSubmission extends Mailable implements ShouldQueue
+class FormSubmission extends Mailable
 {
     use Queueable, SerializesModels;
 
@@ -44,6 +43,9 @@ class FormSubmission extends Mailable implements ShouldQueue
         return $this->markdown('emails.form.submit')
             ->subject('New form submission at ' . $this->website->url)
             ->to($this->website->account->email)
-            ->with($this->data);
+            ->with([
+                'url' => $this->website->url,
+                'form' => $this->data
+            ]);
     }
 }

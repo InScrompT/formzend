@@ -21,6 +21,10 @@ class EventServiceProvider extends ServiceProvider
         'App\Events\NewWebsite' => [
             'App\Listeners\SendVerification',
         ],
+        'App\Events\FormSubmission' => [
+            'App\Listeners\IncreaseUsageCount',
+            'App\Listeners\SendFormData'
+        ]
     ];
 
     /**

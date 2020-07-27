@@ -12,10 +12,9 @@ class FormController extends Controller
         $account = Account::firstWhere('email', $email);
         $website = $account->websites->firstWhere('url', $url);
 
-        \Mail::send(new FormSubmission($website, [
-            'url' => $url,
-            'form' => \request()->all()
-        ]));
+        event(new \App\Events\FormSubmission(
+            $account, $website, \request()->all()
+        ));
 
         return view('form.submitted')->with([
             'url' => $url
