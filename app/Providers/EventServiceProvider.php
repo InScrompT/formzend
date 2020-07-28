@@ -23,7 +23,8 @@ class EventServiceProvider extends ServiceProvider
         ],
         'App\Events\FormSubmission' => [
             'App\Listeners\IncreaseUsageCount',
-            'App\Listeners\SendFormData'
+            'App\Listeners\SendFormData',
+            'App\Listeners\SaveFormData'
         ]
     ];
 
