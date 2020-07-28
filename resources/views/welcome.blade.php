@@ -29,10 +29,10 @@
     <section class="section">
         <div class="container">
             <hr>
-            <div class="columns mt-4">
+            <div class="columns">
                 <div class="column is-half is-offset-3">
                     <h3 class="is-size-3 has-text-grey-dark pb-4">Setting it up is easy!</h3>
-                    <div class="content pt-4">
+                    <div class="content">
                         <h2 class="has-text-grey-dark">1. The form</h2>
                         <p>Change your form's <code>action</code> attribute to this and replace <b>your@email.com</b> with your own email.</p>
                         <div class="field">
@@ -55,6 +55,46 @@
 
                         <h2 class="has-text-grey-dark">4. That's it. It's all set!</h2>
                         <p>From now on, when someone submits that form, we'll forward you the data as email.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="section pt-0">
+        <div class="container">
+            <hr>
+            <div class="columns">
+                <div class="column is-half is-offset-3">
+                    <a class="is-size-3 has-text-grey-dark pb-4" id="faq">Frequently Asked Questions</a>
+
+                    <div class="columns mt-4">
+                        <div class="column is-half">
+                            <div class="card">
+                                <div class="card-header">
+                                    <div class="card-header-title">
+                                        Is my data secure?
+                                    </div>
+                                </div>
+                                <div class="card-content has-text-justified">
+                                    Forms will be be encrypted and stored in the database for premium users.
+                                    Each form data is sent through Mailgun's API. So their privacy policy also applies.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="column is-half">
+                            <div class="card">
+                                <div class="card-header">
+                                    <div class="card-header-title">
+                                        Is FormZend free?
+                                    </div>
+                                </div>
+                                <div class="card-content has-text-justified">
+                                    Yes. Until FormZend is out of it's beta period, FormZend is completely free.
+                                    For updates, follow me on <a href="https://twitter.com/xXAlphaManXx" class="has-text-primary">Twitter</a>.
+                                    We'll also be sending out emails to everyone.
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
