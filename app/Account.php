@@ -36,4 +36,9 @@ class Account extends Model
     {
         return $this->hasMany(Website::class);
     }
+
+    public function submissions()
+    {
+        return $this->hasMany(Submission::class);
+    }
 }

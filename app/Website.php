@@ -33,4 +33,9 @@ class Website extends Model
     {
         return $this->belongsTo(Account::class);
     }
+
+    public function submissions()
+    {
+        return $this->hasMany(Submission::class);
+    }
 }
