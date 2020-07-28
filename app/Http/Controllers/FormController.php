@@ -3,16 +3,17 @@
 namespace App\Http\Controllers;
 
 use App\Account;
-use App\Mail\FormSubmission;
+use App\Events\FormSubmission;
 
 class FormController extends Controller
 {
-    public function handleSubmission($email) {
+    public function handleSubmission($email)
+    {
         $url = \request()->getSchemeAndHttpHost();
         $account = Account::firstWhere('email', $email);
         $website = $account->websites->firstWhere('url', $url);
 
-        event(new \App\Events\FormSubmission(
+        event(new FormSubmission(
             $account, $website, \request()->all()
         ));
 
