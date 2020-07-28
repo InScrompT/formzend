@@ -27,6 +27,8 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Account whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Account whereWebsiteId($value)
  * @mixin \Eloquent
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Submission[] $submissions
+ * @property-read int|null $submissions_count
  */
 class Account extends Model
 {

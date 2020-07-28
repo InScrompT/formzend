@@ -24,6 +24,8 @@ use Illuminate\Database\Eloquent\Model;
  * @mixin \Eloquent
  * @property int $verified
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Website whereVerified($value)
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Submission[] $submissions
+ * @property-read int|null $submissions_count
  */
 class Website extends Model
 {
