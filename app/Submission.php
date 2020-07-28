@@ -6,6 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Submission extends Model
 {
+    protected $casts = [
+        'data' => 'array'
+    ];
+
     public function website()
     {
         return $this->belongsTo(Website::class);

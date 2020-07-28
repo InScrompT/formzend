@@ -15,6 +15,12 @@ class CreateSubmissionsTable extends Migration
     {
         Schema::create('submissions', function (Blueprint $table) {
             $table->id();
+
+            $table->unsignedBigInteger('website_id');
+            $table->unsignedBigInteger('account_id');
+
+            $table->json('data');
+
             $table->timestamps();
         });
     }
