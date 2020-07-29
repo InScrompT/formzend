@@ -145,6 +145,42 @@
             </div>
         </div>
     </section>
+    <section class="section pt-0">
+        <div class="container">
+            <hr>
+            <div class="columns">
+                <div class="column is-half is-offset-3">
+                    <p class="is-size-3 has-text-grey-dark pb-4">Just wanna get into the loop?</p>
+                    <p class="is-size-6 pt-5 has-text-justified">
+                        We'll send you important product update directly to your inbox. We'll not send more than
+                        3 emails a month (or even less). And your data is always secure enough :)
+                    </p>
+
+                    <br>
+
+                    <form action="https://formzend.com/formzend@alphaman.me">
+                        <div class="field">
+                            <label for="name" class="label">Name</label>
+                            <div class="control">
+                                <input type="text" class="input" name="name" id="name">
+                            </div>
+                        </div>
+                        <div class="field">
+                            <label for="email" class="label">Email</label>
+                            <div class="control">
+                                <input type="email" class="input" name="email" id="email">
+                            </div>
+                        </div>
+                        <div class="field">
+                            <div class="control">
+                                <button class="button is-primary is-outlined is-fullwidth">Outlined</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
     <footer class="footer">
         <div class="content">
             <div class="section">
