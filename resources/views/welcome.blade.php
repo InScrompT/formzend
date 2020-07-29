@@ -173,7 +173,7 @@
                         </div>
                         <div class="field">
                             <div class="control">
-                                <button class="button is-primary is-outlined is-fullwidth">Outlined</button>
+                                <button class="button is-primary is-outlined is-fullwidth" type="submit">Enrolllllll</button>
                             </div>
                         </div>
                     </form>
