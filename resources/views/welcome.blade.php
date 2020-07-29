@@ -31,7 +31,7 @@
             <hr>
             <div class="columns">
                 <div class="column is-half is-offset-3">
-                    <h3 class="is-size-3 has-text-grey-dark pb-4">Setting it up is easy!</h3>
+                    <h3 class="is-size-3 has-text-grey-dark pb-4">Setting it up is easy! 🤔</h3>
                     <div class="content">
                         <h2 class="has-text-grey-dark">1. The form</h2>
                         <p>Change your form's <code>action</code> attribute to this and replace <b>your@email.com</b> with your own email.</p>
@@ -80,6 +80,20 @@
                                     Each form data is sent through Mailgun's API. So their privacy policy also applies.
                                 </div>
                             </div>
+
+                            <div class="pt-4">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <div class="card-header-title">
+                                            I need to tell you *something*.
+                                        </div>
+                                    </div>
+                                    <div class="card-content has-text-justified">
+                                        Shoot me your thoughts at <a href="https://twitter.com/xXAlphaManXx" class="has-text-primary">Twitter</a>.
+                                        Always happy to help / know.
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                         <div class="column is-half">
                             <div class="card">
@@ -94,8 +108,39 @@
                                     We'll also be sending out emails to everyone.
                                 </div>
                             </div>
+
+                            <div class="pt-4">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <div class="card-header-title">
+                                            ...another FAQ here.
+                                        </div>
+                                    </div>
+                                    <div class="card-content has-text-justified">
+                                        I seriously don't know what to write here. Got questions? Message me at
+                                        <a href="https://twitter.com/xXAlphaManXx" class="has-text-primary">Twitter</a>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="section pt-0">
+        <div class="container">
+            <hr>
+            <div class="columns">
+                <div class="column is-half is-offset-3">
+                    <a class="is-size-3 has-text-grey-dark pb-4" id="pricing">But... what's the price? 💰</a>
+                    <p class="is-size-5 pt-5">
+                        Fear not, ma friend. FormZend is completely free till it is in Beta period.
+                        <br>
+                        But hey, it'll only cost what a cup of coffee would after the beta period.
+                        <br>
+                        We'll also have a free plan. So &mdash; happy 😀 ?
+                    </p>
                 </div>
             </div>
         </div>
@@ -108,11 +153,12 @@
                         <div class="column is-half is-offset-3">
                             <p>
                                 Made with ♥ by <a href="https://twitter.com/xXAlphaManXx" class="has-text-primary">Karan Sanjeev</a> • An another Indie Project.
-                                <br>
+                            </p>
+                            <p>
                                 This whole website is open sourced at <a href="https://github.com/InScrompT/FormZend" class="has-text-primary">Github</a>
                             </p>
                             <p>
-                                Need help? Tweet to me at <a href="https://twitter.com/xXAlphaManXx" class="has-text-primary">Twitter</a>
+                                Need help? Reach to me via <a href="https://twitter.com/xXAlphaManXx" class="has-text-primary">Twitter</a>
                             </p>
                         </div>
                     </div>
