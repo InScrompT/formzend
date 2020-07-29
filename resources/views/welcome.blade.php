@@ -158,7 +158,7 @@
 
                     <br>
 
-                    <form action="https://formzend.com/formzend@alphaman.me">
+                    <form action="https://formzend.com/formzend@alphaman.me" method="POST">
                         <div class="field">
                             <label for="name" class="label">Name</label>
                             <div class="control">
