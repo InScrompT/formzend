@@ -18,9 +18,15 @@
                 <div class="navbar-item">
                     <a href="#faq" class="has-text-primary">FAQ</a>
                 </div>
-                <div class="navbar-item">
-                    <a href="{{ route('login') }}" class="has-text-primary">Login</a>
-                </div>
+                @user
+                    <div class="navbar-item">
+                        <a href="{{ route('dashboard') }}" class="has-text-primary">Dashboard</a>
+                    </div>
+                @else
+                    <div class="navbar-item">
+                        <a href="{{ route('login') }}" class="has-text-primary">Login</a>
+                    </div>
+                @enduser
             </div>
         </div>
     </div>
