@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Validator;
 class CheckIfEmail
 {
     /**
-     * Handle an incoming request.
+     * Check if it really is an email or something else.
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \Closure  $next
@@ -21,6 +21,7 @@ class CheckIfEmail
         ]);
 
         if ($validator->fails()) {
+            // TODO: Return a proper response instead of JSON
             return response()->json([
                 'error' => 'Please enter a valid email'
             ]);
