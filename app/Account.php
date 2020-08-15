@@ -29,6 +29,8 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
  * @mixin \Eloquent
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Submission[] $submissions
  * @property-read int|null $submissions_count
+ * @property string|null $remember_token
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Account whereRememberToken($value)
  */
 class Account extends Authenticatable
 {

@@ -5,7 +5,7 @@ namespace PHPSTORM_META {
 
    /**
     * PhpStorm Meta file, to provide autocomplete information for PhpStorm
-    * Generated on 2020-07-28 06:15:46.
+    * Generated on 2020-08-15 18:21:35.
     *
     * @author Barry vd. Heuvel <barryvdh@gmail.com>
     * @see https://github.com/barryvdh/laravel-ide-helper
@@ -13,6 +13,7 @@ namespace PHPSTORM_META {
     override(new \Illuminate\Contracts\Container\Container, map([
         '' => '@',
         'Asm89\Stack\CorsService' => \Asm89\Stack\CorsService::class,
+        'Barryvdh\Debugbar\LaravelDebugbar' => \Barryvdh\Debugbar\LaravelDebugbar::class,
         'Facade\FlareClient\Flare' => \Facade\FlareClient\Flare::class,
         'Facade\IgnitionContracts\SolutionProviderRepository' => \Facade\Ignition\SolutionProviders\SolutionProviderRepository::class,
         'Facade\Ignition\DumpRecorder\DumpRecorder' => \Facade\Ignition\DumpRecorder\DumpRecorder::class,
@@ -63,6 +64,7 @@ namespace PHPSTORM_META {
         'command.console.make' => \Illuminate\Foundation\Console\ConsoleMakeCommand::class,
         'command.controller.make' => \Illuminate\Routing\Console\ControllerMakeCommand::class,
         'command.db.wipe' => \Illuminate\Database\Console\WipeCommand::class,
+        'command.debugbar.clear' => \Barryvdh\Debugbar\Console\ClearCommand::class,
         'command.down' => \Illuminate\Foundation\Console\DownCommand::class,
         'command.environment' => \Illuminate\Foundation\Console\EnvironmentCommand::class,
         'command.event.cache' => \Illuminate\Foundation\Console\EventCacheCommand::class,
@@ -131,7 +133,7 @@ namespace PHPSTORM_META {
         'composer' => \Illuminate\Support\Composer::class,
         'cookie' => \Illuminate\Cookie\CookieJar::class,
         'db' => \Illuminate\Database\DatabaseManager::class,
-        'db.connection' => \Illuminate\Database\MySqlConnection::class,
+        'db.connection' => \Illuminate\Database\SQLiteConnection::class,
         'db.factory' => \Illuminate\Database\Connectors\ConnectionFactory::class,
         'encrypter' => \Illuminate\Encryption\Encrypter::class,
         'events' => \Illuminate\Events\Dispatcher::class,
@@ -171,6 +173,7 @@ namespace PHPSTORM_META {
     override(\Illuminate\Container\Container::makeWith(0), map([
         '' => '@',
         'Asm89\Stack\CorsService' => \Asm89\Stack\CorsService::class,
+        'Barryvdh\Debugbar\LaravelDebugbar' => \Barryvdh\Debugbar\LaravelDebugbar::class,
         'Facade\FlareClient\Flare' => \Facade\FlareClient\Flare::class,
         'Facade\IgnitionContracts\SolutionProviderRepository' => \Facade\Ignition\SolutionProviders\SolutionProviderRepository::class,
         'Facade\Ignition\DumpRecorder\DumpRecorder' => \Facade\Ignition\DumpRecorder\DumpRecorder::class,
@@ -221,6 +224,7 @@ namespace PHPSTORM_META {
         'command.console.make' => \Illuminate\Foundation\Console\ConsoleMakeCommand::class,
         'command.controller.make' => \Illuminate\Routing\Console\ControllerMakeCommand::class,
         'command.db.wipe' => \Illuminate\Database\Console\WipeCommand::class,
+        'command.debugbar.clear' => \Barryvdh\Debugbar\Console\ClearCommand::class,
         'command.down' => \Illuminate\Foundation\Console\DownCommand::class,
         'command.environment' => \Illuminate\Foundation\Console\EnvironmentCommand::class,
         'command.event.cache' => \Illuminate\Foundation\Console\EventCacheCommand::class,
@@ -289,7 +293,7 @@ namespace PHPSTORM_META {
         'composer' => \Illuminate\Support\Composer::class,
         'cookie' => \Illuminate\Cookie\CookieJar::class,
         'db' => \Illuminate\Database\DatabaseManager::class,
-        'db.connection' => \Illuminate\Database\MySqlConnection::class,
+        'db.connection' => \Illuminate\Database\SQLiteConnection::class,
         'db.factory' => \Illuminate\Database\Connectors\ConnectionFactory::class,
         'encrypter' => \Illuminate\Encryption\Encrypter::class,
         'events' => \Illuminate\Events\Dispatcher::class,
@@ -329,6 +333,7 @@ namespace PHPSTORM_META {
     override(\Illuminate\Contracts\Container\Container::make(0), map([
         '' => '@',
         'Asm89\Stack\CorsService' => \Asm89\Stack\CorsService::class,
+        'Barryvdh\Debugbar\LaravelDebugbar' => \Barryvdh\Debugbar\LaravelDebugbar::class,
         'Facade\FlareClient\Flare' => \Facade\FlareClient\Flare::class,
         'Facade\IgnitionContracts\SolutionProviderRepository' => \Facade\Ignition\SolutionProviders\SolutionProviderRepository::class,
         'Facade\Ignition\DumpRecorder\DumpRecorder' => \Facade\Ignition\DumpRecorder\DumpRecorder::class,
@@ -379,6 +384,7 @@ namespace PHPSTORM_META {
         'command.console.make' => \Illuminate\Foundation\Console\ConsoleMakeCommand::class,
         'command.controller.make' => \Illuminate\Routing\Console\ControllerMakeCommand::class,
         'command.db.wipe' => \Illuminate\Database\Console\WipeCommand::class,
+        'command.debugbar.clear' => \Barryvdh\Debugbar\Console\ClearCommand::class,
         'command.down' => \Illuminate\Foundation\Console\DownCommand::class,
         'command.environment' => \Illuminate\Foundation\Console\EnvironmentCommand::class,
         'command.event.cache' => \Illuminate\Foundation\Console\EventCacheCommand::class,
@@ -447,7 +453,7 @@ namespace PHPSTORM_META {
         'composer' => \Illuminate\Support\Composer::class,
         'cookie' => \Illuminate\Cookie\CookieJar::class,
         'db' => \Illuminate\Database\DatabaseManager::class,
-        'db.connection' => \Illuminate\Database\MySqlConnection::class,
+        'db.connection' => \Illuminate\Database\SQLiteConnection::class,
         'db.factory' => \Illuminate\Database\Connectors\ConnectionFactory::class,
         'encrypter' => \Illuminate\Encryption\Encrypter::class,
         'events' => \Illuminate\Events\Dispatcher::class,
@@ -487,6 +493,7 @@ namespace PHPSTORM_META {
     override(\Illuminate\Contracts\Container\Container::makeWith(0), map([
         '' => '@',
         'Asm89\Stack\CorsService' => \Asm89\Stack\CorsService::class,
+        'Barryvdh\Debugbar\LaravelDebugbar' => \Barryvdh\Debugbar\LaravelDebugbar::class,
         'Facade\FlareClient\Flare' => \Facade\FlareClient\Flare::class,
         'Facade\IgnitionContracts\SolutionProviderRepository' => \Facade\Ignition\SolutionProviders\SolutionProviderRepository::class,
         'Facade\Ignition\DumpRecorder\DumpRecorder' => \Facade\Ignition\DumpRecorder\DumpRecorder::class,
@@ -537,6 +544,7 @@ namespace PHPSTORM_META {
         'command.console.make' => \Illuminate\Foundation\Console\ConsoleMakeCommand::class,
         'command.controller.make' => \Illuminate\Routing\Console\ControllerMakeCommand::class,
         'command.db.wipe' => \Illuminate\Database\Console\WipeCommand::class,
+        'command.debugbar.clear' => \Barryvdh\Debugbar\Console\ClearCommand::class,
         'command.down' => \Illuminate\Foundation\Console\DownCommand::class,
         'command.environment' => \Illuminate\Foundation\Console\EnvironmentCommand::class,
         'command.event.cache' => \Illuminate\Foundation\Console\EventCacheCommand::class,
@@ -605,7 +613,7 @@ namespace PHPSTORM_META {
         'composer' => \Illuminate\Support\Composer::class,
         'cookie' => \Illuminate\Cookie\CookieJar::class,
         'db' => \Illuminate\Database\DatabaseManager::class,
-        'db.connection' => \Illuminate\Database\MySqlConnection::class,
+        'db.connection' => \Illuminate\Database\SQLiteConnection::class,
         'db.factory' => \Illuminate\Database\Connectors\ConnectionFactory::class,
         'encrypter' => \Illuminate\Encryption\Encrypter::class,
         'events' => \Illuminate\Events\Dispatcher::class,
@@ -645,6 +653,7 @@ namespace PHPSTORM_META {
     override(\App::make(0), map([
         '' => '@',
         'Asm89\Stack\CorsService' => \Asm89\Stack\CorsService::class,
+        'Barryvdh\Debugbar\LaravelDebugbar' => \Barryvdh\Debugbar\LaravelDebugbar::class,
         'Facade\FlareClient\Flare' => \Facade\FlareClient\Flare::class,
         'Facade\IgnitionContracts\SolutionProviderRepository' => \Facade\Ignition\SolutionProviders\SolutionProviderRepository::class,
         'Facade\Ignition\DumpRecorder\DumpRecorder' => \Facade\Ignition\DumpRecorder\DumpRecorder::class,
@@ -695,6 +704,7 @@ namespace PHPSTORM_META {
         'command.console.make' => \Illuminate\Foundation\Console\ConsoleMakeCommand::class,
         'command.controller.make' => \Illuminate\Routing\Console\ControllerMakeCommand::class,
         'command.db.wipe' => \Illuminate\Database\Console\WipeCommand::class,
+        'command.debugbar.clear' => \Barryvdh\Debugbar\Console\ClearCommand::class,
         'command.down' => \Illuminate\Foundation\Console\DownCommand::class,
         'command.environment' => \Illuminate\Foundation\Console\EnvironmentCommand::class,
         'command.event.cache' => \Illuminate\Foundation\Console\EventCacheCommand::class,
@@ -763,7 +773,7 @@ namespace PHPSTORM_META {
         'composer' => \Illuminate\Support\Composer::class,
         'cookie' => \Illuminate\Cookie\CookieJar::class,
         'db' => \Illuminate\Database\DatabaseManager::class,
-        'db.connection' => \Illuminate\Database\MySqlConnection::class,
+        'db.connection' => \Illuminate\Database\SQLiteConnection::class,
         'db.factory' => \Illuminate\Database\Connectors\ConnectionFactory::class,
         'encrypter' => \Illuminate\Encryption\Encrypter::class,
         'events' => \Illuminate\Events\Dispatcher::class,
@@ -803,6 +813,7 @@ namespace PHPSTORM_META {
     override(\App::makeWith(0), map([
         '' => '@',
         'Asm89\Stack\CorsService' => \Asm89\Stack\CorsService::class,
+        'Barryvdh\Debugbar\LaravelDebugbar' => \Barryvdh\Debugbar\LaravelDebugbar::class,
         'Facade\FlareClient\Flare' => \Facade\FlareClient\Flare::class,
         'Facade\IgnitionContracts\SolutionProviderRepository' => \Facade\Ignition\SolutionProviders\SolutionProviderRepository::class,
         'Facade\Ignition\DumpRecorder\DumpRecorder' => \Facade\Ignition\DumpRecorder\DumpRecorder::class,
@@ -853,6 +864,7 @@ namespace PHPSTORM_META {
         'command.console.make' => \Illuminate\Foundation\Console\ConsoleMakeCommand::class,
         'command.controller.make' => \Illuminate\Routing\Console\ControllerMakeCommand::class,
         'command.db.wipe' => \Illuminate\Database\Console\WipeCommand::class,
+        'command.debugbar.clear' => \Barryvdh\Debugbar\Console\ClearCommand::class,
         'command.down' => \Illuminate\Foundation\Console\DownCommand::class,
         'command.environment' => \Illuminate\Foundation\Console\EnvironmentCommand::class,
         'command.event.cache' => \Illuminate\Foundation\Console\EventCacheCommand::class,
@@ -921,7 +933,7 @@ namespace PHPSTORM_META {
         'composer' => \Illuminate\Support\Composer::class,
         'cookie' => \Illuminate\Cookie\CookieJar::class,
         'db' => \Illuminate\Database\DatabaseManager::class,
-        'db.connection' => \Illuminate\Database\MySqlConnection::class,
+        'db.connection' => \Illuminate\Database\SQLiteConnection::class,
         'db.factory' => \Illuminate\Database\Connectors\ConnectionFactory::class,
         'encrypter' => \Illuminate\Encryption\Encrypter::class,
         'events' => \Illuminate\Events\Dispatcher::class,
@@ -961,6 +973,7 @@ namespace PHPSTORM_META {
     override(\app(0), map([
         '' => '@',
         'Asm89\Stack\CorsService' => \Asm89\Stack\CorsService::class,
+        'Barryvdh\Debugbar\LaravelDebugbar' => \Barryvdh\Debugbar\LaravelDebugbar::class,
         'Facade\FlareClient\Flare' => \Facade\FlareClient\Flare::class,
         'Facade\IgnitionContracts\SolutionProviderRepository' => \Facade\Ignition\SolutionProviders\SolutionProviderRepository::class,
         'Facade\Ignition\DumpRecorder\DumpRecorder' => \Facade\Ignition\DumpRecorder\DumpRecorder::class,
@@ -1011,6 +1024,7 @@ namespace PHPSTORM_META {
         'command.console.make' => \Illuminate\Foundation\Console\ConsoleMakeCommand::class,
         'command.controller.make' => \Illuminate\Routing\Console\ControllerMakeCommand::class,
         'command.db.wipe' => \Illuminate\Database\Console\WipeCommand::class,
+        'command.debugbar.clear' => \Barryvdh\Debugbar\Console\ClearCommand::class,
         'command.down' => \Illuminate\Foundation\Console\DownCommand::class,
         'command.environment' => \Illuminate\Foundation\Console\EnvironmentCommand::class,
         'command.event.cache' => \Illuminate\Foundation\Console\EventCacheCommand::class,
@@ -1079,7 +1093,7 @@ namespace PHPSTORM_META {
         'composer' => \Illuminate\Support\Composer::class,
         'cookie' => \Illuminate\Cookie\CookieJar::class,
         'db' => \Illuminate\Database\DatabaseManager::class,
-        'db.connection' => \Illuminate\Database\MySqlConnection::class,
+        'db.connection' => \Illuminate\Database\SQLiteConnection::class,
         'db.factory' => \Illuminate\Database\Connectors\ConnectionFactory::class,
         'encrypter' => \Illuminate\Encryption\Encrypter::class,
         'events' => \Illuminate\Events\Dispatcher::class,
@@ -1119,6 +1133,7 @@ namespace PHPSTORM_META {
     override(\resolve(0), map([
         '' => '@',
         'Asm89\Stack\CorsService' => \Asm89\Stack\CorsService::class,
+        'Barryvdh\Debugbar\LaravelDebugbar' => \Barryvdh\Debugbar\LaravelDebugbar::class,
         'Facade\FlareClient\Flare' => \Facade\FlareClient\Flare::class,
         'Facade\IgnitionContracts\SolutionProviderRepository' => \Facade\Ignition\SolutionProviders\SolutionProviderRepository::class,
         'Facade\Ignition\DumpRecorder\DumpRecorder' => \Facade\Ignition\DumpRecorder\DumpRecorder::class,
@@ -1169,6 +1184,7 @@ namespace PHPSTORM_META {
         'command.console.make' => \Illuminate\Foundation\Console\ConsoleMakeCommand::class,
         'command.controller.make' => \Illuminate\Routing\Console\ControllerMakeCommand::class,
         'command.db.wipe' => \Illuminate\Database\Console\WipeCommand::class,
+        'command.debugbar.clear' => \Barryvdh\Debugbar\Console\ClearCommand::class,
         'command.down' => \Illuminate\Foundation\Console\DownCommand::class,
         'command.environment' => \Illuminate\Foundation\Console\EnvironmentCommand::class,
         'command.event.cache' => \Illuminate\Foundation\Console\EventCacheCommand::class,
@@ -1237,7 +1253,7 @@ namespace PHPSTORM_META {
         'composer' => \Illuminate\Support\Composer::class,
         'cookie' => \Illuminate\Cookie\CookieJar::class,
         'db' => \Illuminate\Database\DatabaseManager::class,
-        'db.connection' => \Illuminate\Database\MySqlConnection::class,
+        'db.connection' => \Illuminate\Database\SQLiteConnection::class,
         'db.factory' => \Illuminate\Database\Connectors\ConnectionFactory::class,
         'encrypter' => \Illuminate\Encryption\Encrypter::class,
         'events' => \Illuminate\Events\Dispatcher::class,
