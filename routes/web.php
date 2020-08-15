@@ -15,17 +15,16 @@ use Illuminate\Support\Facades\Route;
 
 Route::view('/', 'welcome')->name('home');
 Route::get('/auth/login', 'AuthController@showLogin')
-    ->middleware('guest')
     ->name('login');
 Route::get('/auth/login/account/{account:id}', 'AuthController@loginUser')
-    ->middleware('guest', 'signed')
+    ->middleware('signed')
     ->name('login.verify');
 Route::get('/verify/{account}/website/{website:id}', 'WebsiteController@verify')
     ->middleware('signed')
     ->name('website.verify');
 
 Route::post('/auth/login', 'AuthController@processLogin')
-    ->middleware('csrf', 'guest');
+    ->middleware('csrf');
 Route::post('/verify/resend/{account}/website/{website:id}', 'WebsiteController@resendVerification')
     ->name('website.verify.resend');
 Route::post('/{email}', 'FormController@handleSubmission')
