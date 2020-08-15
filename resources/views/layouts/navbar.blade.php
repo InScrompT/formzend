@@ -18,6 +18,9 @@
                 <div class="navbar-item">
                     <a href="#faq" class="has-text-primary">FAQ</a>
                 </div>
+                <div class="navbar-item">
+                    <a href="{{ route('login') }}" class="has-text-primary">Login</a>
+                </div>
             </div>
         </div>
     </div>

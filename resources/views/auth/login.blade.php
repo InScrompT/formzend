@@ -17,10 +17,14 @@
                             @csrf
 
                             <div class="field">
+                                <label for="email">Email</label>
                                 <div class="control">
-                                    <label for="email">Email</label>
-                                    <input type="email" class="input" id="email" name="email" placeholder="your@email.com">
+                                    <input type="email" class="input @error('email') is-danger @enderror" 
+                                        id="email" name="email" placeholder="your@email.com" value="{{ old('email') }}">
                                 </div>
+                                @error('email')
+                                    <p class="help is-danger">There is no account with this email.</p>
+                                @enderror
                             </div>
 
                             <div class="field">

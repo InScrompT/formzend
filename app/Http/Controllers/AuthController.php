@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Account;
 
 class AuthController extends Controller
 {
@@ -13,6 +13,17 @@ class AuthController extends Controller
 
     public function processLogin()
     {
-        return request()->all();
+        request()->validate([
+            'email' => 'required|email|exists:accounts'
+        ]);
+
+        return [
+            'email' => 'has been sent to your account'
+        ];
+    }
+
+    public function loginUser(Account $account)
+    {
+        //
     }
 }

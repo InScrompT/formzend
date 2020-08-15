@@ -17,6 +17,9 @@ Route::view('/', 'welcome')->name('home');
 Route::get('/auth/login', 'AuthController@showLogin')
     ->middleware('guest')
     ->name('login');
+Route::get('/auth/login/account/{account:id}', 'AuthController@loginUser')
+    ->middleware('guest', 'signed')
+    ->name('login.verify');
 Route::get('/verify/{account}/website/{website:id}', 'WebsiteController@verify')
     ->middleware('signed')
     ->name('website.verify');
