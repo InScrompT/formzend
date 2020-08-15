@@ -22,6 +22,9 @@
                     <div class="navbar-item">
                         <a href="{{ route('dashboard') }}" class="has-text-primary">Dashboard</a>
                     </div>
+                    <div class="navbar-item">
+                        <a href="{{ route('logout') }}" class="has-text-primary">Logout</a>
+                    </div>
                 @else
                     <div class="navbar-item">
                         <a href="{{ route('login') }}" class="has-text-primary">Login</a>
