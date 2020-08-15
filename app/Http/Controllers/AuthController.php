@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Account;
+use App\Events\LoginRequest;
 
 class AuthController extends Controller
 {
@@ -17,13 +18,13 @@ class AuthController extends Controller
             'email' => 'required|email|exists:accounts'
         ]);
 
-        return [
-            'email' => 'has been sent to your account'
-        ];
+        event(new LoginRequest(request('email')));
+
+        return view('auth.sent');
     }
 
     public function loginUser(Account $account)
     {
-        //
+        return $account;
     }
 }
