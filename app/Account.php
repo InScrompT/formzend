@@ -2,7 +2,7 @@
 
 namespace App;
 
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 
 /**
  * App\Account
@@ -30,7 +30,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Submission[] $submissions
  * @property-read int|null $submissions_count
  */
-class Account extends Model
+class Account extends Authenticatable
 {
     protected $fillable = ['email', 'recieved', 'type', 'website_id'];
 
