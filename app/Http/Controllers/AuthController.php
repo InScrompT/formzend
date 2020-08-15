@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Account;
 use App\Events\LoginRequest;
-use Illuminate\Support\Facades\Auth;
 
 class AuthController extends Controller
 {
@@ -26,6 +25,12 @@ class AuthController extends Controller
 
     public function loginUser(Account $account)
     {
-        return $account;
+        session([
+            'loggedIn' => true,
+            'id' => $account->id,
+            'email' => $account->email,
+        ]);
+
+        return redirect(route('dashboard'));
     }
 }
