@@ -2,6 +2,19 @@
 
 @section('title', 'Submissions - Dashboard')
 
+@section('head')
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert@2.1.2/dist/sweetalert.min.js"></script>
+    <script>
+        function stillDev() {
+            swal(
+                'Hold up chief!', 
+                'You discovered a feature that is still under development. Follow me on twitter to be on the know', 
+                'warning'
+            );
+        }
+    </script>
+@endsection
+
 @section('content')
     @include('layouts.navbar')
 
@@ -15,7 +28,7 @@
                         </div>
                         <div class="panel-tabs">
                             <a href="#" class="is-active">All</a>
-                            <a href="#" class="has-text-primary">Archived</a>
+                            <a href="#" onclick="stillDev()" class="has-text-primary">Archived</a>
                         </div>
                         @if ($website->submissions->count())
                             @foreach ($website->submissions as $submission)
