@@ -19,7 +19,11 @@
                         </div>
                         @if ($website->submissions->count())
                             @foreach ($website->submissions as $submission)
-                                <a href="#" class="panel-block">
+                                <a href="{{ route('dashboard.website.submissions.show', [
+                                    $user->id,
+                                    $website->id,
+                                    $submission->id
+                                ]) }}" class="panel-block">
                                     <span class="tags has-addons mr-4">
                                         <div class="tag is-success is-light">Fields</div>
                                         <div class="tag">{{ $submission->data->count() }}</div>

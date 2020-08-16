@@ -31,8 +31,10 @@ Route::get('/verify/{account}/website/{website:id}', 'WebsiteController@verify')
 
 Route::get('/dashboard', 'DashboardController@show')
     ->name('dashboard');
-Route::get('/dashboard/{account}/website/{website:id}/submissions', 'DashboardController@showSubmissions')
+Route::get('/dashboard/{account}/website/{website:id}/submissions', 'DashboardController@listSubmissions')
     ->name('dashboard.website.submissions');
+Route::get('/dashboard/{account}/website/{website:id}/submissions/{submission:id}', 'DashboardController@showSubmission')
+    ->name('dashboard.website.submissions.show');
 
 Route::post('/auth/login', 'AuthController@processLogin')
     ->middleware('csrf', 'guest');
