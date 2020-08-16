@@ -29,7 +29,7 @@ use Illuminate\Database\Eloquent\Model;
 class Submission extends Model
 {
     protected $casts = [
-        'data' => 'array'
+        'data' => 'collection'
     ];
 
     public function website()
