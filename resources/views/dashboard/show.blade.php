@@ -26,7 +26,10 @@
                             </div>
 
                             @foreach ($user->websites as $website)
-                                <a href="#" class="panel-block">
+                                <a href="{{ route('dashboard.website.submissions', [
+                                    $user->id,
+                                    $website->id
+                                ]) }}" class="panel-block">
                                     <span class="tags has-addons mr-4">
                                         <div class="tag is-success is-light">Submissions</div>
                                         <div class="tag">{{ $website->submissions->count() }}</div>

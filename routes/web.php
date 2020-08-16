@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::view('/', 'welcome')->name('home');
+
 Route::get('/auth/login', 'AuthController@showLogin')
     ->middleware('guest')
     ->name('login');
@@ -23,12 +24,15 @@ Route::get('/auth/logout', 'AuthController@logout')
 Route::get('/auth/login/account/{account:id}', 'AuthController@loginUser')
     ->middleware('signed', 'guest')
     ->name('login.verify');
+
 Route::get('/verify/{account}/website/{website:id}', 'WebsiteController@verify')
     ->middleware('signed')
     ->name('website.verify');
+
 Route::get('/dashboard', 'DashboardController@show')
-    ->middleware('auth')
     ->name('dashboard');
+Route::get('/dashboard/{account}/website/{website:id}/submissions', 'DashboardController@showSubmissions')
+    ->name('dashboard.website.submissions');
 
 Route::post('/auth/login', 'AuthController@processLogin')
     ->middleware('csrf', 'guest');
