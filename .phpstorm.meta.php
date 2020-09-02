@@ -5,7 +5,7 @@ namespace PHPSTORM_META {
 
    /**
     * PhpStorm Meta file, to provide autocomplete information for PhpStorm
-    * Generated on 2020-07-28 06:15:46.
+    * Generated on 2020-09-02 10:37:36.
     *
     * @author Barry vd. Heuvel <barryvdh@gmail.com>
     * @see https://github.com/barryvdh/laravel-ide-helper
@@ -131,7 +131,7 @@ namespace PHPSTORM_META {
         'composer' => \Illuminate\Support\Composer::class,
         'cookie' => \Illuminate\Cookie\CookieJar::class,
         'db' => \Illuminate\Database\DatabaseManager::class,
-        'db.connection' => \Illuminate\Database\MySqlConnection::class,
+        'db.connection' => \Illuminate\Database\SQLiteConnection::class,
         'db.factory' => \Illuminate\Database\Connectors\ConnectionFactory::class,
         'encrypter' => \Illuminate\Encryption\Encrypter::class,
         'events' => \Illuminate\Events\Dispatcher::class,
@@ -289,7 +289,7 @@ namespace PHPSTORM_META {
         'composer' => \Illuminate\Support\Composer::class,
         'cookie' => \Illuminate\Cookie\CookieJar::class,
         'db' => \Illuminate\Database\DatabaseManager::class,
-        'db.connection' => \Illuminate\Database\MySqlConnection::class,
+        'db.connection' => \Illuminate\Database\SQLiteConnection::class,
         'db.factory' => \Illuminate\Database\Connectors\ConnectionFactory::class,
         'encrypter' => \Illuminate\Encryption\Encrypter::class,
         'events' => \Illuminate\Events\Dispatcher::class,
@@ -447,7 +447,7 @@ namespace PHPSTORM_META {
         'composer' => \Illuminate\Support\Composer::class,
         'cookie' => \Illuminate\Cookie\CookieJar::class,
         'db' => \Illuminate\Database\DatabaseManager::class,
-        'db.connection' => \Illuminate\Database\MySqlConnection::class,
+        'db.connection' => \Illuminate\Database\SQLiteConnection::class,
         'db.factory' => \Illuminate\Database\Connectors\ConnectionFactory::class,
         'encrypter' => \Illuminate\Encryption\Encrypter::class,
         'events' => \Illuminate\Events\Dispatcher::class,
@@ -605,7 +605,7 @@ namespace PHPSTORM_META {
         'composer' => \Illuminate\Support\Composer::class,
         'cookie' => \Illuminate\Cookie\CookieJar::class,
         'db' => \Illuminate\Database\DatabaseManager::class,
-        'db.connection' => \Illuminate\Database\MySqlConnection::class,
+        'db.connection' => \Illuminate\Database\SQLiteConnection::class,
         'db.factory' => \Illuminate\Database\Connectors\ConnectionFactory::class,
         'encrypter' => \Illuminate\Encryption\Encrypter::class,
         'events' => \Illuminate\Events\Dispatcher::class,
@@ -763,7 +763,7 @@ namespace PHPSTORM_META {
         'composer' => \Illuminate\Support\Composer::class,
         'cookie' => \Illuminate\Cookie\CookieJar::class,
         'db' => \Illuminate\Database\DatabaseManager::class,
-        'db.connection' => \Illuminate\Database\MySqlConnection::class,
+        'db.connection' => \Illuminate\Database\SQLiteConnection::class,
         'db.factory' => \Illuminate\Database\Connectors\ConnectionFactory::class,
         'encrypter' => \Illuminate\Encryption\Encrypter::class,
         'events' => \Illuminate\Events\Dispatcher::class,
@@ -921,7 +921,7 @@ namespace PHPSTORM_META {
         'composer' => \Illuminate\Support\Composer::class,
         'cookie' => \Illuminate\Cookie\CookieJar::class,
         'db' => \Illuminate\Database\DatabaseManager::class,
-        'db.connection' => \Illuminate\Database\MySqlConnection::class,
+        'db.connection' => \Illuminate\Database\SQLiteConnection::class,
         'db.factory' => \Illuminate\Database\Connectors\ConnectionFactory::class,
         'encrypter' => \Illuminate\Encryption\Encrypter::class,
         'events' => \Illuminate\Events\Dispatcher::class,
@@ -1079,7 +1079,7 @@ namespace PHPSTORM_META {
         'composer' => \Illuminate\Support\Composer::class,
         'cookie' => \Illuminate\Cookie\CookieJar::class,
         'db' => \Illuminate\Database\DatabaseManager::class,
-        'db.connection' => \Illuminate\Database\MySqlConnection::class,
+        'db.connection' => \Illuminate\Database\SQLiteConnection::class,
         'db.factory' => \Illuminate\Database\Connectors\ConnectionFactory::class,
         'encrypter' => \Illuminate\Encryption\Encrypter::class,
         'events' => \Illuminate\Events\Dispatcher::class,
@@ -1237,7 +1237,7 @@ namespace PHPSTORM_META {
         'composer' => \Illuminate\Support\Composer::class,
         'cookie' => \Illuminate\Cookie\CookieJar::class,
         'db' => \Illuminate\Database\DatabaseManager::class,
-        'db.connection' => \Illuminate\Database\MySqlConnection::class,
+        'db.connection' => \Illuminate\Database\SQLiteConnection::class,
         'db.factory' => \Illuminate\Database\Connectors\ConnectionFactory::class,
         'encrypter' => \Illuminate\Encryption\Encrypter::class,
         'events' => \Illuminate\Events\Dispatcher::class,
