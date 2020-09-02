@@ -4,12 +4,11 @@ namespace App\Jobs;
 
 use App\Website;
 use Illuminate\Bus\Queueable;
-use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
 
-class ProcessVerifyWebsite implements ShouldQueue
+class ProcessVerifyWebsite
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 

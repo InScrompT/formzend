@@ -4,11 +4,10 @@ namespace App\Mail;
 
 use App\Website;
 use Illuminate\Bus\Queueable;
-use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
-class VerifyWebsite extends Mailable implements ShouldQueue
+class VerifyWebsite extends Mailable
 {
     use Queueable, SerializesModels;
 
