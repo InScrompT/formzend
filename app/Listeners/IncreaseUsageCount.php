@@ -25,7 +25,8 @@ class IncreaseUsageCount
     public function handle(FormSubmission $event)
     {
         $event->account->update([
-            'recieved' => $event->account->recieved + 1
+            'recieved' => $event->account->recieved + 1,
+            'allowed' => $event->account->allowed - 1
         ]);
     }
 }
