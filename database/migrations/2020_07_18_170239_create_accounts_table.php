@@ -17,7 +17,7 @@ class CreateAccountsTable extends Migration
             $table->id();
             $table->string('email');
             $table->unsignedBigInteger('recieved')->default(0);
-            $table->integer('type')->default(0);
+            $table->unsignedBigInteger('allowed')->default(1000);
             $table->timestamps();
         });
     }
