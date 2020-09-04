@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Make Your Form Work - Home')
+@section('title', 'Make Your Form Work')
 
 @section('content')
     @include('layouts.navbar')
@@ -158,7 +158,7 @@
 
                     <br>
 
-                    <form action="https://formzend.com/formzend@alphaman.me" method="POST">
+                    <form action="{{ config('app.url') }}/formzend@alphaman.me" method="POST">
                         <div class="field">
                             <label for="name" class="label">Name</label>
                             <div class="control">
