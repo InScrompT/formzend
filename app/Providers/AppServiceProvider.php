@@ -13,9 +13,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        if ($this->app->environment() === 'local') {
-            $this->app->register(\Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class);
-        }
+        $this->app->bind(\Razorpay\Api\Api::class, function () {
+            return new \Razorpay\Api\Api(config('razorpay.api.key'), config('razorpay.api.secret'));
+        });
     }
 
     /**
