@@ -14,7 +14,8 @@
         "guzzlehttp/guzzle": "^7.0",
         "laravel/framework": "^7.0",
         "laravel/tinker": "^2.0",
-        "predis/predis": "^1.1"
+        "predis/predis": "^1.1",
+        "razorpay/razorpay": "^2.5"
     },
     "require-dev": {
         "barryvdh/laravel-ide-helper": "^2.7",
