@@ -7,8 +7,8 @@
     <script>
         function stillDev() {
             swal(
-                'Hold up chief!', 
-                'You discovered a feature that is still under development. Follow me on twitter to be on the know', 
+                'Hold up chief!',
+                'You discovered a feature that is still under development. Follow me on twitter to be on the know',
                 'warning'
             );
         }
