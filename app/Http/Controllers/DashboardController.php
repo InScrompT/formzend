@@ -20,8 +20,11 @@ class DashboardController extends Controller
 
     public function listSubmissions(Account $account, Website $website)
     {
+        $submissions = Submission::whereWebsiteId($website->id);
+
         return view('dashboard.submissions.list')->with([
-            'website' => $website
+            'website' => $website,
+            'submissions' => $submissions->paginate(20)
         ]);
     }
 

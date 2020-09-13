@@ -7,8 +7,8 @@
     <script>
         function stillDev() {
             swal(
-                'Hold up chief!', 
-                'You discovered a feature that is still under development. Follow me on twitter to be on the know', 
+                'Hold up chief!',
+                'You discovered a feature that is still under development. Follow me on twitter to be on the know',
                 'warning'
             );
         }
@@ -30,8 +30,8 @@
                             <a href="#" class="is-active">All</a>
                             <a href="#" onclick="stillDev()" class="has-text-primary">Archived</a>
                         </div>
-                        @if ($website->submissions->count())
-                            @foreach ($website->submissions as $submission)
+                        @if ($submissions->count())
+                            @foreach ($submissions as $submission)
                                 <a href="{{ route('dashboard.website.submissions.show', [
                                     $user->id,
                                     $website->id,
@@ -50,6 +50,8 @@
                             </div>
                         @endif
                     </div>
+
+                    {{ $submissions->links('layouts.pagination') }}
                 </div>
             </div>
         </div>
