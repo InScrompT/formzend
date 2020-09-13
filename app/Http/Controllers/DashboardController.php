@@ -26,10 +26,10 @@ class DashboardController extends Controller
     }
 
     public function showSubmission(
-        Account $account, 
-        Website $website, 
-        Submission $submission)
-    {
+        Account $account,
+        Website $website,
+        Submission $submission
+    ) {
         return view('dashboard.submissions.show')->with([
             'submission' => $submission
         ]);
