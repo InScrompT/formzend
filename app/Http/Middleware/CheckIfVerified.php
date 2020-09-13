@@ -10,7 +10,7 @@ use Closure;
 class CheckIfVerified
 {
     /**
-     * Handle an incoming request.
+     * Check if the email is verified for the particular host.
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \Closure  $next

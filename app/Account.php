@@ -2,7 +2,7 @@
 
 namespace App;
 
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 
 /**
  * App\Account
@@ -32,7 +32,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property string|null $remember_token
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Account whereRememberToken($value)
  */
-class Account extends Model
+class Account extends Authenticatable
 {
     protected $fillable = ['email', 'recieved', 'type', 'website_id'];
 

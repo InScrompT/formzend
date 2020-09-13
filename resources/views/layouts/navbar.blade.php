@@ -13,11 +13,23 @@
         <div class="navbar-menu" id="navMenu">
             <div class="navbar-end">
                 <div class="navbar-item">
-                    <a href="#pricing" class="has-text-primary">Pricing</a>
+                    <a href="{{ route('home') }}#pricing" class="has-text-primary">Pricing</a>
                 </div>
                 <div class="navbar-item">
-                    <a href="#faq" class="has-text-primary">FAQ</a>
+                    <a href="{{ route('home') }}#faq" class="has-text-primary">FAQ</a>
                 </div>
+                @user
+                    <div class="navbar-item">
+                        <a href="{{ route('dashboard') }}" class="has-text-primary">Dashboard</a>
+                    </div>
+                    <div class="navbar-item">
+                        <a href="{{ route('logout') }}" class="has-text-primary">Logout</a>
+                    </div>
+                @else
+                    <div class="navbar-item">
+                        <a href="{{ route('login') }}" class="has-text-primary">Login</a>
+                    </div>
+                @enduser
             </div>
         </div>
     </div>

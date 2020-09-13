@@ -7,6 +7,9 @@
 window.axios = require('axios');
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
+/**
+ * Navigation bar mobile support code
+ */
 document.addEventListener('DOMContentLoaded', () => {
     // Get all "navbar-burger" elements
     const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
