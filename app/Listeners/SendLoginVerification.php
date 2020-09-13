@@ -5,10 +5,9 @@ namespace App\Listeners;
 use App\Account;
 use App\Events\LoginRequest;
 use App\Mail\VerifyLogin;
-use Illuminate\Contracts\Queue\ShouldQueue;
 use Mail;
 
-class SendLoginVerification implements ShouldQueue
+class SendLoginVerification
 {
     /**
      * Create the event listener.
