@@ -7,8 +7,8 @@
     <script>
         function stillDev() {
             swal(
-                'Hold up chief!', 
-                'You discovered a feature that is still under development. Follow me on twitter to be on the know', 
+                'Hold up chief!',
+                'You discovered a feature that is still under development. Follow me on twitter to be on the know',
                 'warning'
             );
         }
@@ -22,11 +22,27 @@
         <div class="container">
             <div class="columns">
                 <div class="column is-offset-3 is-half">
-                    <div class="card mb-6">
-                        <div class="card-content">
-                            <p class="is-size-4">Welcome back {{ $user->email }}</p>
+                    <div class="mb-5">
+                        <p class="is-size-4">Welcome back {{ $user->email }}</p>
+                    </div>
+
+                    <div class="columns">
+                        <div class="column is-half">
+                            <div class="card has-background-success">
+                                <div class="card-content has-text-white">
+                                    <p class="is-size-5">Recieved {{ $user->recieved }} forms</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="column is-half">
+                            <div class="card has-background-warning">
+                                <div class="card-content">
+                                    <p class="is-size-5">Pending {{ $user->allowed }} forms</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
+
                     @if ($user->websites->count())
                         <div class="panel">
                             <div class="panel-heading">

@@ -34,7 +34,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
  */
 class Account extends Authenticatable
 {
-    protected $fillable = ['email', 'recieved', 'type', 'website_id'];
+    protected $fillable = ['email', 'recieved', 'type', 'website_id', 'allowed'];
 
     public function websites()
     {
