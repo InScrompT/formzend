@@ -65,5 +65,6 @@ class Kernel extends HttpKernel
         'check.email' => \App\Http\Middleware\CheckIfEmail::class,
         'check.email.verified' => \App\Http\Middleware\CheckIfVerified::class,
         'csrf' => \App\Http\Middleware\VerifyCsrfToken::class,
+        'limiter' => \App\Http\Middleware\Limiter::class,
     ];
 }
