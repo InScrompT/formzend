@@ -26,23 +26,6 @@
                         <p class="is-size-4">Welcome back {{ $user->email }}</p>
                     </div>
 
-                    <div class="columns">
-                        <div class="column is-half">
-                            <div class="card has-background-success">
-                                <div class="card-content has-text-white">
-                                    <p class="is-size-5">Recieved {{ $user->recieved }} forms</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="column is-half">
-                            <div class="card has-background-warning">
-                                <div class="card-content">
-                                    <p class="is-size-5">Pending {{ $user->allowed }} forms</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
                     @if ($user->websites->count())
                         <div class="panel">
                             <div class="panel-heading">
@@ -74,6 +57,29 @@
                             </div>
                         </div>
                     @endif
+
+                    <div class="panel">
+                        <div class="panel-heading">Summary</div>
+                        <div class="panel-block">
+                            <p>
+                                You've recieved <b>{{ $user->recieved }}</b> submissions and can recieve
+                                <b>{{ $user->allowed }}</b> more submissions.
+                                <br>
+                                Need more? Buy credits 😉
+                            </p>
+                        </div>
+                        <div class="panel-block">
+                            <p>
+                                If there's something I can do for you, contact me at
+                                <a href="https://twitter.com/xXAlphaManXx">Twitter</a>
+                            </p>
+                        </div>
+                        <div class="panel-block">
+                            <button class="button is-primary is-outlined is-fullwidth">
+                                Buy Credits
+                            </button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

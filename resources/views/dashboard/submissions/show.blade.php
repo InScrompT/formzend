@@ -23,8 +23,8 @@
             <div class="columns">
                 <div class="column is-half is-offset-3">
                     <div class="card">
-                        <div class="card-header">
-                            <div class="card-header-title">Form Data</div>
+                        <div class="card-header has-background-primary">
+                            <div class="card-header-title has-text-white">Form Data</div>
                         </div>
                         <div class="card-content">
                             <table class="table is-fullwidth is-hoverable">
