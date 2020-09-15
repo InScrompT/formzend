@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateAccountsTable extends Migration
+class CreatePlansTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,12 @@ class CreateAccountsTable extends Migration
      */
     public function up()
     {
-        Schema::create('accounts', function (Blueprint $table) {
+        Schema::create('plans', function (Blueprint $table) {
             $table->id();
-            $table->string('email');
-            $table->unsignedBigInteger('recieved')->default(0);
-            $table->unsignedBigInteger('allowed')->default(150);
-            $table->unsignedBigInteger('plan_id')->default(1);
+            $table->string('name');
+            $table->unsignedBigInteger('amount');
+            $table->unsignedBigInteger('quantity');
+            $table->boolean('available')->default(true);
             $table->timestamps();
         });
     }
@@ -30,6 +30,6 @@ class CreateAccountsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('accounts');
+        Schema::dropIfExists('plans');
     }
 }

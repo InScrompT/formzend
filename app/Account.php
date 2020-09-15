@@ -45,4 +45,9 @@ class Account extends Authenticatable
     {
         return $this->hasMany(Submission::class);
     }
+
+    public function plan()
+    {
+        return $this->belongsTo(Plan::class);
+    }
 }
