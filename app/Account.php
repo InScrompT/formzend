@@ -31,6 +31,13 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
  * @property-read int|null $submissions_count
  * @property string|null $remember_token
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Account whereRememberToken($value)
+ * @property int $allowed
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Order[] $orders
+ * @property-read int|null $orders_count
+ * @property-read \App\Plan $plan
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Account whereAllowed($value)
+ * @property int $plan_id
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Account wherePlanId($value)
  */
 class Account extends Authenticatable
 {
