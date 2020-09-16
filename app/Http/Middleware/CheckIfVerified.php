@@ -18,8 +18,7 @@ class CheckIfVerified
      */
     public function handle($request, Closure $next)
     {
-        // TODO: Does not find the true origin URL
-        $host = $request->getSchemeAndHttpHost();
+        $host = $request->header('origin');
         $email = $request->route('email');
 
         $account = Account::firstOrCreate(['email' => $email]);
