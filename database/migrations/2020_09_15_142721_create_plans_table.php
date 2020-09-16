@@ -19,6 +19,7 @@ class CreatePlansTable extends Migration
             $table->unsignedBigInteger('amount');
             $table->unsignedBigInteger('quantity');
             $table->boolean('available')->default(true);
+            $table->boolean('is_subscription')->default(false);
             $table->timestamps();
         });
     }
