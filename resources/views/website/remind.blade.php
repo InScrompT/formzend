@@ -5,7 +5,7 @@
 @section('content')
     @include('layouts.navbar')
 
-    <section class="section pt-4">
+    <section class="section mt-4">
         <div class="container">
             <div class="columns">
                 <div class="column is-half is-offset-3">
