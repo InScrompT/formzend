@@ -24,7 +24,9 @@ class Limiter
             return $next($request);
         }
 
-        // TODO: Return a proper response
-        return response(['message' => 'credits done, no more submissions'], 401);
+        return response()->view('website.error', [
+            'title' => 'Credits Exhausted',
+            'error' => 'The owner has exhausted the credits. If you\'re the owner, go to dashboard and top-up credits'
+        ], 401);
     }
 }

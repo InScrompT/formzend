@@ -16,14 +16,15 @@ class CheckIfEmail
      */
     public function handle($request, Closure $next)
     {
+        $host = $request->header('origin');
         $validator = Validator::make(['email' => $request->route('email')], [
             'email' => 'required|email'
         ]);
 
         if ($validator->fails()) {
-            // TODO: Return a proper response instead of JSON
-            return response()->json([
-                'error' => 'Please enter a valid email'
+            return response()->view('website.error', [
+                'title' => 'Invalid Email',
+                'error' => 'Please enter a valid email. The format is ' . $host . '/your@email.com'
             ]);
         }
 
