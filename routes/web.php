@@ -36,6 +36,8 @@ Route::get('/dashboard/{account}/website/{website:id}/submissions', 'DashboardCo
 Route::get('/dashboard/{account}/website/{website:id}/submissions/{submission:id}', 'DashboardController@showSubmission')
     ->name('dashboard.website.submissions.show');
 
+Route::get('/plans', 'PaymentController@showPlans');
+
 Route::post('/auth/login', 'AuthController@processLogin')
     ->middleware('csrf', 'guest');
 Route::post('/verify/resend/{account}/website/{website:id}', 'WebsiteController@resendVerification')
