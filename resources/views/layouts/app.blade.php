@@ -13,9 +13,9 @@
 
 <body>
     @yield('content')
+
     <script src="{{ asset('js/app.js') }}"></script>
-    <script async defer src="https://funny.formzend.com/latest.js"></script>
-    <noscript><img src="https://funny.formzend.com/noscript.gif" alt="" /></noscript>
+    @includeWhen(app()->environment() === 'production', 'layouts.analytics')
 </body>
 
 </html>
