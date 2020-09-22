@@ -11,15 +11,21 @@
                 <div class="card-content">
                     <span class="is-size-4">Get {{ $plan->quantity }} submissions</span>
                     &mdash;
-                    <span class="is-size-5">For just {{ $plan->amount }}$</span>
+                    <span class="is-size-5">
+                        For @if($plan->amount) just {{ $plan->amount }}$ @else Free @endif
+                    </span>
 
                     <br>
                     <br>
 
                     @if(strtolower($plan->name) === 'free')
-                        <button class="button is-fullwidth is-outlined">Create free account</button>
+                        <a class="button is-fullwidth is-outlined" href="{{ route('dashboard') }}">
+                            Create free account
+                        </a>
                     @else
-                        <button class="button is-fullwidth is-primary is-outlined">Buy {{ $plan->name }}</button>
+                        <a class="button is-fullwidth is-primary is-outlined" href="{{ route('plans.buy', $plan->id) }}">
+                            Buy {{ $plan->name }}
+                        </a>
                     @endif
                 </div>
             </div>

@@ -27,7 +27,37 @@
 
             <div class="columns">
                 <div class="column is-8 is-offset-2">
-                    @include('plans.list')
+                    @include('plans.normal')
+                </div>
+            </div>
+
+            <div class="columns">
+                <div class="column is-8 is-offset-2">
+                    @include('plans.subscription')
+                </div>
+            </div>
+
+            <div class="columns mt-4">
+                <div class="column is-8 is-offset-2">
+                    <div class="mb-4">
+                        <p class="is-size-4 has-text-grey-dark has-text-weight-semibold">
+                            <span class="has-text-primary">&rightarrow;</span>
+                            What is a submission?
+                        </p>
+                        <p class="is-size-5 has-text-grey-dark">
+                            A successful form submission where the data is sent to your email is considered a submission.
+                        </p>
+                    </div>
+                    <div class="">
+                        <p class="is-size-4 has-text-grey-dark has-text-weight-semibold">
+                            <span class="has-text-primary">&rightarrow;</span>
+                            What after I exhaust my credits?
+                        </p>
+                        <p class="is-size-5 has-text-grey-dark">
+                            You'll be sent an email saying that you've exhausted your credits. You can then top-up your account
+                            with credits if you wish to do so :)
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>

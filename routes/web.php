@@ -36,7 +36,11 @@ Route::get('/dashboard/{account}/website/{website:id}/submissions', 'DashboardCo
 Route::get('/dashboard/{account}/website/{website:id}/submissions/{submission:id}', 'DashboardController@showSubmission')
     ->name('dashboard.website.submissions.show');
 
-Route::get('/plans', 'PaymentController@showPlans');
+Route::get('/plans', 'PaymentController@showPlans')->name('plans');
+Route::get('/plans/{plan}', 'PaymentController@buyPlan')->name('plans.buy');
+Route::get('plans/payment/cancel', 'PaymentController@paymentCancelled')->name('plans.payment.cancelled');
+
+Route::post('plans/payment/done', 'PaymentController@paymentCallback')->name('plans.payment.done');
 
 Route::post('/auth/login', 'AuthController@processLogin')
     ->middleware('csrf', 'guest');
