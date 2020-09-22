@@ -76,8 +76,8 @@
                                     </div>
                                 </div>
                                 <div class="card-content has-text-justified">
-                                    Forms will be be encrypted and stored in the database for premium users.
-                                    Each form data is sent through Mailgun's API. So their privacy policy also applies.
+                                    Your data, stays yours. I never alter or sell your data and it's against my ethics.
+                                    We use Mailgun to send you email, so their privacy policy also applies.
                                 </div>
                             </div>
 
@@ -103,9 +103,9 @@
                                     </div>
                                 </div>
                                 <div class="card-content has-text-justified">
-                                    Yes. Until FormZend is out of it's beta period, FormZend is completely free.
-                                    For updates, follow me on <a href="https://twitter.com/xXAlphaManXx" class="has-text-primary">Twitter</a>.
-                                    We'll also be sending out emails to everyone.
+                                    You can get started for free with 150 submissions. Add more submission credits later.
+                                    Pay for only what you use. Checkout the
+                                    <a href="{{ route('plans') }}" class="has-text-primary">plans here</a>
                                 </div>
                             </div>
 
@@ -135,11 +135,8 @@
                 <div class="column is-half is-offset-3">
                     <a class="is-size-3 has-text-grey-dark pb-4" id="pricing">But... what's the price? 💰</a>
                     <p class="is-size-5 pt-5">
-                        Fear not, ma friend. FormZend is completely free till it is in Beta period.
-                        <br>
-                        But hey, it'll only cost what a cup of coffee would after the beta period.
-                        <br>
-                        We'll also have a free plan. So &mdash; happy 😀 ?
+                        The first <b>150</b> submissions are free. Add more submission credits later. Pay for only what you use.
+                        Checkout the <a href="{{ route('plans') }}" class="has-text-primary">plans here</a>
                     </p>
                 </div>
             </div>
@@ -152,8 +149,8 @@
                 <div class="column is-half is-offset-3">
                     <p class="is-size-3 has-text-grey-dark pb-4">Just wanna get into the loop?</p>
                     <p class="is-size-6 pt-5 has-text-justified">
-                        We'll send you important product update directly to your inbox. We'll not send more than
-                        3 emails a month (or even less). And your data is always secure enough :)
+                        I'll send you important product updates directly to your inbox. I'll not send more than
+                        3 emails a month (or even less). And your data is always secure :)
                     </p>
 
                     <br>
