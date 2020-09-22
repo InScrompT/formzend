@@ -67,9 +67,9 @@
                             </p>
                         </div>
                         <div class="panel-block">
-                            <button class="button is-primary is-outlined is-fullwidth">
+                            <a class="button is-primary is-outlined is-fullwidth" href="{{ route('plans') }}">
                                 Buy Credits
-                            </button>
+                            </a>
                         </div>
                     </div>
                 </div>

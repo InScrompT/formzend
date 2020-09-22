@@ -36,7 +36,7 @@ class AppServiceProvider extends ServiceProvider
             return !request()->session()->has('loggedIn');
         });
 
-        View::composer(['dashboard.*'], function ($view) {
+        View::composer(['dashboard.*', 'plans.*'], function ($view) {
             if (!request()->session()->has('loggedIn')) {
                 return $view->with('user', null);
             }
