@@ -20,7 +20,7 @@
                         I hate monthly plans. Why bill for something I might not even use?
                         If it's something I hate, why should I make the same hate available to you?
                         &mdash;
-                        Buy once, use it till you exhaust the credits.
+                        <i>Buy once, use it till you exhaust the credits.</i>
                     </p>
                 </div>
             </div>
@@ -31,13 +31,13 @@
                 </div>
             </div>
 
-            <div class="columns">
-                <div class="column is-8 is-offset-2">
-                    @include('plans.subscription')
-                </div>
-            </div>
+{{--            <div class="columns">--}}
+{{--                <div class="column is-8 is-offset-2">--}}
+{{--                    @include('plans.subscription')--}}
+{{--                </div>--}}
+{{--            </div>--}}
 
-            <div class="columns mt-4">
+            <div class="columns">
                 <div class="column is-8 is-offset-2">
                     <div class="mb-4">
                         <p class="is-size-4 has-text-grey-dark has-text-weight-semibold">
