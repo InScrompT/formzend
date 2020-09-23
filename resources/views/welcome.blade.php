@@ -170,7 +170,7 @@
                         </div>
                         <div class="field">
                             <div class="control">
-                                <button class="button is-primary is-outlined is-fullwidth" type="submit">Enrolllllll</button>
+                                <button class="button is-primary is-outlined is-fullwidth" type="submit">Enroll 🎉 </button>
                             </div>
                         </div>
                     </form>
