@@ -25,6 +25,12 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Order wherePlanId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Order whereRazorpayOrderId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Order whereUpdatedAt($value)
+ * @property string $code
+ * @property int $completed
+ * @property string|null $razorpay_payment_id
+ * @method static \Illuminate\Database\Eloquent\Builder|Order whereCode($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Order whereCompleted($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Order whereRazorpayPaymentId($value)
  */
 class Order extends Model
 {

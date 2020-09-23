@@ -15,9 +15,12 @@ class CreateOrdersTable extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
+            $table->string('code');
             $table->unsignedBigInteger('plan_id');
             $table->unsignedBigInteger('account_id');
-            $table->string('razorpay_order_id');
+            $table->boolean('completed')->default(false);
+            $table->string('razorpay_order_id')->nullable();
+            $table->string('razorpay_payment_id')->nullable();
             $table->timestamps();
         });
     }

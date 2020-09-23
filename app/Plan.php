@@ -27,6 +27,8 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Plan whereName($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Plan whereQuantity($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Plan whereUpdatedAt($value)
+ * @property int $is_subscription
+ * @method static \Illuminate\Database\Eloquent\Builder|Plan whereIsSubscription($value)
  */
 class Plan extends Model
 {
