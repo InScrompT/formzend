@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Plan;
+use App\Order;
 use Razorpay\Api\Api;
 use Illuminate\Support\Str;
 use Razorpay\Api\Errors\SignatureVerificationError;
@@ -33,14 +34,14 @@ class PaymentController extends Controller
 
     public function buyPlan(Plan $plan)
     {
-        /**
-         * TODO: Implement database stuff
-         * - Create an order, with completed set to false
-         * - Get the id and pass it to razorpay
-         */
-        $receipt = Str::uuid();
+        $order = new Order();
+
+        $order->account_id = session('id');
+        $order->plan_id = $plan->id;
+        $order->code = Str::uuid();
+
         $razorpay = resolve(Api::class)->order->create([
-            'receipt' => $receipt,
+            'receipt' => $order->code,
             'amount' => intval((intval(Str::replaceFirst('$', '', $plan->amount)) * 73.6) * 100),
             'currency' => 'INR',
             'notes' => [
@@ -48,8 +49,10 @@ class PaymentController extends Controller
             ]
         ]);
 
+        $order->razorpay_order_id = $razorpay->id;
+        $order->saveOrFail();
+
         return view('plans.redirect')->with([
-            'key' => $receipt,
             'order' => $razorpay->id
         ]);
     }
@@ -59,10 +62,19 @@ class PaymentController extends Controller
         try {
             resolve(Api::class)->utility->verifyPaymentSignature(request()->all());
 
+            $order = Order::whereRazorpayOrderId(request('razorpay_order_id'))->firstOrFail();
+
+            $order->razorpay_payment_id = request('razorpay_payment_id');
+            $order->completed = true;
+
+            $order->account->plan_id = $order->plan_id;
+            $order->account->allowed = $order->account->allowed + $order->plan->quantity;
+
+            $order->saveOrFail();
+            $order->account->saveOrFail();
+
             /**
-             * TODO: Implement database stuff (payment done)
-             * - find user
-             * - update their limits
+             * TODO: After payment done chores
              * - show them a success message
              * - send them an email / invoice
              */
