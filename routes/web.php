@@ -14,16 +14,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::view('/', 'welcome')->name('home');
-
-Route::get('/auth/login', 'AuthController@showLogin')
-    ->middleware('guest')
-    ->name('login');
-Route::get('/auth/logout', 'AuthController@logout')
-    ->middleware('auth')
-    ->name('logout');
-Route::get('/auth/login/account/{account:id}', 'AuthController@loginUser')
-    ->middleware('signed', 'guest')
-    ->name('login.verify');
+Route::view('/privacy', 'privacy')->name('privacy');
+Route::view('/terms', 'terms')->name('terms');
 
 Route::get('/verify/{account}/website/{website:id}', 'WebsiteController@verify')
     ->middleware('signed')
