@@ -80,7 +80,10 @@
                             <span class="has-text-primary is-size-5 is-italic">(paid)</span>
                         </h3>
                         <p>
-                            Want to send data as an AJAX request? Send the data encoded as <code><span class="has-text-primary">FormData</span></code>
+                            Want to send data as an AJAX request? Send the data encoded as
+                            <a href="https://developer.mozilla.org/en-US/docs/Web/API/FormData" target="_blank">
+                                <code>FormData</code>
+                            </a>
                             and FormZend will handle everything else.
                         </p>
                     </div>
