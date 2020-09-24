@@ -49,4 +49,5 @@ Route::post('/verify/resend/{account}/website/{website:id}', 'WebsiteController@
     ->name('website.verify.resend');
 Route::post('/{email}', 'FormController@handleSubmission')
     ->middleware('check.email', 'check.email.verified', 'limiter')
+    ->middleware('cors', 'check.email', 'check.email.verified')
     ->name('form');
