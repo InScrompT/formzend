@@ -16,11 +16,19 @@ class FormController extends Controller
         event(new FormSubmission(
             $account,
             $website,
-            \request()->all()
+            \request()->except('_redirect')
         ));
 
+        $redirectTo = request('_redirect');
+        $isValidRedirect = \URL::isValidUrl($redirectTo);
+
+        // TODO: Make it exclusive to paid customers
+        if ($isValidRedirect) {
+            return response()->redirectTo($redirectTo, 301);
+        }
+
         return view('form.submitted')->with([
-            'url' => $url
+            'url' => $isValidRedirect ? $redirectTo : $url,
         ]);
     }
 }
