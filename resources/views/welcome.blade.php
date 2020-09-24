@@ -204,7 +204,7 @@
                         </div>
                         <div class="field">
                             <div class="control">
-                                <button class="button is-primary is-outlined is-fullwidth" type="submit">Enrolllllll</button>
+                                <button class="button is-primary is-outlined is-fullwidth" type="submit">Enroll 🎉 </button>
                             </div>
                         </div>
                     </form>
@@ -219,13 +219,22 @@
                     <div class="columns">
                         <div class="column is-half is-offset-3">
                             <p>
-                                Made with ♥ by <a href="https://twitter.com/xXAlphaManXx" class="has-text-primary">Karan Sanjeev</a> • An another Indie Project.
+                                Made with ♥ by
+                                <a href="https://twitter.com/xXAlphaManXx" class="has-text-primary">Karan Sanjeev</a>
+                                • An another Indie Project.
                             </p>
                             <p>
-                                This whole website is open sourced at <a href="https://github.com/InScrompT/FormZend" class="has-text-primary">Github</a>
+                                This whole website is open sourced at
+                                <a href="https://github.com/InScrompT/FormZend" class="has-text-primary">Github</a>
                             </p>
                             <p>
-                                Need help? Reach to me via <a href="https://twitter.com/xXAlphaManXx" class="has-text-primary">Twitter</a>
+                                Need help? Reach to me via
+                                <a href="https://twitter.com/xXAlphaManXx" class="has-text-primary">Twitter</a>
+                            </p>
+                            <p>
+                                <a href="{{route('privacy')}}" class="has-text-primary">Privacy Policy</a>
+                                •
+                                <a href="{{route('terms')}}" class="has-text-primary">Terms of Service</a>
                             </p>
                         </div>
                     </div>
