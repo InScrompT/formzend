@@ -33,7 +33,7 @@
                 <div class="column is-half is-offset-3">
                     <h3 class="is-size-3 has-text-grey-dark pb-4">Setting it up is easy! 🤔</h3>
                     <div class="content">
-                        <h2 class="has-text-grey-dark">1. The form</h2>
+                        <h3 class="has-text-grey-dark">1. The form</h3>
                         <p>Change your form's <code>action</code> attribute to this and replace <b>your@email.com</b> with your own email.</p>
                         <div class="field">
                             <div class="control">
@@ -43,18 +43,46 @@
 
                         <hr>
 
-                        <h2 class="has-text-grey-dark">2. Add <code>name</code> attribute to every field</h2>
+                        <h3 class="has-text-grey-dark">2. Add <code>name</code> attribute to every field</h3>
                         <p>Ensure all <code>&lt;input&gt;</code>, <code>&lt;select&gt;</code> and <code>&lt;textarea&gt;</code> elements inside your form have a name attribute, otherwise you will not receive the data filled in these fields.</p>
 
                         <hr>
 
-                        <h2 class="has-text-grey-dark">3. Submit the form and confirm email</h2>
+                        <h3 class="has-text-grey-dark">3. Submit the form and confirm email</h3>
                         <p>Go to your website and submit the form once. This will send you an email asking to confirm your email address.</p>
 
                         <hr>
 
-                        <h2 class="has-text-grey-dark">4. That's it. It's all set!</h2>
+                        <h3 class="has-text-grey-dark">4. That's it. It's all set!</h3>
                         <p>From now on, when someone submits that form, we'll forward you the data as email.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="columns">
+                <div class="column is-half is-offset-3">
+                    <h3 class="is-size-3 has-text-grey-dark pb-4">Need advanced feature sprinkles?</h3>
+                    <div class="content">
+                        <h3 class="has-text-grey-dark">
+                            Custom Redirect
+                            <span class="has-text-primary is-size-5 is-italic">(paid)</span>
+                        </h3>
+                        <p>
+                            Set an hidden text input field with name <code>_redirect</code>
+                            and set it's value to a URL. Users will be automatically redirected to that URL
+                        </p>
+                        <pre><code>&lt;input type="text" name="<span class="has-text-primary">_redirect</span>" value="https://google.com/"&gt;</code></pre>
+
+                        <hr>
+
+                        <h3 class="has-text-grey-dark">
+                            CORS Support
+                            <span class="has-text-primary is-size-5 is-italic">(paid)</span>
+                        </h3>
+                        <p>
+                            Want to send data as an AJAX request? Send the data encoded as <code><span class="has-text-primary">FormData</span></code>
+                            and FormZend will handle everything else.
+                        </p>
                     </div>
                 </div>
             </div>
