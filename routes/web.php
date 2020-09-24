@@ -17,6 +17,16 @@ Route::view('/', 'welcome')->name('home');
 Route::view('/privacy', 'privacy')->name('privacy');
 Route::view('/terms', 'terms')->name('terms');
 
+Route::get('/auth/login', 'AuthController@showLogin')
+    ->middleware('guest')
+    ->name('login');
+Route::get('/auth/logout', 'AuthController@logout')
+    ->middleware('auth')
+    ->name('logout');
+Route::get('/auth/login/account/{account:id}', 'AuthController@loginUser')
+    ->middleware('signed', 'guest')
+    ->name('login.verify');
+
 Route::get('/verify/{account}/website/{website:id}', 'WebsiteController@verify')
     ->middleware('signed')
     ->name('website.verify');
@@ -33,7 +43,6 @@ Route::get('/plans/{plan}', 'PaymentController@buyPlan')->name('plans.buy');
 Route::get('plans/payment/cancel', 'PaymentController@paymentCancelled')->name('plans.payment.cancelled');
 
 Route::post('plans/payment/done', 'PaymentController@paymentCallback')->name('plans.payment.done');
-
 Route::post('/auth/login', 'AuthController@processLogin')
     ->middleware('csrf', 'guest');
 Route::post('/verify/resend/{account}/website/{website:id}', 'WebsiteController@resendVerification')
