@@ -21,14 +21,13 @@ class FormController extends Controller
 
         $redirectTo = request('_redirect');
         $isValidRedirect = \URL::isValidUrl($redirectTo);
-        $canRedirect = $isValidRedirect && !(intval($account->plan_id) === 1);
 
         if ($isValidRedirect) {
             return response()->redirectTo($redirectTo, 301);
         }
 
         return view('form.submitted')->with([
-            'url' => $isValidRedirect ? $redirectTo : $url,
+            'url' => $url,
         ]);
     }
 }
