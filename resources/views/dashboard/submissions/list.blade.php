@@ -43,7 +43,7 @@
                             <a href="#" class="is-active">All</a>
                             <a onclick="stillDev()">Archive</a>
                         </div>
-                        @if ($submissions)
+                        @if ($submissions->count())
                             @foreach ($submissions as $submission)
                                 <a href="{{ route('dashboard.website.submissions.show', [
                                     $user->id,
