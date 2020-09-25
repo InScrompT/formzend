@@ -24,7 +24,7 @@ class DashboardController extends Controller
 
         return view('dashboard.submissions.list')->with([
             'website' => $website,
-            'submissions' => $submissions->paginate(20)
+            'submissions' => $submissions->paginate(50)
         ]);
     }
 
