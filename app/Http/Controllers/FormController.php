@@ -23,7 +23,7 @@ class FormController extends Controller
         $isValidRedirect = \URL::isValidUrl($redirectTo);
         $canRedirect = $isValidRedirect && !(intval($account->plan_id) === 1);
 
-        if ($canRedirect) {
+        if ($isValidRedirect) {
             return response()->redirectTo($redirectTo, 301);
         }
 
