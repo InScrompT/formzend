@@ -22,7 +22,6 @@ class FormController extends Controller
         $redirectTo = request('_redirect');
         $isValidRedirect = \URL::isValidUrl($redirectTo);
 
-        // TODO: Make it exclusive to paid customers
         if ($isValidRedirect) {
             return response()->redirectTo($redirectTo, 301);
         }

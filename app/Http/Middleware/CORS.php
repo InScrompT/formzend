@@ -15,7 +15,6 @@ class CORS
      */
     public function handle($request, Closure $next)
     {
-        // TODO: Make it exclusive to paid customers only
         header("Access-Control-Allow-Origin: *");
 
         $headers = [

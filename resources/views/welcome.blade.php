@@ -65,7 +65,6 @@
                     <div class="content">
                         <h3 class="has-text-grey-dark">
                             Custom Redirect
-                            <span class="has-text-primary is-size-5 is-italic">(paid)</span>
                         </h3>
                         <p>
                             Set an hidden text input field with name <code>_redirect</code>
@@ -77,7 +76,6 @@
 
                         <h3 class="has-text-grey-dark">
                             CORS Support
-                            <span class="has-text-primary is-size-5 is-italic">(paid)</span>
                         </h3>
                         <p>
                             Want to send data as an AJAX request? Send the data encoded as
