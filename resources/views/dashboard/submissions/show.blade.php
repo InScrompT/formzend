@@ -44,9 +44,6 @@
                         </div>
                         <div class="card-footer">
                             <a href="#" onclick="stillDev()" class="card-footer-item">
-                                Archive
-                            </a>
-                            <a href="#" onclick="stillDev()" class="card-footer-item">
                                 Download
                             </a>
                         </div>
