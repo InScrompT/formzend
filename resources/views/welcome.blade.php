@@ -249,6 +249,8 @@
                                 <a href="{{route('privacy')}}" class="has-text-primary">Privacy Policy</a>
                                 •
                                 <a href="{{route('terms')}}" class="has-text-primary">Terms of Service</a>
+                                •
+                                <a href="{{route('contact')}}" class="has-text-primary">Contact</a>
                             </p>
                         </div>
                     </div>
