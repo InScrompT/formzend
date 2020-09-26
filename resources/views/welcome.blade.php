@@ -177,6 +177,22 @@
     <section class="section pt-0">
         <div class="container">
             <hr>
+            <div class="column is-half is-offset-3">
+                <a class="is-size-3 has-text-grey-dark pb-4" id="about">About FormZend</a>
+                <p class="is-size-5 pt-5">
+                    I'm <a href="https://twitter.com/xXAlphaManXx">Karan Sanjeev</a>, a Indie Maker. FormZend is
+                    made completely on my own time without any funding or investment. I respect privacy and believe it's a right.
+                </p>
+                <p class="is-size-5 mt-3">
+                    If you aren’t paying for a product, you are the product. I charge a small fee for FormZend,
+                    because I sell service, not data.
+                </p>
+            </div>
+        </div>
+    </section>
+    <section class="section pt-0">
+        <div class="container">
+            <hr>
             <div class="columns">
                 <div class="column is-half is-offset-3">
                     <p class="is-size-3 has-text-grey-dark pb-4">Just wanna get into the loop?</p>
