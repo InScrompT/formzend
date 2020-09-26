@@ -10,7 +10,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property int $id
  * @property int $website_id
  * @property int $account_id
- * @property array $data
+ * @property \Illuminate\Database\Eloquent\Collection $data
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property-read \App\Account $account
