@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Account;
-use App\Submission;
 use App\Website;
+use App\Submission;
+use League\Csv\Writer;
 
 class DashboardController extends Controller
 {
@@ -35,6 +36,22 @@ class DashboardController extends Controller
     ) {
         return view('dashboard.submissions.show')->with([
             'submission' => $submission
+        ]);
+    }
+
+    public function exportSubmissions(Account $account, Website $website)
+    {
+        $csv = Writer::createFromString();
+        $fileName = now()->unix() . '-' . $account->email . '-' . $website->id . '.csv';
+
+        $website->submissions->each(function ($submission) use ($csv) {
+            $csv->insertOne($submission->data->toArray());
+        });
+
+        return response()->streamDownload(function () use ($csv) {
+            echo $csv->getContent();
+        }, $fileName, [
+            'Content-Type' => 'text/csv'
         ]);
     }
 }

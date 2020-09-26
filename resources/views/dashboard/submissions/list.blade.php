@@ -40,8 +40,10 @@
                             Form Submissions
                         </div>
                         <div class="panel-tabs">
-                            <a href="#" class="is-active">All</a>
-                            <a onclick="stillDev()">Archive</a>
+                            <a href="{{ route('dashboard') }}" class="is-active">All</a>
+                            <a href="{{ route('download.submissions', [$user->id, $website->id]) }}" target="_blank">
+                                Archive
+                            </a>
                         </div>
                         @if ($submissions->count())
                             @foreach ($submissions as $submission)
@@ -50,10 +52,10 @@
                                     $website->id,
                                     $submission->id
                                 ]) }}" class="panel-block">
-                                    <span class="tags has-addons mr-4">
+                                    <div class="tags has-addons mr-4">
                                         <div class="tag is-success is-light">Fields</div>
                                         <div class="tag">{{ $submission->data->count() }}</div>
-                                    </span>
+                                    </div>
                                     {{
                                         $submission->data['email'] ??
                                         $submission->data['name'] ??

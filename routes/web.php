@@ -40,6 +40,8 @@ Route::get('dashboard/{account}/website/{website:id}/submissions/{submission:id}
 
 Route::get('download/{account}/submissions/{submission:id}', 'FormController@downloadSubmission')
     ->name('download.submission');
+Route::get('download/{account}/website/{website:id}/submissions', 'DashboardController@exportSubmissions')
+    ->name('download.submissions');
 
 Route::get('plans', 'PaymentController@showPlans')->name('plans');
 Route::get('plans/{plan}', 'PaymentController@buyPlan')->name('plans.buy');
