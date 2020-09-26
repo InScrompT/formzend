@@ -3,10 +3,17 @@
 namespace App\Http\Controllers;
 
 use App\Account;
+use App\Submission;
+use League\Csv\Writer;
 use App\Events\FormSubmission;
 
 class FormController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth')->except('handleSubmission');
+    }
+
     public function handleSubmission($email)
     {
         $url = request()->header('origin');
@@ -28,6 +35,20 @@ class FormController extends Controller
 
         return view('form.submitted')->with([
             'url' => $url,
+        ]);
+    }
+
+    public function downloadSubmission(Account $account, Submission $submission)
+    {
+        $fileName = now()->unix() . '-' . $account->email . '-' . $submission->id . '.csv';
+
+        $csv = Writer::createFromString();
+        $csv->insertOne($submission->data->toArray());
+
+        return response()->streamDownload(function () use ($csv) {
+            echo $csv->getContent();
+        }, $fileName, [
+            'Content-Type' => 'text/csv'
         ]);
     }
 }

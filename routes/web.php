@@ -38,6 +38,9 @@ Route::get('dashboard/{account}/website/{website:id}/submissions', 'DashboardCon
 Route::get('dashboard/{account}/website/{website:id}/submissions/{submission:id}', 'DashboardController@showSubmission')
     ->name('dashboard.website.submissions.show');
 
+Route::get('download/{account}/submissions/{submission:id}', 'FormController@downloadSubmission')
+    ->name('download.submission');
+
 Route::get('plans', 'PaymentController@showPlans')->name('plans');
 Route::get('plans/{plan}', 'PaymentController@buyPlan')->name('plans.buy');
 Route::get('plans/payment/cancel', 'PaymentController@paymentCancelled')->name('plans.payment.cancelled');

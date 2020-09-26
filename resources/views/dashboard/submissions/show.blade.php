@@ -28,11 +28,10 @@
                         </div>
                         <div class="card-content">
                             <table class="table is-fullwidth is-hoverable">
-                                <thead>
+                                <tbody>
                                     <th>Field Name</th>
                                     <th>Field Value</th>
-                                </thead>
-                                <tbody>
+
                                     @foreach ($submission->data as $key => $value)
                                         <tr>
                                             <td>{{ $key }}</td>
@@ -43,7 +42,7 @@
                             </table>
                         </div>
                         <div class="card-footer">
-                            <a href="#" onclick="stillDev()" class="card-footer-item">
+                            <a href="{{ route('download.submission', [$user->id, $submission->id]) }}" class="card-footer-item" target="_blank">
                                 Download
                             </a>
                         </div>
