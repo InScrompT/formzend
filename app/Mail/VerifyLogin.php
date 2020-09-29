@@ -29,8 +29,10 @@ class VerifyLogin extends Mailable
      */
     public function build()
     {
-        return $this->markdown('emails.auth.verify', [
-            'url' => $this->signedURL
-        ])->subject('[FormZend] Login to your account');
+        return $this->subject('[FormZend] Login to your account')
+            ->replyTo(config('mail.reply.address'), config('mail.reply.name'))
+            ->markdown('emails.auth.verify', [
+                'url' => $this->signedURL
+            ]);
     }
 }
