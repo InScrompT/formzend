@@ -31,12 +31,6 @@
                 </div>
             </div>
 
-{{--            <div class="columns">--}}
-{{--                <div class="column is-8 is-offset-2">--}}
-{{--                    @include('plans.subscription')--}}
-{{--                </div>--}}
-{{--            </div>--}}
-
             <div class="columns">
                 <div class="column is-8 is-offset-2">
                     <div class="mb-4">
