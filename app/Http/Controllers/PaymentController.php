@@ -75,21 +75,19 @@ class PaymentController extends Controller
 
             /**
              * TODO: After payment done chores
-             * - show them a success message
              * - send them an email / invoice
              */
-            return ['payment' => 'DONE'];
+            \Session::flash('success', 'Payment processed. Your account has now been upgraded!');
+            return redirect(route('dashboard'));
         } catch (SignatureVerificationError $e) {
-            // TODO: Implement error page
-            return ['payment' => 'rigged, but I am brilliant'];
+            \Session::flash('error', 'Something happened. Payment did not process!');
+            return redirect(route('dashboard'));
         }
     }
 
     public function paymentCancelled()
     {
-        // TODO: Implement cancelled page
-        return [
-            'cancelled'
-        ];
+        \Session::flash('info', 'The payment was cancelled');
+        return redirect(route('dashboard'));
     }
 }

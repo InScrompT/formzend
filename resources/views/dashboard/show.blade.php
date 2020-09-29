@@ -7,6 +7,42 @@
 
     <section class="section">
         <div class="container">
+            @if(Session::has('info'))
+                <div class="columns">
+                    <div class="column is-offset-3 is-half">
+                        <div class="message is-info">
+                            <div class="message-body">
+                                {{ Session::get('info') }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            @endif
+
+            @if(Session::has('error'))
+                <div class="columns">
+                    <div class="column is-offset-3 is-half">
+                        <div class="message is-danger">
+                            <div class="message-body">
+                                {{ Session::get('error') }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            @endif
+
+            @if(Session::has('success'))
+                <div class="columns">
+                    <div class="column is-offset-3 is-half">
+                        <div class="message is-success">
+                            <div class="message-body">
+                                {{ Session::get('success') }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            @endif
+
             <div class="columns">
                 <div class="column is-offset-3 is-half">
                     <div class="mb-5">
