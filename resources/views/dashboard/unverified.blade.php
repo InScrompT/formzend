@@ -18,22 +18,19 @@
                             Your websites
                         </div>
                         <div class="panel-tabs">
-                            <a href="#" class="is-active">Verified</a>
-                            <a href="{{ route('dashboard.websites.unverified') }}" class="has-text-primary">Unverified</a>
+                            <a href="{{ route('dashboard') }}" class="has-text-primary">Verified</a>
+                            <a href="#" class="is-active">Unverified</a>
                         </div>
 
-                        @foreach ($user->websites->where('verified', true) as $website)
-                            <a href="{{ route('dashboard.website.submissions', [
-                                $user->id,
-                                $website->id
-                            ]) }}" class="panel-block">
-                                <div class="tags has-addons mr-4">
-                                    <div class="tag is-success is-light">Submissions</div>
-                                    <div class="tag">{{ $website->submissions->count() }}</div>
-                                </div>
+                        @forelse($user->websites->where('verified', false) as $website)
+                            <a href="#" class="panel-block">
                                 {{ $website->url }}
                             </a>
-                        @endforeach
+                        @empty
+                            <div class="panel-block">
+                                <span class="has-text-success">Awesome, you don't have any unverified websites</span>
+                            </div>
+                        @endforelse
                     </div>
 
                     <div class="panel">

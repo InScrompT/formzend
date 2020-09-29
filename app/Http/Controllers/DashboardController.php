@@ -19,6 +19,11 @@ class DashboardController extends Controller
         return view('dashboard.show');
     }
 
+    public function unverified()
+    {
+        return view('dashboard.unverified');
+    }
+
     public function listSubmissions(Account $account, Website $website)
     {
         $submissions = Submission::whereWebsiteId($website->id);

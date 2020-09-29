@@ -34,6 +34,8 @@ Route::get('verify/{account}/website/{website:id}', 'WebsiteController@verify')
 
 Route::get('dashboard', 'DashboardController@show')
     ->name('dashboard');
+Route::get('dashboard/unverified', 'DashboardController@unverified')
+    ->name('dashboard.websites.unverified');
 Route::get('dashboard/{account}/website/{website:id}/submissions', 'DashboardController@listSubmissions')
     ->name('dashboard.website.submissions');
 Route::get('dashboard/{account}/website/{website:id}/submissions/{submission:id}', 'DashboardController@showSubmission')
