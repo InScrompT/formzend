@@ -11,7 +11,7 @@
                 <div class="column is-half is-offset-3">
                     <h1 class="title has-text-grey-dark">You're being redirected...</h1>
                     <h2 class="subtitle">
-                        If that didn't happen, <a href="#" class="has-text-primary">click here</a>
+                        If that didn't happen, <a onclick="submitForm()" class="has-text-primary">click here</a>
                     </h2>
                 </div>
             </div>
@@ -27,7 +27,6 @@
         <input type="hidden" name="prefill[email]" value="{{ $user->email }}">
         <input type="hidden" name="callback_url" value="{{ route('plans.payment.done') }}">
         <input type="hidden" name="cancel_url" value="{{ route('plans.payment.cancelled') }}">
-        <button>Submit</button>
     </form>
 
     <script>
