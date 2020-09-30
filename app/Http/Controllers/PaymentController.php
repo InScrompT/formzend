@@ -80,6 +80,14 @@ class PaymentController extends Controller
 
             event(new PaymentProcessed($order));
 
+            // Fixes the bug where user is automatically logged out.
+            // reason TBD.
+            session([
+                'loggedIn' => true,
+                'id' => $order->account->id,
+                'email' => $order->account->email,
+            ]);
+
             \Session::flash('success', 'Payment processed. Your account has now been upgraded!');
             return redirect(route('dashboard'));
         } catch (SignatureVerificationError $e) {
