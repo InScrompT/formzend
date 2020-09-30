@@ -6,6 +6,7 @@ use App\Plan;
 use App\Order;
 use Razorpay\Api\Api;
 use Illuminate\Support\Str;
+use App\Events\PaymentProcessed;
 use Razorpay\Api\Errors\SignatureVerificationError;
 
 class PaymentController extends Controller
@@ -42,7 +43,7 @@ class PaymentController extends Controller
 
         $razorpay = resolve(Api::class)->order->create([
             'receipt' => $order->code,
-            'amount' => intval((intval(Str::replaceFirst('$', '', $plan->amount)) * 73.6) * 100),
+            'amount' => intval(($plan->amount * 73.6) * 100),
             'currency' => 'INR',
             'notes' => [
                 'email' => session('email')
@@ -64,6 +65,8 @@ class PaymentController extends Controller
 
             $order = Order::whereRazorpayOrderId(request('razorpay_order_id'))->firstOrFail();
 
+            $order->load(['account', 'plan']);
+
             $order->razorpay_payment_id = request('razorpay_payment_id');
             $order->completed = true;
 
@@ -73,10 +76,10 @@ class PaymentController extends Controller
             $order->saveOrFail();
             $order->account->saveOrFail();
 
-            /**
-             * TODO: After payment done chores
-             * - send them an email / invoice
-             */
+            $order->refresh();
+
+            event(new PaymentProcessed($order));
+
             \Session::flash('success', 'Payment processed. Your account has now been upgraded!');
             return redirect(route('dashboard'));
         } catch (SignatureVerificationError $e) {
