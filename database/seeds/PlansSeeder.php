@@ -33,7 +33,7 @@ class PlansSeeder extends Seeder
         $plan = new Plan();
 
         $plan->amount = 2;
-        $plan->quantity = 2000;
+        $plan->quantity = 1000;
         $plan->name = 'Budding';
 
         $plan->save();
