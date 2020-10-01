@@ -17,6 +17,7 @@ Route::view('/', 'welcome')->name('home');
 Route::view('privacy', 'privacy')->name('privacy');
 Route::view('terms', 'terms')->name('terms');
 Route::view('contact', 'contact')->name('contact');
+Route::view('refund', 'refund')->name('refund');
 
 Route::get('auth/login', 'AuthController@showLogin')
     ->middleware('guest')
