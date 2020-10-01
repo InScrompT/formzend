@@ -18,6 +18,7 @@ Route::view('/', 'welcome')->name('home');
 Route::view('/contact', 'contact')->name('contact');
 Route::view('/privacy', 'privacy')->name('privacy');
 Route::view('/terms', 'terms')->name('terms');
+Route::view('/refund', 'refund')->name('refund');
 
 Route::get('/verify/{account}/website/{website:id}', 'WebsiteController@verify')
     ->middleware('signed')
