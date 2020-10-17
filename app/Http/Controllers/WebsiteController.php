@@ -9,6 +9,11 @@ use App\Website;
 
 class WebsiteController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth')->only('resendVerification');
+    }
+
     public function verify(Account $account, Website $website)
     {
         ProcessVerifyWebsite::dispatch($website);

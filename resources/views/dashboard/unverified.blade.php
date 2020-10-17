@@ -23,9 +23,12 @@
                         </div>
 
                         @forelse($user->websites->where('verified', false) as $website)
-                            <a href="#" class="panel-block">
+                            <div class="panel-block">
+                                <a href="{{ route('website.verify.resend', [$user, $website]) }}"
+                                   class="button is-small is-outlined is-primary mr-5">Verify Now</a>
+
                                 {{ $website->url }}
-                            </a>
+                            </div>
                         @empty
                             <div class="panel-block">
                                 <span class="has-text-success">Awesome, you don't have any unverified websites</span>
@@ -37,7 +40,7 @@
                         <div class="panel-heading">Summary</div>
                         <div class="panel-block">
                             <p>
-                                You've recieved <b>{{ $user->recieved }}</b> submissions and can recieve
+                                You've received <b>{{ $user->recieved }}</b> submissions and can receive
                                 <b>{{ $user->allowed }}</b> more submissions.
                                 <br>
                                 Need more? Buy credits 😉
