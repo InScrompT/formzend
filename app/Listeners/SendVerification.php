@@ -2,9 +2,9 @@
 
 namespace App\Listeners;
 
+use Mail;
 use App\Events\NewWebsite;
 use App\Mail\VerifyWebsite;
-use Mail;
 
 class SendVerification
 {
@@ -21,7 +21,7 @@ class SendVerification
     /**
      * Handle the event.
      *
-     * @param  NewWebsite  $event
+     * @param NewWebsite $event
      * @return void
      */
     public function handle(NewWebsite $event)

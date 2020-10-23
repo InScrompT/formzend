@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Account;
-use App\Jobs\ProcessVerifyWebsite;
-use App\Mail\VerifyWebsite;
 use App\Website;
+use App\Mail\VerifyWebsite;
+use App\Jobs\ProcessVerifyWebsite;
 
 class WebsiteController extends Controller
 {
