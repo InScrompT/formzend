@@ -34,7 +34,7 @@ class WebsiteController extends Controller
     public function resendVerification(Account $account, Website $website)
     {
         \Mail::to($account->email)
-            ->send(new VerifyWebsite($website));
+            ->queue(new VerifyWebsite($website));
 
         return view('website.verify')->with([
             'url' => $website->url,
