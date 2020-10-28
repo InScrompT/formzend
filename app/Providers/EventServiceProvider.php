@@ -31,6 +31,9 @@ class EventServiceProvider extends ServiceProvider
         \App\Events\PaymentProcessed::class => [
             \App\Listeners\SendPaymentInvoice::class,
         ],
+        \App\Events\CreditsExhausted::class => [
+            \App\Listeners\SendCreditsExhausted::class,
+        ],
     ];
 
     /**
