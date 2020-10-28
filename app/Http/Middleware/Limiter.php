@@ -4,6 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 use App\Account;
+use App\Events\CreditsExhausted;
 
 class Limiter
 {
@@ -17,12 +18,13 @@ class Limiter
     public function handle($request, Closure $next)
     {
         $allowed = Account::whereEmail($request->route('email'))
-            ->first()
-            ->allowed;
+            ->firstOrFail();
 
-        if ($allowed) {
+        if ($allowed->allowed) {
             return $next($request);
         }
+
+        event(new CreditsExhausted($allowed));
 
         return response()->view('website.error', [
             'title' => 'Credits Exhausted',
