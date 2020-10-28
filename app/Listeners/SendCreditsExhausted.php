@@ -2,8 +2,10 @@
 
 namespace App\Listeners;
 
+use App\Account;
 use App\Activity;
 use App\Enums\ActivityType;
+use App\Mail\CreditExhausted;
 use App\Events\CreditsExhausted;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
@@ -34,7 +36,7 @@ class SendCreditsExhausted implements ShouldQueue
             ->first();
 
         if (is_null($activityCheck)) {
-            $this->sendNotification();
+            $this->sendNotification($event->account);
 
             Activity::create([
                 'account_id' => $event->account->id,
@@ -44,7 +46,7 @@ class SendCreditsExhausted implements ShouldQueue
 
         if ($activityCheck->created_at->diffInHours(now()) > 48) {
             $activityCheck->delete();
-            $this->sendNotification();
+            $this->sendNotification($event->account);
 
             Activity::create([
                 'account_id' => $event->account->id,
@@ -53,8 +55,9 @@ class SendCreditsExhausted implements ShouldQueue
         }
     }
 
-    private function sendNotification()
+    private function sendNotification(Account $account)
     {
-        //
+        \Mail::to($account->email)
+            ->send(new CreditExhausted($account));
     }
 }
