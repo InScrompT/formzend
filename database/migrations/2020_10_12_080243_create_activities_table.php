@@ -15,9 +15,9 @@ class CreateActivitiesTable extends Migration
     {
         Schema::create('activities', function (Blueprint $table) {
             $table->id();
-            $table->id('account_id');
-            $table->id('website_id')->nullable();
-            $table->id('type');
+            $table->integer('account_id');
+            $table->integer('website_id')->nullable();
+            $table->tinyInteger('type');
             $table->timestamps();
         });
     }
