@@ -30,7 +30,7 @@ class SendPaymentInvoice implements ShouldQueue
                 $event->order->plan->amount,
                 $event->order->plan->quantity,
                 $event->order->account->allowed,
-                $event->order->code,
+                $event->order->code
             ));
     }
 }
