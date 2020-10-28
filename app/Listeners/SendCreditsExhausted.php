@@ -25,7 +25,6 @@ class SendCreditsExhausted implements ShouldQueue
      * Handle the event.
      *
      * @param CreditsExhausted $event
-     * @return void
      * @throws \Exception
      */
     public function handle(CreditsExhausted $event)
@@ -38,7 +37,7 @@ class SendCreditsExhausted implements ShouldQueue
         if (is_null($activityCheck)) {
             $this->sendNotification($event->account);
 
-            Activity::create([
+            return Activity::create([
                 'account_id' => $event->account->id,
                 'type' => ActivityType::CreditExhausted
             ]);
@@ -48,11 +47,14 @@ class SendCreditsExhausted implements ShouldQueue
             $activityCheck->delete();
             $this->sendNotification($event->account);
 
-            Activity::create([
+            return Activity::create([
                 'account_id' => $event->account->id,
                 'type' => ActivityType::CreditExhausted
             ]);
         }
+
+        // Do nothing if we've sent a notification in the past 48 hours
+        return null;
     }
 
     private function sendNotification(Account $account)

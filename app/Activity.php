@@ -34,6 +34,10 @@ class Activity extends Model
         'type' => ActivityType::class,
     ];
 
+    protected $fillable = [
+        'account_id', 'website_id', 'type'
+    ];
+
     public function account()
     {
         return $this->belongsTo(Account::class);
