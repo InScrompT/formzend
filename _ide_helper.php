@@ -3,7 +3,7 @@
 
 /**
  * A helper file for Laravel, to provide autocomplete information to your IDE
- * Generated for Laravel 7.28.3.
+ * Generated for Laravel 8.11.2.
  *
  * This file should not be included in your code, only analyzed by your IDE!
  *
@@ -1828,6 +1828,8 @@
         }
                     /**
          * Log the user out of the application on their current device only.
+         * 
+         * This method does not cycle the "remember" token.
          *
          * @return void 
          * @static 
@@ -2271,6 +2273,30 @@
                         return $instance->getClassComponentAliases();
         }
                     /**
+         * Register a class-based component namespace.
+         *
+         * @param string $namespace
+         * @param string $prefix
+         * @return void 
+         * @static 
+         */ 
+        public static function componentNamespace($namespace, $prefix)
+        {
+                        /** @var \Illuminate\View\Compilers\BladeCompiler $instance */
+                        $instance->componentNamespace($namespace, $prefix);
+        }
+                    /**
+         * Get the registered class component namespaces.
+         *
+         * @return array 
+         * @static 
+         */ 
+        public static function getClassComponentNamespaces()
+        {
+                        /** @var \Illuminate\View\Compilers\BladeCompiler $instance */
+                        return $instance->getClassComponentNamespaces();
+        }
+                    /**
          * Register a component alias directive.
          *
          * @param string $path
@@ -2523,7 +2549,7 @@
          * Begin broadcasting an event.
          *
          * @param mixed|null $event
-         * @return \Illuminate\Broadcasting\PendingBroadcast|void 
+         * @return \Illuminate\Broadcasting\PendingBroadcast 
          * @static 
          */ 
         public static function event($event = null)
@@ -2591,6 +2617,18 @@
                         $instance->setDefaultDriver($name);
         }
                     /**
+         * Disconnect the given disk and remove from local cache.
+         *
+         * @param string|null $name
+         * @return void 
+         * @static 
+         */ 
+        public static function purge($name = null)
+        {
+                        /** @var \Illuminate\Broadcasting\BroadcastManager $instance */
+                        $instance->purge($name);
+        }
+                    /**
          * Register a custom driver creator Closure.
          *
          * @param string $driver
@@ -2625,6 +2663,21 @@
         }
                     /**
          * Dispatch a command to its appropriate handler in the current process.
+         * 
+         * Queuable jobs will be dispatched to the "sync" queue.
+         *
+         * @param mixed $command
+         * @param mixed $handler
+         * @return mixed 
+         * @static 
+         */ 
+        public static function dispatchSync($command, $handler = null)
+        {
+                        /** @var \Illuminate\Bus\Dispatcher $instance */
+                        return $instance->dispatchSync($command, $handler);
+        }
+                    /**
+         * Dispatch a command to its appropriate handler in the current process without using the synchronous queue.
          *
          * @param mixed $command
          * @param mixed $handler
@@ -2635,6 +2688,42 @@
         {
                         /** @var \Illuminate\Bus\Dispatcher $instance */
                         return $instance->dispatchNow($command, $handler);
+        }
+                    /**
+         * Attempt to find the batch with the given ID.
+         *
+         * @param string $batchId
+         * @return \Illuminate\Bus\Batch|null 
+         * @static 
+         */ 
+        public static function findBatch($batchId)
+        {
+                        /** @var \Illuminate\Bus\Dispatcher $instance */
+                        return $instance->findBatch($batchId);
+        }
+                    /**
+         * Create a new batch of queueable jobs.
+         *
+         * @param \Illuminate\Support\Collection|array|mixed $jobs
+         * @return \Illuminate\Bus\PendingBatch 
+         * @static 
+         */ 
+        public static function batch($jobs)
+        {
+                        /** @var \Illuminate\Bus\Dispatcher $instance */
+                        return $instance->batch($jobs);
+        }
+                    /**
+         * Create a new chain of queueable jobs.
+         *
+         * @param \Illuminate\Support\Collection|array $jobs
+         * @return \Illuminate\Foundation\Bus\PendingChain 
+         * @static 
+         */ 
+        public static function chain($jobs)
+        {
+                        /** @var \Illuminate\Bus\Dispatcher $instance */
+                        return $instance->chain($jobs);
         }
                     /**
          * Determine if the given command has a handler.
@@ -2788,6 +2877,18 @@
                         $instance->assertNotDispatchedAfterResponse($command, $callback);
         }
                     /**
+         * Assert if a batch was dispatched based on a truth-test callback.
+         *
+         * @param callable $callback
+         * @return void 
+         * @static 
+         */ 
+        public static function assertBatched($callback)
+        {
+                        /** @var \Illuminate\Support\Testing\Fakes\BusFake $instance */
+                        $instance->assertBatched($callback);
+        }
+                    /**
          * Get all of the jobs matching a truth-test callback.
          *
          * @param string $command
@@ -2814,6 +2915,18 @@
                         return $instance->dispatchedAfterResponse($command, $callback);
         }
                     /**
+         * Get all of the pending batches matching a truth-test callback.
+         *
+         * @param callable $callback
+         * @return \Illuminate\Support\Collection 
+         * @static 
+         */ 
+        public static function batched($callback)
+        {
+                        /** @var \Illuminate\Support\Testing\Fakes\BusFake $instance */
+                        return $instance->batched($callback);
+        }
+                    /**
          * Determine if there are any stored commands for a given class.
          *
          * @param string $command
@@ -2836,6 +2949,18 @@
         {
                         /** @var \Illuminate\Support\Testing\Fakes\BusFake $instance */
                         return $instance->hasDispatchedAfterResponse($command);
+        }
+                    /**
+         * Record the fake pending batch dispatch.
+         *
+         * @param \Illuminate\Bus\PendingBatch $pendingBatch
+         * @return \Illuminate\Bus\Batch 
+         * @static 
+         */ 
+        public static function recordPendingBatch($pendingBatch)
+        {
+                        /** @var \Illuminate\Support\Testing\Fakes\BusFake $instance */
+                        return $instance->recordPendingBatch($pendingBatch);
         }
          
     }
@@ -2929,6 +3054,18 @@
         {
                         /** @var \Illuminate\Cache\CacheManager $instance */
                         return $instance->forgetDriver($name);
+        }
+                    /**
+         * Disconnect the given driver and remove from local cache.
+         *
+         * @param string|null $name
+         * @return void 
+         * @static 
+         */ 
+        public static function purge($name = null)
+        {
+                        /** @var \Illuminate\Cache\CacheManager $instance */
+                        $instance->purge($name);
         }
                     /**
          * Register a custom driver creator Closure.
@@ -3243,6 +3380,17 @@
         {
                         /** @var \Illuminate\Cache\Repository $instance */
                         return $instance->tags($names);
+        }
+                    /**
+         * Determine if the current store supports tags.
+         *
+         * @return bool 
+         * @static 
+         */ 
+        public static function supportsTags()
+        {
+                        /** @var \Illuminate\Cache\Repository $instance */
+                        return $instance->supportsTags();
         }
                     /**
          * Get the default cache time.
@@ -4022,6 +4170,19 @@
                         return $instance->getSchemaBuilder();
         }
                     /**
+         * Get the schema state for the connection.
+         *
+         * @param \Illuminate\Filesystem\Filesystem|null $files
+         * @param callable|null $processFactory
+         * @throws \RuntimeException
+         * @static 
+         */ 
+        public static function getSchemaState($files = null, $processFactory = null)
+        {
+                        /** @var \Illuminate\Database\SQLiteConnection $instance */
+                        return $instance->getSchemaState($files, $processFactory);
+        }
+                    /**
          * Set the query grammar to the default implementation.
          *
          * @return void 
@@ -4768,12 +4929,12 @@
                     /**
          * Register an event listener with the dispatcher.
          *
-         * @param string|array $events
-         * @param \Closure|string $listener
+         * @param \Closure|string|array $events
+         * @param \Closure|string|null $listener
          * @return void 
          * @static 
          */ 
-        public static function listen($events, $listener)
+        public static function listen($events, $listener = null)
         {
                         /** @var \Illuminate\Events\Dispatcher $instance */
                         $instance->listen($events, $listener);
@@ -5101,26 +5262,41 @@
          * Get the returned value of a file.
          *
          * @param string $path
+         * @param array $data
          * @return mixed 
          * @throws \Illuminate\Contracts\Filesystem\FileNotFoundException
          * @static 
          */ 
-        public static function getRequire($path)
+        public static function getRequire($path, $data = [])
         {
                         /** @var \Illuminate\Filesystem\Filesystem $instance */
-                        return $instance->getRequire($path);
+                        return $instance->getRequire($path, $data);
         }
                     /**
          * Require the given file once.
          *
-         * @param string $file
+         * @param string $path
+         * @param array $data
          * @return mixed 
          * @static 
          */ 
-        public static function requireOnce($file)
+        public static function requireOnce($path, $data = [])
         {
                         /** @var \Illuminate\Filesystem\Filesystem $instance */
-                        return $instance->requireOnce($file);
+                        return $instance->requireOnce($path, $data);
+        }
+                    /**
+         * Get the contents of a file one line at a time.
+         *
+         * @param string $path
+         * @return \Illuminate\Support\LazyCollection 
+         * @throws \Illuminate\Contracts\Filesystem\FileNotFoundException
+         * @static 
+         */ 
+        public static function lines($path)
+        {
+                        /** @var \Illuminate\Filesystem\Filesystem $instance */
+                        return $instance->lines($path);
         }
                     /**
          * Get the MD5 hash of the file at the given path.
@@ -5250,6 +5426,19 @@
         {
                         /** @var \Illuminate\Filesystem\Filesystem $instance */
                         $instance->link($target, $link);
+        }
+                    /**
+         * Create a relative symlink to the target file or directory.
+         *
+         * @param string $target
+         * @param string $link
+         * @return void 
+         * @static 
+         */ 
+        public static function relativeLink($target, $link)
+        {
+                        /** @var \Illuminate\Filesystem\Filesystem $instance */
+                        $instance->relativeLink($target, $link);
         }
                     /**
          * Extract the file name from a file path.
@@ -6170,7 +6359,7 @@
          * @return \Illuminate\Support\Collection 
          * @static 
          */ 
-        public static function recorded($callback)
+        public static function recorded($callback = null)
         {
                         /** @var \Illuminate\Http\Client\Factory $instance */
                         return $instance->recorded($callback);
@@ -6512,6 +6701,8 @@
             /**
      * 
      *
+     * @method static void write(string $level, string $message, array $context = [])
+     * @method static void listen(\Closure $callback)
      * @see \Illuminate\Log\Logger
      */ 
         class Log {
@@ -6745,6 +6936,10 @@
             /**
      * 
      *
+     * @method static mixed laterOn(string $queue, \DateTimeInterface|\DateInterval|int $delay, \Illuminate\Contracts\Mail\Mailable|string|array $view)
+     * @method static mixed queueOn(string $queue, \Illuminate\Contracts\Mail\Mailable|string|array $view)
+     * @method static void plain(string $view, array $data, $callback)
+     * @method static void html(string $html, $callback)
      * @see \Illuminate\Mail\Mailer
      * @see \Illuminate\Support\Testing\Fakes\MailFake
      */ 
@@ -6807,6 +7002,18 @@
         {
                         /** @var \Illuminate\Mail\MailManager $instance */
                         $instance->setDefaultDriver($name);
+        }
+                    /**
+         * Disconnect the given mailer and remove from local cache.
+         *
+         * @param string|null $name
+         * @return void 
+         * @static 
+         */ 
+        public static function purge($name = null)
+        {
+                        /** @var \Illuminate\Mail\MailManager $instance */
+                        $instance->purge($name);
         }
                     /**
          * Register a custom transport creator Closure.
@@ -7350,6 +7557,7 @@
             /**
      * 
      *
+     * @method static void popUsing(string $workerName, callable $callback)
      * @see \Illuminate\Queue\QueueManager
      * @see \Illuminate\Queue\Queue
      */ 
@@ -7787,6 +7995,32 @@
                         $instance->deleteReserved($queue, $id);
         }
                     /**
+         * Delete a reserved job from the reserved queue and release it.
+         *
+         * @param string $queue
+         * @param \Illuminate\Queue\Jobs\DatabaseJob $job
+         * @param int $delay
+         * @return void 
+         * @static 
+         */ 
+        public static function deleteAndRelease($queue, $job, $delay)
+        {
+                        /** @var \Illuminate\Queue\DatabaseQueue $instance */
+                        $instance->deleteAndRelease($queue, $job, $delay);
+        }
+                    /**
+         * Delete all of the jobs from the queue.
+         *
+         * @param string $queue
+         * @return int 
+         * @static 
+         */ 
+        public static function clear($queue)
+        {
+                        /** @var \Illuminate\Queue\DatabaseQueue $instance */
+                        return $instance->clear($queue);
+        }
+                    /**
          * Get the queue or return the default.
          *
          * @param string|null $queue
@@ -7810,16 +8044,16 @@
                         return $instance->getDatabase();
         }
                     /**
-         * Get the retry delay for an object-based queue handler.
+         * Get the backoff for an object-based queue handler.
          *
          * @param mixed $job
          * @return mixed 
          * @static 
          */ 
-        public static function getJobRetryDelay($job)
+        public static function getJobBackoff($job)
         {            //Method inherited from \Illuminate\Queue\Queue         
                         /** @var \Illuminate\Queue\DatabaseQueue $instance */
-                        return $instance->getJobRetryDelay($job);
+                        return $instance->getJobBackoff($job);
         }
                     /**
          * Get the expiration timestamp for an object-based queue handler.
@@ -8189,6 +8423,18 @@
         {
                         /** @var \Illuminate\Redis\RedisManager $instance */
                         $instance->setDriver($driver);
+        }
+                    /**
+         * Disconnect the given connection and remove from local cache.
+         *
+         * @param string|null $name
+         * @return void 
+         * @static 
+         */ 
+        public static function purge($name = null)
+        {
+                        /** @var \Illuminate\Redis\RedisManager $instance */
+                        $instance->purge($name);
         }
                     /**
          * Register a custom driver creator Closure.
@@ -10186,6 +10432,15 @@
         {
                         return \Illuminate\Http\Request::hasValidSignature($absolute);
         }
+                    /**
+         * 
+         *
+         * @static 
+         */ 
+        public static function hasValidRelativeSignature()
+        {
+                        return \Illuminate\Http\Request::hasValidRelativeSignature();
+        }
          
     }
             /**
@@ -10586,13 +10841,15 @@
          * @param string $uri
          * @param string $view
          * @param array $data
+         * @param int|array $status
+         * @param array $headers
          * @return \Illuminate\Routing\Route 
          * @static 
          */ 
-        public static function view($uri, $view, $data = [])
+        public static function view($uri, $view, $data = [], $status = 200, $headers = [])
         {
                         /** @var \Illuminate\Routing\Router $instance */
-                        return $instance->view($uri, $view, $data);
+                        return $instance->view($uri, $view, $data, $status, $headers);
         }
                     /**
          * Register a new route with the given verbs.
@@ -11225,6 +11482,17 @@
                         $instance->setCompiledRoutes($routes);
         }
                     /**
+         * Remove any duplicate middleware from the given array.
+         *
+         * @param array $middleware
+         * @return array 
+         * @static 
+         */ 
+        public static function uniqueMiddleware($middleware)
+        {
+                        return \Illuminate\Routing\Router::uniqueMiddleware($middleware);
+        }
+                    /**
          * Register a custom macro.
          *
          * @param string $name
@@ -11325,6 +11593,27 @@
         public static function defaultStringLength($length)
         {            //Method inherited from \Illuminate\Database\Schema\Builder         
                         \Illuminate\Database\Schema\SQLiteBuilder::defaultStringLength($length);
+        }
+                    /**
+         * Set the default morph key type for migrations.
+         *
+         * @param string $type
+         * @return void 
+         * @static 
+         */ 
+        public static function defaultMorphKeyType($type)
+        {            //Method inherited from \Illuminate\Database\Schema\Builder         
+                        \Illuminate\Database\Schema\SQLiteBuilder::defaultMorphKeyType($type);
+        }
+                    /**
+         * Set the default morph key type for migrations to UUIDs.
+         *
+         * @return void 
+         * @static 
+         */ 
+        public static function morphUsingUuids()
+        {            //Method inherited from \Illuminate\Database\Schema\Builder         
+                        \Illuminate\Database\Schema\SQLiteBuilder::morphUsingUuids();
         }
                     /**
          * Determine if the given table exists.
@@ -11438,6 +11727,19 @@
         {            //Method inherited from \Illuminate\Database\Schema\Builder         
                         /** @var \Illuminate\Database\Schema\SQLiteBuilder $instance */
                         $instance->dropIfExists($table);
+        }
+                    /**
+         * Drop columns from a table schema.
+         *
+         * @param string $table
+         * @param string|array $columns
+         * @return void 
+         * @static 
+         */ 
+        public static function dropColumns($table, $columns)
+        {            //Method inherited from \Illuminate\Database\Schema\Builder         
+                        /** @var \Illuminate\Database\Schema\SQLiteBuilder $instance */
+                        $instance->dropColumns($table, $columns);
         }
                     /**
          * Drop all types from the database.
@@ -12117,6 +12419,17 @@
                         $instance->setPreviousUrl($url);
         }
                     /**
+         * Specify that the user has confirmed their password.
+         *
+         * @return void 
+         * @static 
+         */ 
+        public static function passwordConfirmed()
+        {
+                        /** @var \Illuminate\Session\Store $instance */
+                        $instance->passwordConfirmed();
+        }
+                    /**
          * Get the underlying session handler implementation.
          *
          * @return \SessionHandlerInterface 
@@ -12287,6 +12600,18 @@
         {
                         /** @var \Illuminate\Filesystem\FilesystemManager $instance */
                         return $instance->forgetDisk($disk);
+        }
+                    /**
+         * Disconnect the given disk and remove from local cache.
+         *
+         * @param string|null $name
+         * @return void 
+         * @static 
+         */ 
+        public static function purge($name = null)
+        {
+                        /** @var \Illuminate\Filesystem\FilesystemManager $instance */
+                        $instance->purge($name);
         }
                     /**
          * Register a custom driver creator Closure.
@@ -12867,7 +13192,7 @@
          * Create a signed route URL for a named route.
          *
          * @param string $name
-         * @param array $parameters
+         * @param mixed $parameters
          * @param \DateTimeInterface|\DateInterval|int|null $expiration
          * @param bool $absolute
          * @return string 
@@ -12906,6 +13231,18 @@
         {
                         /** @var \Illuminate\Routing\UrlGenerator $instance */
                         return $instance->hasValidSignature($request, $absolute);
+        }
+                    /**
+         * Determine if the given request has a valid signature for a relative URL.
+         *
+         * @param \Illuminate\Http\Request $request
+         * @return bool 
+         * @static 
+         */ 
+        public static function hasValidRelativeSignature($request)
+        {
+                        /** @var \Illuminate\Routing\UrlGenerator $instance */
+                        return $instance->hasValidRelativeSignature($request);
         }
                     /**
          * Determine if the signature from the given request matches the URL.
@@ -13785,7 +14122,7 @@
                     /**
          * Start a component rendering process.
          *
-         * @param \Illuminate\View\View|\Closure|string $view
+         * @param \Illuminate\Contracts\View\View|\Illuminate\Contracts\Support\Htmlable|\Closure|string $view
          * @param array $data
          * @return void 
          * @static 
@@ -15043,6 +15380,15 @@
         {
                         return \Illuminate\Http\Request::hasValidSignature($absolute);
         }
+                    /**
+         * 
+         *
+         * @static 
+         */ 
+        public static function hasValidRelativeSignature()
+        {
+                        return \Illuminate\Http\Request::hasValidRelativeSignature();
+        }
          
     }
      
@@ -15157,7 +15503,7 @@ namespace  {
                 /**
              * Add a basic where clause to the query.
              *
-             * @param \Closure|string|array $column
+             * @param \Closure|string|array|\Illuminate\Database\Query\Expression $column
              * @param mixed $operator
              * @param mixed $value
              * @param string $boolean
@@ -15173,7 +15519,7 @@ namespace  {
                 /**
              * Add a basic where clause to the query, and return the first result.
              *
-             * @param \Closure|string|array $column
+             * @param \Closure|string|array|\Illuminate\Database\Query\Expression $column
              * @param mixed $operator
              * @param mixed $value
              * @param string $boolean
@@ -15189,7 +15535,7 @@ namespace  {
                 /**
              * Add an "or where" clause to the query.
              *
-             * @param \Closure|array|string $column
+             * @param \Closure|array|string|\Illuminate\Database\Query\Expression $column
              * @param mixed $operator
              * @param mixed $value
              * @return \Illuminate\Database\Eloquent\Builder|static 
@@ -15204,7 +15550,7 @@ namespace  {
                 /**
              * Add an "order by" clause for a timestamp to the query.
              *
-             * @param string $column
+             * @param string|\Illuminate\Database\Query\Expression $column
              * @return \Illuminate\Database\Eloquent\Builder|static 
              * @static 
              */ 
@@ -15217,7 +15563,7 @@ namespace  {
                 /**
              * Add an "order by" clause for a timestamp to the query.
              *
-             * @param string $column
+             * @param string|\Illuminate\Database\Query\Expression $column
              * @return \Illuminate\Database\Eloquent\Builder|static 
              * @static 
              */ 
@@ -15333,7 +15679,7 @@ namespace  {
              * @return \Illuminate\Database\Eloquent\Model|static 
              * @static 
              */ 
-            public static function firstOrCreate($attributes, $values = [])
+            public static function firstOrCreate($attributes = [], $values = [])
             {
                                 /** @var \Illuminate\Database\Eloquent\Builder $instance */
                                 return $instance->firstOrCreate($attributes, $values);
@@ -15384,7 +15730,7 @@ namespace  {
                 /**
              * Get a single column's value from the first result of a query.
              *
-             * @param string $column
+             * @param string|\Illuminate\Database\Query\Expression $column
              * @return mixed 
              * @static 
              */ 
@@ -15448,7 +15794,7 @@ namespace  {
                 /**
              * Get an array with the values of a given column.
              *
-             * @param string $column
+             * @param string|\Illuminate\Database\Query\Expression $column
              * @param string|null $key
              * @return \Illuminate\Support\Collection 
              * @static 
@@ -15516,6 +15862,21 @@ namespace  {
             {
                                 /** @var \Illuminate\Database\Eloquent\Builder $instance */
                                 return $instance->forceCreate($attributes);
+            }
+             
+                /**
+             * Insert new records or update the existing ones.
+             *
+             * @param array $values
+             * @param array|string $uniqueBy
+             * @param array|null $update
+             * @return int 
+             * @static 
+             */ 
+            public static function upsert($values, $uniqueBy, $update = null)
+            {
+                                /** @var \Illuminate\Database\Eloquent\Builder $instance */
+                                return $instance->upsert($values, $uniqueBy, $update);
             }
              
                 /**
@@ -16403,6 +16764,20 @@ namespace  {
             }
              
                 /**
+             * Add a subquery cross join to the query.
+             *
+             * @param \Closure|\Illuminate\Database\Query\Builder|string $query
+             * @param string $as
+             * @return \Illuminate\Database\Query\Builder 
+             * @static 
+             */ 
+            public static function crossJoinSub($query, $as)
+            {
+                                /** @var \Illuminate\Database\Query\Builder $instance */
+                                return $instance->crossJoinSub($query, $as);
+            }
+             
+                /**
              * Merge an array of where clauses and bindings.
              *
              * @param array $wheres
@@ -16655,7 +17030,7 @@ namespace  {
                 /**
              * Add a where between statement to the query.
              *
-             * @param string $column
+             * @param string|\Illuminate\Database\Query\Expression $column
              * @param array $values
              * @param string $boolean
              * @param bool $not
@@ -17713,7 +18088,7 @@ namespace  {
             }
              
                 /**
-             * Insert a new record into the database.
+             * Insert new records into the database.
              *
              * @param array $values
              * @return bool 
@@ -17726,7 +18101,7 @@ namespace  {
             }
              
                 /**
-             * Insert a new record into the database while ignoring errors.
+             * Insert new records into the database while ignoring errors.
              *
              * @param array $values
              * @return int 
@@ -17873,6 +18248,19 @@ namespace  {
             }
              
                 /**
+             * Remove all of the expressions from a list of bindings.
+             *
+             * @param array $bindings
+             * @return array 
+             * @static 
+             */ 
+            public static function cleanBindings($bindings)
+            {
+                                /** @var \Illuminate\Database\Query\Builder $instance */
+                                return $instance->cleanBindings($bindings);
+            }
+             
+                /**
              * Get the database query processor instance.
              *
              * @return \Illuminate\Database\Query\Processors\Processor 
@@ -17906,6 +18294,18 @@ namespace  {
             {
                                 /** @var \Illuminate\Database\Query\Builder $instance */
                                 return $instance->useWritePdo();
+            }
+             
+                /**
+             * Clone the query.
+             *
+             * @return static 
+             * @static 
+             */ 
+            public static function clone()
+            {
+                                /** @var \Illuminate\Database\Query\Builder $instance */
+                                return $instance->clone();
             }
              
                 /**
