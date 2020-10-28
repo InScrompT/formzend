@@ -43,8 +43,8 @@ class PaymentController extends Controller
 
         $razorpay = resolve(Api::class)->order->create([
             'receipt' => $order->code,
-            'amount' => intval(($plan->amount * 73.6) * 100),
-            'currency' => 'INR',
+            'amount' => intval($plan->amount * 100),
+            'currency' => 'USD',
             'notes' => [
                 'email' => session('email')
             ]
@@ -60,10 +60,27 @@ class PaymentController extends Controller
 
     public function paymentCallback()
     {
-        try {
-            resolve(Api::class)->utility->verifyPaymentSignature(request()->all());
+        $errorMeta = request()->exists('error')
+            ? json_decode(request('error.metadata')) : null;
+        $razorpayOrderID = request('razorpay_order_id') ?? $errorMeta->order_id;
 
-            $order = Order::whereRazorpayOrderId(request('razorpay_order_id'))->firstOrFail();
+        try {
+            $order = Order::whereRazorpayOrderId($razorpayOrderID)->firstOrFail();
+
+            // Fixes the bug where user is automatically logged out.
+            // reason TBD.
+            session([
+                'loggedIn' => true,
+                'id' => $order->account->id,
+                'email' => $order->account->email,
+            ]);
+
+            if (request()->exists('error')) {
+                session()->flash('error', 'Payment was rejected. Please try again!');
+                return redirect()->route('dashboard');
+            }
+
+            resolve(Api::class)->utility->verifyPaymentSignature(request()->all());
 
             $order->load(['account', 'plan']);
 
@@ -80,25 +97,17 @@ class PaymentController extends Controller
 
             event(new PaymentProcessed($order));
 
-            // Fixes the bug where user is automatically logged out.
-            // reason TBD.
-            session([
-                'loggedIn' => true,
-                'id' => $order->account->id,
-                'email' => $order->account->email,
-            ]);
-
-            \Session::flash('success', 'Payment processed. Your account has now been upgraded!');
-            return redirect(route('dashboard'));
+            session()->flash('success', 'Payment processed. Your account has now been upgraded!');
+            return redirect()->route('dashboard');
         } catch (SignatureVerificationError $e) {
-            \Session::flash('error', 'Something happened. Payment did not process!');
-            return redirect(route('dashboard'));
+            session()->flash('error', 'Something happened. Payment did not process!');
+            return redirect()->route('dashboard');
         }
     }
 
     public function paymentCancelled()
     {
-        \Session::flash('info', 'The payment was cancelled');
-        return redirect(route('dashboard'));
+        session()->flash('info', 'The payment was cancelled');
+        return redirect()->route('dashboard');
     }
 }

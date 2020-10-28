@@ -2,12 +2,13 @@
 
 namespace App\Listeners;
 
-use App\Account;
-use App\Events\LoginRequest;
-use App\Mail\VerifyLogin;
 use Mail;
+use App\Account;
+use App\Mail\VerifyLogin;
+use App\Events\LoginRequest;
+use Illuminate\Contracts\Queue\ShouldQueue;
 
-class SendLoginVerification
+class SendLoginVerification implements ShouldQueue
 {
     /**
      * Create the event listener.
@@ -22,7 +23,7 @@ class SendLoginVerification
     /**
      * Handle the event.
      *
-     * @param  LoginRequest  $event
+     * @param LoginRequest $event
      * @return void
      */
     public function handle(LoginRequest $event)

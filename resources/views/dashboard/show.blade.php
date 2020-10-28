@@ -58,7 +58,7 @@
                             <a href="{{ route('dashboard.websites.unverified') }}" class="has-text-primary">Unverified</a>
                         </div>
 
-                        @foreach ($user->websites->where('verified', true) as $website)
+                        @forelse ($user->websites->where('verified', true) as $website)
                             <a href="{{ route('dashboard.website.submissions', [
                                 $user->id,
                                 $website->id
@@ -69,7 +69,13 @@
                                 </div>
                                 {{ $website->url }}
                             </a>
-                        @endforeach
+                        @empty
+                            <div class="panel-block">
+                                <p class="has-text-danger">
+                                    You don't have any verified websites.
+                                </p>
+                            </div>
+                        @endforelse
                     </div>
 
                     <div class="panel">

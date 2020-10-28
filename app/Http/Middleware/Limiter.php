@@ -2,16 +2,16 @@
 
 namespace App\Http\Middleware;
 
-use App\Account;
 use Closure;
+use App\Account;
 
 class Limiter
 {
     /**
      * Handle an incoming request.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \Closure  $next
+     * @param \Illuminate\Http\Request $request
+     * @param \Closure $next
      * @return mixed
      */
     public function handle($request, Closure $next)

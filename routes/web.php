@@ -32,6 +32,8 @@ Route::get('auth/login/account/{account:id}', 'AuthController@loginUser')
 Route::get('verify/{account}/website/{website:id}', 'WebsiteController@verify')
     ->middleware('signed')
     ->name('website.verify');
+Route::get('verify/resend/{account}/website/{website:id}', 'WebsiteController@resendVerification')
+    ->name('website.verify.resend');
 
 Route::get('dashboard', 'DashboardController@show')
     ->name('dashboard');
@@ -54,9 +56,6 @@ Route::get('plans/payment/cancel', 'PaymentController@paymentCancelled')->name('
 Route::post('plans/payment/done', 'PaymentController@paymentCallback')->name('plans.payment.done');
 Route::post('auth/login', 'AuthController@processLogin')
     ->middleware('csrf', 'guest');
-Route::post('verify/resend/{account}/website/{website:id}', 'WebsiteController@resendVerification')
-    ->middleware('csrf')
-    ->name('website.verify.resend');
 Route::post('/{email}', 'FormController@handleSubmission')
     ->middleware('check.email', 'check.email.verified', 'limiter')
     ->middleware('cors', 'check.email', 'check.email.verified')
