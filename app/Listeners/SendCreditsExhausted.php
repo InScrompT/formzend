@@ -29,7 +29,7 @@ class SendCreditsExhausted implements ShouldQueue
     public function handle(CreditsExhausted $event)
     {
         $activityCheck = Activity::whereAccountId($event->account->id)
-            ->whereType(ActivityType::CREDIT_EXHAUSTED)
+            ->whereType(ActivityType::CreditExhausted)
             ->latest()
             ->first();
 
@@ -38,7 +38,7 @@ class SendCreditsExhausted implements ShouldQueue
 
             Activity::create([
                 'account_id' => $event->account->id,
-                'type' => ActivityType::CREDIT_EXHAUSTED
+                'type' => ActivityType::CreditExhausted
             ]);
         }
 
@@ -48,7 +48,7 @@ class SendCreditsExhausted implements ShouldQueue
 
             Activity::create([
                 'account_id' => $event->account->id,
-                'type' => ActivityType::CREDIT_EXHAUSTED
+                'type' => ActivityType::CreditExhausted
             ]);
         }
     }

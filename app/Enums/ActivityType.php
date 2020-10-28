@@ -4,7 +4,10 @@ namespace App\Enums;
 
 use BenSampo\Enum\Enum;
 
+/**
+ * @method static static CreditExhausted()
+ */
 final class ActivityType extends Enum
 {
-    const CREDIT_EXHAUSTED = 0;
+    const CreditExhausted = 0;
 }

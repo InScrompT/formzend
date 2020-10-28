@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Enums\ActivityType;
 use Illuminate\Database\Eloquent\Model;
 
 /**
@@ -29,6 +30,10 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Activity extends Model
 {
+    protected $casts = [
+        'type' => ActivityType::class,
+    ];
+
     public function account()
     {
         return $this->belongsTo(Account::class);
