@@ -82,7 +82,7 @@
                         <div class="panel-heading">Summary</div>
                         <div class="panel-block">
                             <p>
-                                You've recieved <b>{{ $user->recieved }}</b> submissions and can recieve
+                                You've receive <b>{{ $user->recieved }}</b> submissions and can receive
                                 <b>{{ $user->allowed }}</b> more submissions.
                                 <br>
                                 Need more? Buy credits 😉
