@@ -31,6 +31,10 @@ class Website extends Model
 {
     protected $fillable = ['url', 'verified', 'account_id'];
 
+    protected $casts = [
+        'account_id' => 'int'
+    ];
+
     public function account()
     {
         return $this->belongsTo(Account::class);
