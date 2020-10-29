@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 /**
  * App\Submission
@@ -28,6 +29,8 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Submission extends Model
 {
+    use HasFactory;
+
     protected $casts = [
         'account_id' => 'int',
         'data' => 'collection',

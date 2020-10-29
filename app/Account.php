@@ -2,6 +2,7 @@
 
 namespace App;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 /**
@@ -41,6 +42,8 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
  */
 class Account extends Authenticatable
 {
+    use HasFactory;
+
     protected $fillable = ['email', 'recieved', 'type', 'website_id', 'allowed'];
 
     public function websites()

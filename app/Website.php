@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 /**
  * App\Website
@@ -29,6 +30,8 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Website extends Model
 {
+    use HasFactory;
+
     protected $fillable = ['url', 'verified', 'account_id'];
 
     protected $casts = [
