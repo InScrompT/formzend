@@ -18,7 +18,9 @@ class AuthController extends Controller
             'email' => 'required|email|exists:accounts'
         ]);
 
-        event(new LoginRequest(\Auth::user()));
+        event(new LoginRequest(
+            Account::whereEmail(request('email'))->firstOrFail()
+        ));
 
         return view('auth.sent');
     }
