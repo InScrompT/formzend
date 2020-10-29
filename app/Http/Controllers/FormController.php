@@ -38,9 +38,9 @@ class FormController extends Controller
         ]);
     }
 
-    public function downloadSubmission(Account $account, Submission $submission)
+    public function downloadSubmission(Submission $submission)
     {
-        $fileName = now()->unix() . '-' . $account->email . '-' . $submission->id . '.csv';
+        $fileName = now()->unix() . '-' . auth()->user()->email . '-' . $submission->id . '.csv';
 
         $csv = Writer::createFromString();
         $csv->insertOne($submission->data->toArray());

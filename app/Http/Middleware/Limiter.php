@@ -20,7 +20,7 @@ class Limiter
         $allowed = Account::whereEmail($request->route('email'))
             ->firstOrFail();
 
-        if ($allowed->allowed) {
+        if ($allowed->allowed > 0) {
             return $next($request);
         }
 
