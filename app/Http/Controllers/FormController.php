@@ -6,6 +6,7 @@ use App\Account;
 use App\Submission;
 use League\Csv\Writer;
 use App\Events\FormSubmission;
+use App\Events\CreditsExhausted;
 
 class FormController extends Controller
 {
@@ -19,6 +20,15 @@ class FormController extends Controller
         $url = request()->header('origin');
         $account = Account::firstWhere('email', $email);
         $website = $account->websites->firstWhere('url', $url);
+
+        if ($account->cant('createSubmission')) {
+            event(new CreditsExhausted($account));
+
+            return response()->view('website.error', [
+                'title' => 'Credits Exhausted',
+                'error' => 'The owner has exhausted the credits. If you\'re the owner, go to dashboard and top-up credits'
+            ], 401);
+        }
 
         event(new FormSubmission(
             $account,
