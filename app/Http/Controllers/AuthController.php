@@ -15,12 +15,13 @@ class AuthController extends Controller
     public function processLogin()
     {
         request()->validate([
-            'email' => 'required|email|exists:accounts'
+            'email' => 'required|email'
         ]);
 
-        event(new LoginRequest(
-            Account::whereEmail(request('email'))->firstOrFail()
-        ));
+        $account = Account::whereEmail(request('email'))->firstOrCreate([
+            'email' => request('email')
+        ]);
+        event(new LoginRequest($account));
 
         return view('auth.sent');
     }
