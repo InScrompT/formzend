@@ -57,5 +57,5 @@ Route::post('plans/payment/done', 'PaymentController@paymentCallback')->name('pl
 Route::post('auth/login', 'AuthController@processLogin')
     ->middleware('csrf', 'guest');
 Route::post('/{email}', 'FormController@handleSubmission')
-    ->middleware('cors', 'check.email', 'check.email.verified', 'limiter')
+    ->middleware('cors', 'check.email', 'check.email.verified')
     ->name('form');

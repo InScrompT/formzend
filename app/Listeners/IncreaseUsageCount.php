@@ -20,7 +20,7 @@ class IncreaseUsageCount implements ShouldQueue
     /**
      * Handle the event.
      *
-     * @param  FormSubmission  $event
+     * @param FormSubmission $event
      * @return void
      */
     public function handle(FormSubmission $event)
