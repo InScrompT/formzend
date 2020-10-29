@@ -25,6 +25,7 @@ class DashboardController extends Controller
 
     public function listSubmissions(Website $website)
     {
+        $this->authorize('listSubmissions', $website);
         $submissions = Submission::whereWebsiteId($website->id);
 
         return view('dashboard.submissions.list')->with([
@@ -35,6 +36,8 @@ class DashboardController extends Controller
 
     public function showSubmission(Submission $submission)
     {
+        $this->authorize('view', $submission);
+
         return view('dashboard.submissions.show')->with([
             'submission' => $submission
         ]);
@@ -42,6 +45,8 @@ class DashboardController extends Controller
 
     public function exportSubmissions(Website $website)
     {
+        $this->authorize('exportSubmissions', $website);
+
         $csv = Writer::createFromString();
         $fileName = now()->unix() . '-' . auth()->user()->email . '-' . $website->id . '.csv';
 

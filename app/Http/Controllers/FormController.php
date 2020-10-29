@@ -40,6 +40,8 @@ class FormController extends Controller
 
     public function downloadSubmission(Submission $submission)
     {
+        $this->authorize('export', $submission);
+
         $fileName = now()->unix() . '-' . auth()->user()->email . '-' . $submission->id . '.csv';
 
         $csv = Writer::createFromString();
