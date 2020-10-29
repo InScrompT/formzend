@@ -51,8 +51,8 @@ class Activity extends Model
     /**
      * Scope a query to only N days old entries.
      *
-     * @param  \Illuminate\Database\Eloquent\Builder  $query
-     * @param  integer                                $days
+     * @param \Illuminate\Database\Eloquent\Builder $query
+     * @param integer $days
      * @return \Illuminate\Database\Eloquent\Builder
      */
     public function scopeIsDayOld($query, $days = 1)

@@ -20,7 +20,7 @@ class SendPaymentInvoice implements ShouldQueue
     /**
      * Handle the event.
      *
-     * @param  PaymentProcessed  $event
+     * @param PaymentProcessed $event
      * @return void
      */
     public function handle(PaymentProcessed $event)
