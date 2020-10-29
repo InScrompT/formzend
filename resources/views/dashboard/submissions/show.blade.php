@@ -29,7 +29,8 @@
                             </table>
                         </div>
                         <div class="card-footer">
-                            <a href="{{ route('download.submission', [auth()->id(), $submission->id]) }}" class="card-footer-item" target="_blank">
+                            <a href="{{ route('download.submission', [$submission->id]) }}"
+                               class="card-footer-item" target="_blank">
                                 Download
                             </a>
                         </div>

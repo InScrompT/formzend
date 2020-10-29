@@ -29,24 +29,24 @@ Route::get('auth/login/account/{account:id}', 'AuthController@loginUser')
     ->middleware('signed', 'guest')
     ->name('login.verify');
 
-Route::get('verify/{account}/website/{website:id}', 'WebsiteController@verify')
+Route::get('verify/website/{website:id}', 'WebsiteController@verify')
     ->middleware('signed')
     ->name('website.verify');
-Route::get('verify/resend/{account}/website/{website:id}', 'WebsiteController@resendVerification')
+Route::get('verify/resend/website/{website:id}', 'WebsiteController@resendVerification')
     ->name('website.verify.resend');
 
 Route::get('dashboard', 'DashboardController@show')
     ->name('dashboard');
 Route::get('dashboard/unverified', 'DashboardController@unverified')
     ->name('dashboard.websites.unverified');
-Route::get('dashboard/{account}/website/{website:id}/submissions', 'DashboardController@listSubmissions')
+Route::get('dashboard/website/{website:id}/submissions', 'DashboardController@listSubmissions')
     ->name('dashboard.website.submissions');
-Route::get('dashboard/{account}/website/{website:id}/submissions/{submission:id}', 'DashboardController@showSubmission')
+Route::get('dashboard/submissions/{submission:id}', 'DashboardController@showSubmission')
     ->name('dashboard.website.submissions.show');
 
-Route::get('download/{account}/submissions/{submission:id}', 'FormController@downloadSubmission')
+Route::get('download/submissions/{submission:id}', 'FormController@downloadSubmission')
     ->name('download.submission');
-Route::get('download/{account}/website/{website:id}/submissions', 'DashboardController@exportSubmissions')
+Route::get('download/website/{website:id}/submissions', 'DashboardController@exportSubmissions')
     ->name('download.submissions');
 
 Route::get('plans', 'PaymentController@showPlans')->name('plans');

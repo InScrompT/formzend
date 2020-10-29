@@ -60,7 +60,6 @@
 
                         @forelse (auth()->user()->websites->where('verified', true) as $website)
                             <a href="{{ route('dashboard.website.submissions', [
-                                auth()->id(),
                                 $website->id
                             ]) }}" class="panel-block">
                                 <div class="tags has-addons mr-4">

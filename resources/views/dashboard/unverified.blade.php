@@ -24,7 +24,7 @@
 
                         @forelse(auth()->user()->websites->where('verified', false) as $website)
                             <div class="panel-block">
-                                <a href="{{ route('website.verify.resend', [auth()->id(), $website]) }}"
+                                <a href="{{ route('website.verify.resend', [$website]) }}"
                                    class="button is-small is-outlined is-primary mr-5">Verify Now</a>
 
                                 {{ $website->url }}
