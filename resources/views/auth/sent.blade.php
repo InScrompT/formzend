@@ -10,11 +10,11 @@
             <div class="column is-offset-3 is-half">
                 <div class="card">
                     <div class="card-header">
-                        <div class="card-header-title">Magic link has been sent</div>
+                        <div class="card-header-title">Magic link sent to {{ $email }}</div>
                     </div>
                     <div class="card-content">
                         <p class="has-text-justified">
-                            An email has been sent to your inbox. Click that link and you'll be automatically logged-in.
+                            An email has been sent to your {{ $email }}. Click that link and you'll be automatically logged-in.
                             No more passwords for you to remember. Ain't that awesome? I know.
                         </p>
 

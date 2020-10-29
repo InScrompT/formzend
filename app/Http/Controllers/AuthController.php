@@ -23,7 +23,9 @@ class AuthController extends Controller
         ]);
         event(new LoginRequest($account));
 
-        return view('auth.sent');
+        return view('auth.sent')->with([
+            'email' => request('email')
+        ]);
     }
 
     public function loginUser(Account $account)
