@@ -12,7 +12,7 @@
         </div>
         <div class="navbar-menu" id="navMenu">
             <div class="navbar-end">
-                @user
+                @auth
                     <div class="navbar-item">
                         <a href="{{ route('dashboard') }}" class="has-text-primary">Dashboard</a>
                     </div>
@@ -29,7 +29,7 @@
                     <div class="navbar-item">
                         <a href="{{ route('login') }}" class="has-text-primary">Login</a>
                     </div>
-                @enduser
+                @endauth
             </div>
         </div>
     </div>

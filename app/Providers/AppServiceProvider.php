@@ -28,21 +28,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        Blade::if('user', function () {
-            return request()->session()->has('loggedIn');
-        });
-
-        Blade::if('guest', function () {
-            return !request()->session()->has('loggedIn');
-        });
-
-        View::composer(['dashboard.*', 'plans.*'], function ($view) {
-            if (!request()->session()->has('loggedIn')) {
-                return $view->with('user', null);
-            }
-
-            $account = Account::whereEmail(session('email'))->firstOrFail();
-            return $view->with('user', $account);
-        });
+        //
     }
 }

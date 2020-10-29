@@ -28,14 +28,14 @@
                         </div>
                         <div class="panel-tabs">
                             <a href="{{ route('dashboard') }}" class="is-active">All</a>
-                            <a href="{{ route('download.submissions', [$user->id, $website->id]) }}" target="_blank">
+                            <a href="{{ route('download.submissions', [auth()->id(), $website->id]) }}" target="_blank">
                                 Archive
                             </a>
                         </div>
                         @if ($submissions->count())
                             @foreach ($submissions as $submission)
                                 <a href="{{ route('dashboard.website.submissions.show', [
-                                    $user->id,
+                                    auth()->id(),
                                     $website->id,
                                     $submission->id
                                 ]) }}" class="panel-block">

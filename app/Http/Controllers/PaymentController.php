@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Plan;
 use App\Order;
+use App\Account;
 use Razorpay\Api\Api;
 use Illuminate\Support\Str;
 use App\Events\PaymentProcessed;
@@ -37,7 +38,7 @@ class PaymentController extends Controller
     {
         $order = new Order();
 
-        $order->account_id = session('id');
+        $order->account_id = auth()->id();
         $order->plan_id = $plan->id;
         $order->code = Str::uuid();
 
@@ -69,11 +70,7 @@ class PaymentController extends Controller
 
             // Fixes the bug where user is automatically logged out.
             // reason TBD.
-            session([
-                'loggedIn' => true,
-                'id' => $order->account->id,
-                'email' => $order->account->email,
-            ]);
+            \Auth::login($order->account);
 
             if (request()->exists('error')) {
                 session()->flash('error', 'Payment was rejected. Please try again!');
