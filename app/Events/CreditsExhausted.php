@@ -15,9 +15,9 @@ class CreditsExhausted
     public $account;
 
     /**
-     * Create a new event instance.
+     * CreditsExhausted constructor.
      *
-     * @return void
+     * @param Account $account
      */
     public function __construct(Account $account)
     {
