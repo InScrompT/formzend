@@ -25,19 +25,17 @@ class AuthController extends Controller
 
     public function loginUser(Account $account)
     {
-        session([
-            'loggedIn' => true,
-            'id' => $account->id,
-            'email' => $account->email,
-        ]);
+        \Auth::login($account);
 
-        return redirect(route('dashboard'));
+        return redirect()
+            ->route('dashboard');
     }
 
     public function logout()
     {
-        session()->flush();
+        \Auth::logout();
 
-        return redirect(route('home'));
+        return redirect()
+            ->route('home');
     }
 }

@@ -46,7 +46,7 @@
             <div class="columns">
                 <div class="column is-offset-3 is-half">
                     <div class="mb-5">
-                        <p class="is-size-4">Welcome back {{ $user->email }}</p>
+                        <p class="is-size-4">Welcome back {{ auth()->user()->email }}</p>
                     </div>
 
                     <div class="panel">
@@ -58,9 +58,9 @@
                             <a href="{{ route('dashboard.websites.unverified') }}" class="has-text-primary">Unverified</a>
                         </div>
 
-                        @forelse ($user->websites->where('verified', true) as $website)
+                        @forelse (auth()->user()->websites->where('verified', true) as $website)
                             <a href="{{ route('dashboard.website.submissions', [
-                                $user->id,
+                                auth()->id(),
                                 $website->id
                             ]) }}" class="panel-block">
                                 <div class="tags has-addons mr-4">
@@ -82,8 +82,8 @@
                         <div class="panel-heading">Summary</div>
                         <div class="panel-block">
                             <p>
-                                You've receive <b>{{ $user->recieved }}</b> submissions and can receive
-                                <b>{{ $user->allowed }}</b> more submissions.
+                                You've received <b>{{ auth()->user()->recieved }}</b> submissions and can receive
+                                <b>{{ auth()->user()->allowed }}</b> more submissions.
                                 <br>
                                 Need more? Buy credits 😉
                             </p>
