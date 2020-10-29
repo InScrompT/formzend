@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Plan;
 use App\Order;
-use App\Account;
 use Razorpay\Api\Api;
 use Illuminate\Support\Str;
 use App\Events\PaymentProcessed;

@@ -10,8 +10,8 @@ class CheckIfEmail
     /**
      * Check if it really is an email or something else.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \Closure  $next
+     * @param \Illuminate\Http\Request $request
+     * @param \Closure $next
      * @return mixed
      */
     public function handle($request, Closure $next)
