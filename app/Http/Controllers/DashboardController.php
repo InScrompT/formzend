@@ -26,7 +26,7 @@ class DashboardController extends Controller
     public function listSubmissions(Website $website)
     {
         $this->authorize('listSubmissions', $website);
-        $submissions = Submission::whereWebsiteId($website->id);
+        $submissions = Submission::whereWebsiteId($website->id)->latest();
 
         return view('dashboard.submissions.list')->with([
             'website' => $website,
