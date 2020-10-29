@@ -21,7 +21,7 @@
                         <br>
 
                         <p class="has-text-justified">
-                            PS: You can close this tab now. Go to your email lol!
+                            PS: You can close this tab now. Go to your email 😉
                         </p>
                     </div>
 
