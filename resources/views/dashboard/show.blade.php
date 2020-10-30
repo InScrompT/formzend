@@ -74,6 +74,9 @@
                                     You don't have any verified websites.
                                 </p>
                             </div>
+                            <a href="{{ route('home') }}" class="panel-block has-text-info">
+                                Click here to integrate FormZend
+                            </a>
                         @endforelse
                     </div>
 
