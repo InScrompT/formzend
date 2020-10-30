@@ -37,6 +37,7 @@ class VerifyWebsite extends Mailable
 
         return $this->markdown('emails.website.verify')
             ->subject('[FormZend] Verify new website | ' . $this->website->url)
+            ->replyTo(config('mail.reply.address'), config('mail.reply.name'))
             ->with([
                 'url' => $this->website->url,
                 'verify' => $signedURL

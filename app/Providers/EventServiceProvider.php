@@ -5,7 +5,6 @@ namespace App\Providers;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
-use Illuminate\Support\Facades\Event;
 
 class EventServiceProvider extends ServiceProvider
 {
@@ -18,14 +17,23 @@ class EventServiceProvider extends ServiceProvider
         Registered::class => [
             SendEmailVerificationNotification::class,
         ],
-        'App\Events\NewWebsite' => [
-            'App\Listeners\SendVerification',
+        \App\Events\NewWebsite::class => [
+            \App\Listeners\SendVerification::class,
         ],
-        'App\Events\FormSubmission' => [
-            'App\Listeners\IncreaseUsageCount',
-            'App\Listeners\SendFormData',
-            'App\Listeners\SaveFormData'
-        ]
+        \App\Events\FormSubmission::class => [
+            \App\Listeners\IncreaseUsageCount::class,
+            \App\Listeners\SendFormData::class,
+            \App\Listeners\SaveFormData::class,
+        ],
+        \App\Events\LoginRequest::class => [
+            \App\Listeners\SendLoginVerification::class
+        ],
+        \App\Events\PaymentProcessed::class => [
+            \App\Listeners\SendPaymentInvoice::class,
+        ],
+        \App\Events\CreditsExhausted::class => [
+            \App\Listeners\SendCreditsExhausted::class,
+        ],
     ];
 
     /**

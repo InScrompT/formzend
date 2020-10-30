@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 /**
  * App\Submission
@@ -10,7 +11,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property int $id
  * @property int $website_id
  * @property int $account_id
- * @property array $data
+ * @property \Illuminate\Database\Eloquent\Collection $data
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property-read \App\Account $account
@@ -28,8 +29,11 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Submission extends Model
 {
+    use HasFactory;
+
     protected $casts = [
-        'data' => 'array'
+        'account_id' => 'int',
+        'data' => 'collection',
     ];
 
     public function website()

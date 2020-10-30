@@ -43,6 +43,7 @@ class FormSubmission extends Mailable
         return $this->markdown('emails.form.submit')
             ->subject('New form submission at ' . $this->website->url)
             ->to($this->website->account->email)
+            ->replyTo(config('mail.reply.address'), config('mail.reply.name'))
             ->with([
                 'url' => $this->website->url,
                 'form' => $this->data

@@ -3,8 +3,9 @@
 namespace App\Listeners;
 
 use App\Events\FormSubmission;
+use Illuminate\Contracts\Queue\ShouldQueue;
 
-class SendFormData
+class SendFormData implements ShouldQueue
 {
     /**
      * Create the event listener.
@@ -19,7 +20,7 @@ class SendFormData
     /**
      * Handle the event.
      *
-     * @param  FormSubmission  $event
+     * @param FormSubmission $event
      * @return void
      */
     public function handle(FormSubmission $event)

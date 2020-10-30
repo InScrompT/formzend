@@ -18,6 +18,7 @@ class CreateAccountsTable extends Migration
             $table->string('email');
             $table->unsignedBigInteger('recieved')->default(0);
             $table->unsignedBigInteger('allowed')->default(150);
+            $table->unsignedBigInteger('plan_id')->default(1);
             $table->timestamps();
         });
     }

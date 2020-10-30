@@ -5,7 +5,7 @@
 @section('content')
     @include('layouts.navbar')
 
-    <section class="section pt-4">
+    <section class="section mt-4">
         <div class="container">
             <div class="columns">
                 <div class="column is-half is-offset-3">
@@ -14,19 +14,16 @@
                             <div class="title">Email not verified ☹!</div>
                             <hr>
                             <div class="subtitle">
-                                A verification email was sent to you before. Click on that to verify.
+                                <p>A verification email was sent to you before. Click on that to verify.</p>
+                                <p class="pt-4">
+                                    Lost the mail? No worries. <a href="{{ route('login') }}">Login</a> into your
+                                    account and request another verification mail.
+                                </p>
                             </div>
-                        </div>
-                        <div class="card-footer">
-                            <a class="card-footer-item" onclick="document.getElementById('resend').submit();">
-                                Resend verification mail
-                            </a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-
-    <form action="{{ route('website.verify.resend', [$account, $website]) }}" method="POST" id="resend">@csrf</form>
 @endsection
