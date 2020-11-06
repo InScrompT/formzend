@@ -14,32 +14,48 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::view('/', 'welcome')->name('home');
+Route::view('privacy', 'privacy')->name('privacy');
+Route::view('terms', 'terms')->name('terms');
+Route::view('contact', 'contact')->name('contact');
+Route::view('refund', 'refund')->name('refund');
 
-Route::get('/auth/login', 'AuthController@showLogin')
+Route::get('auth/login', 'AuthController@showLogin')
     ->middleware('guest')
     ->name('login');
-Route::get('/auth/logout', 'AuthController@logout')
+Route::get('auth/logout', 'AuthController@logout')
     ->middleware('auth')
     ->name('logout');
-Route::get('/auth/login/account/{account:id}', 'AuthController@loginUser')
+Route::get('auth/login/account/{account:id}', 'AuthController@loginUser')
     ->middleware('signed', 'guest')
     ->name('login.verify');
 
-Route::get('/verify/{account}/website/{website:id}', 'WebsiteController@verify')
+Route::get('verify/website/{website:id}', 'WebsiteController@verify')
     ->middleware('signed')
     ->name('website.verify');
+Route::get('verify/resend/website/{website:id}', 'WebsiteController@resendVerification')
+    ->name('website.verify.resend');
 
-Route::get('/dashboard', 'DashboardController@show')
+Route::get('dashboard', 'DashboardController@show')
     ->name('dashboard');
-Route::get('/dashboard/{account}/website/{website:id}/submissions', 'DashboardController@listSubmissions')
+Route::get('dashboard/unverified', 'DashboardController@unverified')
+    ->name('dashboard.websites.unverified');
+Route::get('dashboard/website/{website:id}/submissions', 'DashboardController@listSubmissions')
     ->name('dashboard.website.submissions');
-Route::get('/dashboard/{account}/website/{website:id}/submissions/{submission:id}', 'DashboardController@showSubmission')
+Route::get('dashboard/submissions/{submission:id}', 'DashboardController@showSubmission')
     ->name('dashboard.website.submissions.show');
 
-Route::post('/auth/login', 'AuthController@processLogin')
+Route::get('download/submissions/{submission:id}', 'FormController@downloadSubmission')
+    ->name('download.submission');
+Route::get('download/website/{website:id}/submissions', 'DashboardController@exportSubmissions')
+    ->name('download.submissions');
+
+Route::get('plans', 'PaymentController@showPlans')->name('plans');
+Route::get('plans/{plan}', 'PaymentController@buyPlan')->name('plans.buy');
+Route::get('plans/payment/cancel', 'PaymentController@paymentCancelled')->name('plans.payment.cancelled');
+
+Route::post('plans/payment/done', 'PaymentController@paymentCallback')->name('plans.payment.done');
+Route::post('auth/login', 'AuthController@processLogin')
     ->middleware('csrf', 'guest');
-Route::post('/verify/resend/{account}/website/{website:id}', 'WebsiteController@resendVerification')
-    ->name('website.verify.resend');
 Route::post('/{email}', 'FormController@handleSubmission')
-    ->middleware('check.email', 'check.email.verified')
+    ->middleware('cors', 'check.email', 'check.email.verified')
     ->name('form');

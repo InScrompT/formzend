@@ -12,13 +12,7 @@
         </div>
         <div class="navbar-menu" id="navMenu">
             <div class="navbar-end">
-                <div class="navbar-item">
-                    <a href="{{ route('home') }}#pricing" class="has-text-primary">Pricing</a>
-                </div>
-                <div class="navbar-item">
-                    <a href="{{ route('home') }}#faq" class="has-text-primary">FAQ</a>
-                </div>
-                @user
+                @auth
                     <div class="navbar-item">
                         <a href="{{ route('dashboard') }}" class="has-text-primary">Dashboard</a>
                     </div>
@@ -27,9 +21,15 @@
                     </div>
                 @else
                     <div class="navbar-item">
+                        <a href="{{ route('home') }}#pricing" class="has-text-primary">Pricing</a>
+                    </div>
+                    <div class="navbar-item">
+                        <a href="{{ route('home') }}#faq" class="has-text-primary">FAQ</a>
+                    </div>
+                    <div class="navbar-item">
                         <a href="{{ route('login') }}" class="has-text-primary">Login</a>
                     </div>
-                @enduser
+                @endauth
             </div>
         </div>
     </div>

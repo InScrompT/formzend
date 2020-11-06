@@ -15,29 +15,32 @@ class AuthController extends Controller
     public function processLogin()
     {
         request()->validate([
-            'email' => 'required|email|exists:accounts'
+            'email' => 'required|email'
         ]);
 
-        event(new LoginRequest(request('email')));
+        $account = Account::whereEmail(request('email'))->firstOrCreate([
+            'email' => request('email')
+        ]);
+        event(new LoginRequest($account));
 
-        return view('auth.sent');
+        return view('auth.sent')->with([
+            'email' => request('email')
+        ]);
     }
 
     public function loginUser(Account $account)
     {
-        session([
-            'loggedIn' => true,
-            'id' => $account->id,
-            'email' => $account->email,
-        ]);
+        \Auth::login($account);
 
-        return redirect(route('dashboard'));
+        return redirect()
+            ->route('dashboard');
     }
 
     public function logout()
     {
-        session()->flush();
+        \Auth::logout();
 
-        return redirect(route('home'));
+        return redirect()
+            ->route('home');
     }
 }

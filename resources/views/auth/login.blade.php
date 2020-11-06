@@ -19,8 +19,9 @@
                             <div class="field">
                                 <label for="email">Email</label>
                                 <div class="control">
-                                    <input type="email" class="input @error('email') is-danger @enderror" 
-                                        id="email" name="email" placeholder="your@email.com" value="{{ old('email') }}">
+                                    <input type="email" class="input @error('email') is-danger @enderror"
+                                        id="email" name="email" placeholder="your@email.com" value="{{ old('email') }}"
+                                        required>
                                 </div>
                                 @error('email')
                                     <p class="help is-danger">There is no account with this email.</p>

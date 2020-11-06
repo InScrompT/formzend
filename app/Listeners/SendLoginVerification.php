@@ -2,11 +2,10 @@
 
 namespace App\Listeners;
 
-use App\Account;
-use App\Events\LoginRequest;
-use App\Mail\VerifyLogin;
-use Illuminate\Contracts\Queue\ShouldQueue;
 use Mail;
+use App\Mail\VerifyLogin;
+use App\Events\LoginRequest;
+use Illuminate\Contracts\Queue\ShouldQueue;
 
 class SendLoginVerification implements ShouldQueue
 {
@@ -23,17 +22,16 @@ class SendLoginVerification implements ShouldQueue
     /**
      * Handle the event.
      *
-     * @param  LoginRequest  $event
+     * @param LoginRequest $event
      * @return void
      */
     public function handle(LoginRequest $event)
     {
-        $account = Account::whereEmail($event->email)->first();
         $signedURL = \URL::temporarySignedRoute('login.verify', now()->addDay(), [
-            'account' => $account->id
+            'account' => $event->account->id,
         ]);
 
-        Mail::to($event->email)
+        Mail::to($event->account->email)
             ->send(new VerifyLogin($signedURL));
     }
 }

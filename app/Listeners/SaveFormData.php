@@ -2,8 +2,8 @@
 
 namespace App\Listeners;
 
-use App\Events\FormSubmission;
 use App\Submission;
+use App\Events\FormSubmission;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
 class SaveFormData implements ShouldQueue

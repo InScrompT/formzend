@@ -4,9 +4,8 @@ namespace App\Listeners;
 
 use App\Events\FormSubmission;
 use Illuminate\Contracts\Queue\ShouldQueue;
-use Illuminate\Queue\InteractsWithQueue;
 
-class IncreaseUsageCount
+class IncreaseUsageCount implements ShouldQueue
 {
     /**
      * Create the event listener.
@@ -21,13 +20,14 @@ class IncreaseUsageCount
     /**
      * Handle the event.
      *
-     * @param  FormSubmission  $event
+     * @param FormSubmission $event
      * @return void
      */
     public function handle(FormSubmission $event)
     {
         $event->account->update([
-            'recieved' => $event->account->recieved + 1
+            'recieved' => $event->account->recieved + 1,
+            'allowed' => $event->account->allowed - 1
         ]);
     }
 }

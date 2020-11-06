@@ -3,11 +3,10 @@
 namespace App\Mail;
 
 use Illuminate\Bus\Queueable;
-use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
-class VerifyLogin extends Mailable implements ShouldQueue
+class VerifyLogin extends Mailable
 {
     use Queueable, SerializesModels;
 
@@ -30,8 +29,10 @@ class VerifyLogin extends Mailable implements ShouldQueue
      */
     public function build()
     {
-        return $this->markdown('emails.auth.verify', [
-            'url' => $this->signedURL
-        ])->subject('[FormZend] Login to your account');
+        return $this->subject('[FormZend] Login to your account')
+            ->replyTo(config('mail.reply.address'), config('mail.reply.name'))
+            ->markdown('emails.auth.verify', [
+                'url' => $this->signedURL
+            ]);
     }
 }

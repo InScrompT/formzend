@@ -4,11 +4,10 @@ namespace App\Mail;
 
 use App\Website;
 use Illuminate\Bus\Queueable;
-use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
-class VerifyWebsite extends Mailable implements ShouldQueue
+class VerifyWebsite extends Mailable
 {
     use Queueable, SerializesModels;
 
@@ -38,6 +37,7 @@ class VerifyWebsite extends Mailable implements ShouldQueue
 
         return $this->markdown('emails.website.verify')
             ->subject('[FormZend] Verify new website | ' . $this->website->url)
+            ->replyTo(config('mail.reply.address'), config('mail.reply.name'))
             ->with([
                 'url' => $this->website->url,
                 'verify' => $signedURL

@@ -2,10 +2,10 @@
 
 namespace App\Listeners;
 
+use Mail;
 use App\Events\NewWebsite;
 use App\Mail\VerifyWebsite;
 use Illuminate\Contracts\Queue\ShouldQueue;
-use Mail;
 
 class SendVerification implements ShouldQueue
 {
@@ -22,7 +22,7 @@ class SendVerification implements ShouldQueue
     /**
      * Handle the event.
      *
-     * @param  NewWebsite  $event
+     * @param NewWebsite $event
      * @return void
      */
     public function handle(NewWebsite $event)
