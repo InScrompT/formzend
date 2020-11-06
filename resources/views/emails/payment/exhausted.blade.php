@@ -1,8 +1,8 @@
 @component('mail::message')
 # Credits Exhausted
 
-You have exhausted the credits in your FormZend account. To receive more submissions, you need to upgrade your plan.
-Checkout the available plans, there is one for everyone 😉
+You have exhausted the credits in your {{ config('app.name') }} account. To receive more submissions, you need to upgrade your plan.
+Checkout the available plans. There is one for everyone 😉
 
 @component('mail::button', ['url' => route('plans')])
 Check Plans

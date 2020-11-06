@@ -8,7 +8,8 @@ Verify now 🔥
 @endcomponent
 
 @component('mail::panel')
-If you don't remember setting up, just delete this email. Or contact us and we will help you.
+If you don't remember setting up, just delete this email. If you need help, contact [xXAlphaManXx](https://twitter.com/xXAlphaManXx)
+on Twitter and I will help you.
 @endcomponent
 
 Thanks,<br>
