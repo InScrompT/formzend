@@ -2,12 +2,10 @@
 
 namespace App\Listeners;
 
-use Mail;
 use App\Mail\VerifyLogin;
 use App\Events\LoginRequest;
-use Illuminate\Contracts\Queue\ShouldQueue;
 
-class SendLoginVerification implements ShouldQueue
+class SendLoginVerification
 {
     /**
      * Create the event listener.
@@ -31,7 +29,7 @@ class SendLoginVerification implements ShouldQueue
             'account' => $event->account->id,
         ]);
 
-        Mail::to($event->account->email)
+        \Mail::to($event->account->email)
             ->send(new VerifyLogin($signedURL));
     }
 }

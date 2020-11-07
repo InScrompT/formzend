@@ -2,12 +2,10 @@
 
 namespace App\Listeners;
 
-use Mail;
 use App\Events\NewWebsite;
 use App\Mail\VerifyWebsite;
-use Illuminate\Contracts\Queue\ShouldQueue;
 
-class SendVerification implements ShouldQueue
+class SendVerification
 {
     /**
      * Create the event listener.
@@ -27,7 +25,7 @@ class SendVerification implements ShouldQueue
      */
     public function handle(NewWebsite $event)
     {
-        Mail::to($event->website->account->email)
+        \Mail::to($event->website->account->email)
             ->send(new VerifyWebsite($event->website));
     }
 }
