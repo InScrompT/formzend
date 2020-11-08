@@ -7,8 +7,9 @@ use App\Activity;
 use App\Enums\ActivityType;
 use App\Mail\CreditExhausted;
 use App\Events\CreditsExhausted;
+use Illuminate\Contracts\Queue\ShouldQueue;
 
-class SendCreditsExhausted
+class SendCreditsExhausted implements ShouldQueue
 {
     /**
      * Create the event listener.

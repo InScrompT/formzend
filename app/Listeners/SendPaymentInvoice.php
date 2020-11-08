@@ -3,8 +3,9 @@
 namespace App\Listeners;
 
 use App\Events\PaymentProcessed;
+use Illuminate\Contracts\Queue\ShouldQueue;
 
-class SendPaymentInvoice
+class SendPaymentInvoice implements ShouldQueue
 {
     /**
      * Create the event listener.
