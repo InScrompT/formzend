@@ -4,8 +4,9 @@ namespace App\Listeners;
 
 use App\Events\NewWebsite;
 use App\Mail\VerifyWebsite;
+use Illuminate\Contracts\Queue\ShouldQueue;
 
-class SendVerification
+class SendVerification implements ShouldQueue
 {
     /**
      * Create the event listener.
