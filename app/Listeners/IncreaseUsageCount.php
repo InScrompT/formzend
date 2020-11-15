@@ -3,9 +3,8 @@
 namespace App\Listeners;
 
 use App\Events\FormSubmission;
-use Illuminate\Contracts\Queue\ShouldQueue;
 
-class IncreaseUsageCount implements ShouldQueue
+class IncreaseUsageCount
 {
     /**
      * Create the event listener.
