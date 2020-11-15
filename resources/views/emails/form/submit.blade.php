@@ -12,7 +12,7 @@
 @endcomponent
 
 @component('mail::panel')
-Don't want to receive form submissions anymore? Contact us!
+Don't want to receive form submissions anymore? Contact me at [Twitter](https://twitter.com/xXAlphaManXx)!
 @endcomponent
 
 @endcomponent
