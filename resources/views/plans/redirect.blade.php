@@ -23,7 +23,7 @@
         <input type="hidden" name="order_id" value="{{ $order }}">
         <input type="hidden" name="name" value="FormZend">
         <input type="hidden" name="description" value="Form submissions, made easy!">
-        <input type="hidden" name="image" value="https://cdn.razorpay.com/logos/BUVwvgaqVByGp2_large.png">
+        <input type="hidden" name="image" value="{{ asset('assets/images/razorpay_image.png') }}">
         <input type="hidden" name="prefill[email]" value="{{ auth()->user()->email }}">
         <input type="hidden" name="callback_url" value="{{ route('plans.payment.done') }}">
         <input type="hidden" name="cancel_url" value="{{ route('plans.payment.cancelled') }}">
