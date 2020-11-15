@@ -16,6 +16,7 @@ class PlansSeeder extends Seeder
     {
         $this->createFreePlan();
         $this->createBuddingPlan();
+        $this->createBlossom();
     }
 
     public function createFreePlan()
@@ -35,8 +36,19 @@ class PlansSeeder extends Seeder
         $plan = new Plan();
 
         $plan->amount = 2;
-        $plan->quantity = 1000;
+        $plan->quantity = 500;
         $plan->name = 'Budding';
+
+        $plan->save();
+    }
+
+    public function createBlossom()
+    {
+        $plan = new Plan();
+
+        $plan->amount = 5;
+        $plan->quantity = 1500;
+        $plan->name = 'Blossom';
 
         $plan->save();
     }
