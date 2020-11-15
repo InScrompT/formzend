@@ -42,7 +42,7 @@
                             A successful form submission where the data is sent to your email is considered a submission.
                         </p>
                     </div>
-                    <div class="">
+                    <div class="mb-4">
                         <p class="is-size-4 has-text-grey-dark has-text-weight-semibold">
                             <span class="has-text-primary">&rightarrow;</span>
                             What after I exhaust my credits?
@@ -52,8 +52,19 @@
                             with credits if you wish to do so :)
                         </p>
                     </div>
+                    <div class="mb-4">
+                        <p class="is-size-4 has-text-grey-dark has-text-weight-semibold">
+                            <span class="has-text-primary">&rightarrow;</span>
+                            Will I get all features?
+                        </p>
+                        <p class="is-size-5 has-text-grey-dark">
+                            You will get access to every feature irrespective of the plan you are in. No feature lock-in.
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
+
+    @include('layouts.footer')
 @endsection
