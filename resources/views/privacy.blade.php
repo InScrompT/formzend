@@ -13,9 +13,9 @@
                         <h2>Privacy Policy</h2>
 
                         <p>
-                            Your privacy is important to us. It is FormZend's policy to respect your privacy regarding
+                            Your privacy is important to us. It is {{ config('app.name') }}'s policy to respect your privacy regarding
                             any information we may collect from you across our website,
-                            <a href="https://formzend.com">https://formzend.com</a>, and other sites we own and operate.
+                            <a href="{{ config('app.url') }}">{{ config('app.url') }}</a>, and other sites we own and operate.
                         </p>
 
                         <p>

@@ -13,7 +13,7 @@
                         <h2>Contact me</h2>
 
                         <p>
-                            I'm <a href="https://twitter.com/xXAlphaManXx">Karan Sanjeev</a>, a Indie Maker. FormZend is
+                            I'm <a href="https://twitter.com/xXAlphaManXx">Karan Sanjeev</a>, a Indie Maker. {{ config('app.name') }} is
                             made completely on my own time without any funding or investment. I respect privacy and believe it's a right.
                         </p>
 
@@ -23,7 +23,7 @@
                             contact forms, then here's one &mdash; <span class="is-italic has-text-primary">just for you</span>
                         </p>
 
-                        <form action="{{ config('app.url') }}/formzend@alphaman.me" method="POST">
+                        <form action="{{ route('form', ['formzend@alphaman.me']) }}" method="POST">
                             <div class="field">
                                 <label for="name" class="label">Name</label>
                                 <div class="control">

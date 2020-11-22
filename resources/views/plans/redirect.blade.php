@@ -21,7 +21,7 @@
     <form method="POST" action="https://api.razorpay.com/v1/checkout/embedded" id="payment-form">
         <input type="hidden" name="key_id" value="{{ config('razorpay.api.key') }}">
         <input type="hidden" name="order_id" value="{{ $order }}">
-        <input type="hidden" name="name" value="FormZend">
+        <input type="hidden" name="name" value="{{ config('app.name') }}">
         <input type="hidden" name="description" value="Form submissions, made easy!">
         <input type="hidden" name="image" value="{{ asset('assets/images/razorpay_image.png') }}">
         <input type="hidden" name="prefill[email]" value="{{ auth()->user()->email }}">

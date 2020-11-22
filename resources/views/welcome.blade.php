@@ -15,7 +15,7 @@
                 <div class="column is-6 level-item">
                     <div class="card">
                         <div class="card-content">
-                            <pre><code>&lt;form action=&quot;<span class="has-text-primary">{{ config('app.url') }}/your@email.com</span>&quot; method=&quot;POST&quot;&gt;
+                            <pre><code>&lt;form action=&quot;<span class="has-text-primary">{{ route('form', ['your@email.com']) }}</span>&quot; method=&quot;POST&quot;&gt;
   &lt;input type=&quot;email&quot; name=&quot;email&quot;&gt;
   &lt;input type=&quot;text&quot; name=&quot;name&quot;&gt;
   &lt;input type=&quot;submit&quot; name=&quot;Send!&quot;&gt;
@@ -37,7 +37,7 @@
                         <p>Change your form's <code>action</code> attribute to this and replace <b>your@email.com</b> with your own email.</p>
                         <div class="field">
                             <div class="control">
-                                <input type="text" class="input is-primary" value="{{ config('app.url') }}/your@email.com" readonly>
+                                <input type="text" class="input is-primary" value="{{ route('form', ['your@email.com']) }}" readonly>
                             </div>
                         </div>
 
@@ -82,7 +82,7 @@
                             <a href="https://developer.mozilla.org/en-US/docs/Web/API/FormData" target="_blank">
                                 <code>FormData</code>
                             </a>
-                            and FormZend will handle everything else.
+                            and {{ config('app.name') }} will handle everything else.
                         </p>
                     </div>
                 </div>
@@ -128,7 +128,7 @@
                             <div class="card">
                                 <div class="card-header">
                                     <div class="card-header-title">
-                                        Is FormZend free?
+                                        Is {{ config('app.name') }} free?
                                     </div>
                                 </div>
                                 <div class="card-content has-text-justified">
@@ -175,13 +175,13 @@
         <div class="container">
             <hr>
             <div class="column is-half is-offset-3">
-                <a class="is-size-3 has-text-grey-dark pb-4" id="about">About FormZend</a>
+                <a class="is-size-3 has-text-grey-dark pb-4" id="about">About {{ config('app.name') }}</a>
                 <p class="is-size-5 pt-5">
-                    I'm <a href="https://twitter.com/xXAlphaManXx">Karan Sanjeev</a>, a Indie Maker. FormZend is
+                    I'm <a href="https://twitter.com/xXAlphaManXx">Karan Sanjeev</a>, a Indie Maker. {{ config('app.name') }} is
                     made completely on my own time without any funding or investment. I respect privacy and believe it's a right.
                 </p>
                 <p class="is-size-5 mt-3">
-                    If you aren’t paying for a product, you are the product. I charge a small fee for FormZend,
+                    If you aren’t paying for a product, you are the product. I charge a small fee for {{ config('app.name') }},
                     because I sell service, not data.
                 </p>
             </div>
@@ -200,7 +200,7 @@
 
                     <br>
 
-                    <form action="{{ config('app.url') }}/formzend@alphaman.me" method="POST">
+                    <form action="{{ route('form', ['formzend@alphaman.me']) }}" method="POST">
                         <div class="field">
                             <label for="name" class="label">Name</label>
                             <div class="control">
