@@ -17,7 +17,7 @@ class FormController extends Controller
 
     public function handleSubmission($email)
     {
-        $url = request()->header('origin');
+        $url = request()->getUri();
         $account = Account::firstWhere('email', $email);
         $website = $account->websites->firstWhere('url', $url);
 
