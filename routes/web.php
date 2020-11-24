@@ -26,7 +26,7 @@ Route::get('auth/logout', 'AuthController@logout')
     ->middleware('auth')
     ->name('logout');
 Route::get('auth/login/account/{account:id}', 'AuthController@loginUser')
-    ->middleware('signed', 'guest')
+    ->middleware('guest', 'signed')
     ->name('login.verify');
 
 Route::get('verify/website/{website:id}', 'WebsiteController@verify')
