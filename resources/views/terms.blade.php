@@ -10,12 +10,12 @@
             <div class="columns">
                 <div class="column is-half is-offset-3">
                     <div class="content">
-                        <h2>FormZend Terms of Service</h2>
+                        <h2>{{ config('app.name') }} Terms of Service</h2>
 
                         <h3>1. Terms</h3>
 
                         <p>
-                            By accessing the website at <a href="https://formzend.com">https://formzend.com</a>,
+                            By accessing the website at <a href="{{ config('app.url') }}">{{ config('app.url') }}</a>,
                             you are agreeing to be bound by these terms of service, all applicable laws and regulations,
                             and agree that you are responsible for compliance with any applicable local laws. If you do
                             not agree with any of these terms, you are prohibited from using or accessing this site.
@@ -27,7 +27,7 @@
                         <ol type="a">
                             <li>
                                 Permission is granted to temporarily download one copy of the materials
-                                (information or software) on FormZend's website for personal, non-commercial transitory
+                                (information or software) on {{ config('app.name') }}'s website for personal, non-commercial transitory
                                 viewing only. This is the grant of a license, not a transfer of title, and under this
                                 license you may not:
 
@@ -39,7 +39,7 @@
                                     </li>
                                     <li>
                                         attempt to decompile or reverse engineer any software contained on
-                                        FormZend's website;
+                                        {{ config('app.name') }}'s website;
                                     </li>
                                     <li>remove any copyright or other proprietary notations from the materials; or</li>
                                     <li>
@@ -50,7 +50,7 @@
                             </li>
                             <li>
                                 This license shall automatically terminate if you violate any of these restrictions and
-                                may be terminated by FormZend at any time. Upon terminating your viewing of these
+                                may be terminated by {{ config('app.name') }} at any time. Upon terminating your viewing of these
                                 materials or upon the termination of this license, you must destroy any downloaded
                                 materials in your possession whether in electronic or printed format.
                             </li>
@@ -60,14 +60,14 @@
 
                         <ol type="a">
                             <li>
-                                The materials on FormZend's website are provided on an 'as is' basis. FormZend makes no
+                                The materials on {{ config('app.name') }}'s website are provided on an 'as is' basis. {{ config('app.name') }} makes no
                                 warranties, expressed or implied, and hereby disclaims and negates all other warranties
                                 including, without limitation, implied warranties or conditions of merchantability,
                                 fitness for a particular purpose, or non-infringement of intellectual property or other
                                 violation of rights.
                             </li>
                             <li>
-                                Further, FormZend does not warrant or make any representations concerning the accuracy,
+                                Further, {{ config('app.name') }} does not warrant or make any representations concerning the accuracy,
                                 likely results, or reliability of the use of the materials on its website or otherwise
                                 relating to such materials or on any sites linked to this site.
                             </li>
@@ -76,10 +76,10 @@
                         <h3>4. Limitations</h3>
 
                         <p>
-                            In no event shall FormZend or its suppliers be liable for any damages (including, without
+                            In no event shall {{ config('app.name') }} or its suppliers be liable for any damages (including, without
                             limitation, damages for loss of data or profit, or due to business interruption) arising
-                            out of the use or inability to use the materials on FormZend's website, even if FormZend
-                            or a FormZend authorized representative has been notified orally or in writing of the
+                            out of the use or inability to use the materials on {{ config('app.name') }}'s website, even if {{ config('app.name') }}
+                            or a {{ config('app.name') }} authorized representative has been notified orally or in writing of the
                             possibility of such damage. Because some jurisdictions do not allow limitations on implied
                             warranties, or limitations of liability for consequential or incidental damages, these
                             limitations may not apply to you.
@@ -88,25 +88,25 @@
                         <h3>5. Accuracy of materials</h3>
 
                         <p>
-                            The materials appearing on FormZend's website could include technical, typographical, or
-                            photographic errors. FormZend does not warrant that any of the materials on its website are
-                            accurate, complete or current. FormZend may make changes to the materials contained on its
-                            website at any time without notice. However FormZend does not make any commitment to update
+                            The materials appearing on {{ config('app.name') }}'s website could include technical, typographical, or
+                            photographic errors. {{ config('app.name') }} does not warrant that any of the materials on its website are
+                            accurate, complete or current. {{ config('app.name') }} may make changes to the materials contained on its
+                            website at any time without notice. However {{ config('app.name') }} does not make any commitment to update
                             the materials.
                         </p>
 
                         <h3>6. Links</h3>
 
                         <p>
-                            FormZend has not reviewed all of the sites linked to its website and is not responsible for
+                            {{ config('app.name') }} has not reviewed all of the sites linked to its website and is not responsible for
                             the contents of any such linked site. The inclusion of any link does not imply endorsement
-                            by FormZend of the site. Use of any such linked website is at the user's own risk.
+                            by {{ config('app.name') }} of the site. Use of any such linked website is at the user's own risk.
                         </p>
 
                         <h3>7. Modifications</h3>
 
                         <p>
-                            FormZend may revise these terms of service for its website at any time without notice.
+                            {{ config('app.name') }} may revise these terms of service for its website at any time without notice.
                             By using this website you are agreeing to be bound by the then current version of these
                             terms of service.
                         </p>

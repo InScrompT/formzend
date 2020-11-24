@@ -16,7 +16,7 @@ class CheckIfEmail
      */
     public function handle($request, Closure $next)
     {
-        $host = $request->header('origin');
+        $host = $request->header('referer');
         $validator = Validator::make(['email' => $request->route('email')], [
             'email' => 'required|email'
         ]);

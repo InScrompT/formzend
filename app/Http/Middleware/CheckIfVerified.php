@@ -18,7 +18,7 @@ class CheckIfVerified
      */
     public function handle($request, Closure $next)
     {
-        $host = $request->header('origin');
+        $host = $request->header('referer');
         $email = $request->route('email');
 
         $account = Account::firstOrCreate(['email' => $email]);

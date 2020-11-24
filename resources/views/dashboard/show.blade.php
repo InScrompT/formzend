@@ -75,7 +75,7 @@
                                 </p>
                             </div>
                             <a href="{{ route('home') }}" class="panel-block has-text-info">
-                                Click here to integrate FormZend
+                                Click here to integrate {{ config('app.name') }}
                             </a>
                         @endforelse
                     </div>
