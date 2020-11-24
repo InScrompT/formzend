@@ -105,8 +105,9 @@
                                     </div>
                                 </div>
                                 <div class="card-content has-text-justified">
-                                    Your data, stays yours. I never alter or sell your data and it's against my ethics.
-                                    We use Mailgun to send you email, so their privacy policy also applies.
+                                    Absolutely. Your data belongs to you. If you aren’t paying for a product,
+                                    you are the product. I charge a small fee for
+                                    {{ config('app.name') }}, because I sell service, not data.
                                 </div>
                             </div>
 
