@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Account;
+use App\Activity;
 use App\Events\LoginRequest;
 
 class AuthController extends Controller
@@ -28,9 +29,13 @@ class AuthController extends Controller
         ]);
     }
 
-    public function loginUser(Account $account)
+    public function loginUser(Account $account, $loginKey)
     {
-        \Auth::login($account);
+        Activity::whereAccountId($account->id)
+            ->where('login_key', $loginKey)
+            ->firstOrFail();
+
+        \Auth::login($account, true);
 
         return redirect()
             ->route('dashboard');
