@@ -78,6 +78,6 @@ class MakeLogin extends Command
 
         $activity->saveOrFail();
 
-        return route('login.verify', [$account->account->id, $activity->login_key]);
+        return route('login.verify', [$account->id, $activity->login_key]);
     }
 }
