@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Website;
+use App\Activity;
 use App\Mail\VerifyWebsite;
+use App\Enums\ActivityType;
 
 class WebsiteController extends Controller
 {
@@ -12,9 +14,15 @@ class WebsiteController extends Controller
         $this->middleware('auth')->only('resendVerification');
     }
 
-    public function verify(Website $website)
+    public function verify(Website $website, $verificationKey)
     {
         try {
+            Activity::whereWebsiteId($website->id)
+                ->where('login_key', $verificationKey)
+                ->where('type', ActivityType::WebsiteVerification)
+                ->firstOrFail()
+                ->delete();
+
             $website->verified = true;
             $website->saveOrFail();
 
@@ -24,8 +32,8 @@ class WebsiteController extends Controller
             ]);
         } catch (\Throwable $e) {
             return view('website.error')->with([
-                'title' => 'Unknown error',
-                'error' => 'Something bad happened in my end. Please contact me in twitter if this issue persists',
+                'title' => 'Bad Verification',
+                'error' => 'The verification link has been expired. Please login to your account and request a new verification link',
             ]);
         }
     }
