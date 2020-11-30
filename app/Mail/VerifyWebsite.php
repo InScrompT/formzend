@@ -3,9 +3,6 @@
 namespace App\Mail;
 
 use App\Website;
-use App\Activity;
-use Illuminate\Support\Str;
-use App\Enums\ActivityType;
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
@@ -15,15 +12,18 @@ class VerifyWebsite extends Mailable
     use Queueable, SerializesModels;
 
     public $website;
+    public $signedURL;
 
     /**
      * Create a new message instance.
      *
      * @param Website $website
+     * @param string $signedURL
      */
-    public function __construct(Website $website)
+    public function __construct(Website $website, $signedURL)
     {
         $this->website = $website;
+        $this->signedURL = $signedURL;
     }
 
     /**
@@ -33,23 +33,12 @@ class VerifyWebsite extends Mailable
      */
     public function build()
     {
-        $activity = new Activity;
-
-        $activity->account_id = $this->website->account_id;
-        $activity->website_id = $this->website->id;
-        $activity->login_key = Str::uuid();
-        $activity->type = ActivityType::WebsiteVerification;
-
-        $activity->saveOrFail();
-
-        $signedURL = route('website.verify', [$this->website->id, $activity->login_key]);
-
         return $this->markdown('emails.website.verify')
             ->subject('[FormZend] Verify new website | ' . $this->website->url)
             ->replyTo(config('mail.reply.address'), config('mail.reply.name'))
             ->with([
                 'url' => $this->website->url,
-                'verify' => $signedURL
+                'verify' => $this->signedURL
             ]);
     }
 }
