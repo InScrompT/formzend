@@ -33,7 +33,8 @@ class AuthController extends Controller
     {
         Activity::whereAccountId($account->id)
             ->where('login_key', $loginKey)
-            ->firstOrFail();
+            ->firstOrFail()
+            ->delete();
 
         \Auth::login($account, true);
 
