@@ -31,15 +31,22 @@ class AuthController extends Controller
 
     public function loginUser(Account $account, $loginKey)
     {
-        Activity::whereAccountId($account->id)
-            ->where('login_key', $loginKey)
-            ->firstOrFail()
-            ->delete();
+        try {
+            Activity::whereAccountId($account->id)
+                ->where('login_key', $loginKey)
+                ->firstOrFail()
+                ->delete();
 
-        \Auth::login($account, true);
+            \Auth::login($account, true);
 
-        return redirect()
-            ->route('dashboard');
+            return redirect()
+                ->route('dashboard');
+        } catch (\Throwable $e) {
+            return view('website.error')->with([
+                'title' => 'Bad Verification',
+                'error' => 'The verification link has been expired. Please try again',
+            ]);
+        }
     }
 
     public function logout()
