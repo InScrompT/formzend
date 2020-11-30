@@ -42,9 +42,10 @@ class WebsiteController extends Controller
     public function resendVerification(Website $website)
     {
         $verificationCode = WebsiteRepository::generateVerification($website);
+        $signedURL = route('website.verify', [$website->id, $verificationCode]);
 
         \Mail::to($website->account->email)
-            ->queue(new VerifyWebsite($website, $verificationCode));
+            ->send(new VerifyWebsite($website, $signedURL));
 
         return view('website.verify')->with([
             'url' => $website->url,
