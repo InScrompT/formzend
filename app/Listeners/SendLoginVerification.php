@@ -2,11 +2,9 @@
 
 namespace App\Listeners;
 
-use App\Activity;
 use App\Mail\VerifyLogin;
-use App\Enums\ActivityType;
-use Illuminate\Support\Str;
 use App\Events\LoginRequest;
+use App\Repositories\AccountRepository;
 
 class SendLoginVerification
 {
@@ -28,15 +26,8 @@ class SendLoginVerification
      */
     public function handle(LoginRequest $event)
     {
-        $activity = new Activity;
-
-        $activity->account_id = $event->account->id;
-        $activity->type = ActivityType::LoginRequested;
-        $activity->login_key = Str::uuid();
-
-        $activity->saveOrFail();
-
-        $signedURL = route('login.verify', [$event->account->id, $activity->login_key]);
+        $verificationCode = AccountRepository::generateVerification($event->account);
+        $signedURL = route('login.verify', [$event->account->id, $verificationCode]);
 
         \Mail::to($event->account->email)
             ->send(new VerifyLogin($signedURL));

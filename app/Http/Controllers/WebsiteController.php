@@ -6,6 +6,7 @@ use App\Website;
 use App\Activity;
 use App\Mail\VerifyWebsite;
 use App\Enums\ActivityType;
+use App\Repositories\WebsiteRepository;
 
 class WebsiteController extends Controller
 {
@@ -40,8 +41,11 @@ class WebsiteController extends Controller
 
     public function resendVerification(Website $website)
     {
+        $verificationCode = WebsiteRepository::generateVerification($website);
+        $signedURL = route('website.verify', [$website->id, $verificationCode]);
+
         \Mail::to($website->account->email)
-            ->queue(new VerifyWebsite($website));
+            ->send(new VerifyWebsite($website, $signedURL));
 
         return view('website.verify')->with([
             'url' => $website->url,

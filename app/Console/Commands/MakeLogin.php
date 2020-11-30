@@ -3,10 +3,8 @@
 namespace App\Console\Commands;
 
 use App\Account;
-use App\Activity;
-use App\Enums\ActivityType;
-use Illuminate\Support\Str;
 use Illuminate\Console\Command;
+use App\Repositories\AccountRepository;
 
 class MakeLogin extends Command
 {
@@ -70,14 +68,8 @@ class MakeLogin extends Command
 
     private function makeMagicLink(Account $account)
     {
-        $activity = new Activity;
+        $verificationCode = AccountRepository::generateVerification($account);
 
-        $activity->account_id = $account->id;
-        $activity->type = ActivityType::LoginRequested;
-        $activity->login_key = Str::uuid();
-
-        $activity->saveOrFail();
-
-        return route('login.verify', [$account->account->id, $activity->login_key]);
+        return route('login.verify', [$account->id, $verificationCode]);
     }
 }
