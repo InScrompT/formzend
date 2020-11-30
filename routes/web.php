@@ -25,12 +25,11 @@ Route::get('auth/login', 'AuthController@showLogin')
 Route::get('auth/logout', 'AuthController@logout')
     ->middleware('auth')
     ->name('logout');
-Route::get('auth/login/account/{account:id}', 'AuthController@loginUser')
-    ->middleware('guest', 'signed')
+Route::get('auth/login/account/{account:id}/key/{key}', 'AuthController@loginUser')
+    ->middleware('guest')
     ->name('login.verify');
 
-Route::get('verify/website/{website:id}', 'WebsiteController@verify')
-    ->middleware('signed')
+Route::get('verify/website/{website:id}/key/{key}', 'WebsiteController@verify')
     ->name('website.verify');
 Route::get('verify/resend/website/{website:id}', 'WebsiteController@resendVerification')
     ->name('website.verify.resend');

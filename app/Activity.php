@@ -35,7 +35,7 @@ class Activity extends Model
     ];
 
     protected $fillable = [
-        'account_id', 'website_id', 'type'
+        'account_id', 'website_id', 'type', 'login_key'
     ];
 
     public function account()

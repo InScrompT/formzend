@@ -3,7 +3,6 @@
 namespace App\Console\Commands;
 
 use App\Account;
-use App\Mail\VerifyLogin;
 use App\Events\LoginRequest;
 use Illuminate\Console\Command;
 
@@ -71,11 +70,6 @@ class SendLogin extends Command
 
     private function sendEmail(Account $account)
     {
-        $signedURL = \URL::temporarySignedRoute('login.verify', now()->addDay(), [
-            'account' => $account->id,
-        ]);
-
-        \Mail::to($account->email)
-            ->send(new VerifyLogin($signedURL));
+        event(new LoginRequest($account));
     }
 }

@@ -12,15 +12,18 @@ class VerifyWebsite extends Mailable
     use Queueable, SerializesModels;
 
     public $website;
+    public $signedURL;
 
     /**
      * Create a new message instance.
      *
      * @param Website $website
+     * @param string $signedURL
      */
-    public function __construct(Website $website)
+    public function __construct(Website $website, $signedURL)
     {
         $this->website = $website;
+        $this->signedURL = $signedURL;
     }
 
     /**
@@ -30,17 +33,12 @@ class VerifyWebsite extends Mailable
      */
     public function build()
     {
-        $signedURL = \URL::temporarySignedRoute('website.verify', now()->addDay(), [
-            'account' => $this->website->account->id,
-            'website' => $this->website->id
-        ]);
-
         return $this->markdown('emails.website.verify')
             ->subject('[FormZend] Verify new website | ' . $this->website->url)
             ->replyTo(config('mail.reply.address'), config('mail.reply.name'))
             ->with([
                 'url' => $this->website->url,
-                'verify' => $signedURL
+                'verify' => $this->signedURL
             ]);
     }
 }
