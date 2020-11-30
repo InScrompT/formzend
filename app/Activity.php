@@ -27,6 +27,8 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|Activity whereWebsiteId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Activity isDayOld($days = 1)
  * @mixin \Eloquent
+ * @property string|null $login_key
+ * @method static \Illuminate\Database\Eloquent\Builder|Activity whereLoginKey($value)
  */
 class Activity extends Model
 {
