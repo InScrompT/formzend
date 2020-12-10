@@ -3,7 +3,7 @@
 
 /**
  * A helper file for Laravel, to provide autocomplete information to your IDE
- * Generated for Laravel 8.11.2.
+ * Generated for Laravel 8.16.1.
  *
  * This file should not be included in your code, only analyzed by your IDE!
  *
@@ -800,6 +800,17 @@
                         return $instance->getLocale();
         }
                     /**
+         * Get the current application locale.
+         *
+         * @return string 
+         * @static 
+         */ 
+        public static function currentLocale()
+        {
+                        /** @var \Illuminate\Foundation\Application $instance */
+                        return $instance->currentLocale();
+        }
+                    /**
          * Get the current application fallback locale.
          *
          * @return string 
@@ -1224,6 +1235,19 @@
         {            //Method inherited from \Illuminate\Container\Container         
                         /** @var \Illuminate\Foundation\Application $instance */
                         return $instance->build($concrete);
+        }
+                    /**
+         * Register a new before resolving callback for all types.
+         *
+         * @param \Closure|string $abstract
+         * @param \Closure|null $callback
+         * @return void 
+         * @static 
+         */ 
+        public static function beforeResolving($abstract, $callback = null)
+        {            //Method inherited from \Illuminate\Container\Container         
+                        /** @var \Illuminate\Foundation\Application $instance */
+                        $instance->beforeResolving($abstract, $callback);
         }
                     /**
          * Register a new resolving callback.
@@ -2967,8 +2991,6 @@
             /**
      * 
      *
-     * @method static \Illuminate\Contracts\Cache\Lock lock(string $name, int $seconds = 0, mixed $owner = null)
-     * @method static \Illuminate\Contracts\Cache\Lock restoreLock(string $name, string $owner)
      * @see \Illuminate\Cache\CacheManager
      * @see \Illuminate\Cache\Repository
      */ 
@@ -3591,6 +3613,33 @@
         {
                         /** @var \Illuminate\Cache\FileStore $instance */
                         return $instance->getPrefix();
+        }
+                    /**
+         * Get a lock instance.
+         *
+         * @param string $name
+         * @param int $seconds
+         * @param string|null $owner
+         * @return \Illuminate\Contracts\Cache\Lock 
+         * @static 
+         */ 
+        public static function lock($name, $seconds = 0, $owner = null)
+        {
+                        /** @var \Illuminate\Cache\FileStore $instance */
+                        return $instance->lock($name, $seconds, $owner);
+        }
+                    /**
+         * Restore a lock instance using the owner identifier.
+         *
+         * @param string $name
+         * @param string $owner
+         * @return \Illuminate\Contracts\Cache\Lock 
+         * @static 
+         */ 
+        public static function restoreLock($name, $owner)
+        {
+                        /** @var \Illuminate\Cache\FileStore $instance */
+                        return $instance->restoreLock($name, $owner);
         }
          
     }
@@ -7967,83 +8016,6 @@
                         return $instance->setConnectionName($name);
         }
                     /**
-         * Release a reserved job back onto the queue.
-         *
-         * @param string $queue
-         * @param \Illuminate\Queue\Jobs\DatabaseJobRecord $job
-         * @param int $delay
-         * @return mixed 
-         * @static 
-         */ 
-        public static function release($queue, $job, $delay)
-        {
-                        /** @var \Illuminate\Queue\DatabaseQueue $instance */
-                        return $instance->release($queue, $job, $delay);
-        }
-                    /**
-         * Delete a reserved job from the queue.
-         *
-         * @param string $queue
-         * @param string $id
-         * @return void 
-         * @throws \Throwable
-         * @static 
-         */ 
-        public static function deleteReserved($queue, $id)
-        {
-                        /** @var \Illuminate\Queue\DatabaseQueue $instance */
-                        $instance->deleteReserved($queue, $id);
-        }
-                    /**
-         * Delete a reserved job from the reserved queue and release it.
-         *
-         * @param string $queue
-         * @param \Illuminate\Queue\Jobs\DatabaseJob $job
-         * @param int $delay
-         * @return void 
-         * @static 
-         */ 
-        public static function deleteAndRelease($queue, $job, $delay)
-        {
-                        /** @var \Illuminate\Queue\DatabaseQueue $instance */
-                        $instance->deleteAndRelease($queue, $job, $delay);
-        }
-                    /**
-         * Delete all of the jobs from the queue.
-         *
-         * @param string $queue
-         * @return int 
-         * @static 
-         */ 
-        public static function clear($queue)
-        {
-                        /** @var \Illuminate\Queue\DatabaseQueue $instance */
-                        return $instance->clear($queue);
-        }
-                    /**
-         * Get the queue or return the default.
-         *
-         * @param string|null $queue
-         * @return string 
-         * @static 
-         */ 
-        public static function getQueue($queue)
-        {
-                        /** @var \Illuminate\Queue\DatabaseQueue $instance */
-                        return $instance->getQueue($queue);
-        }
-                    /**
-         * Get the underlying database instance.
-         *
-         * @return \Illuminate\Database\Connection 
-         * @static 
-         */ 
-        public static function getDatabase()
-        {
-                        /** @var \Illuminate\Queue\DatabaseQueue $instance */
-                        return $instance->getDatabase();
-        }
-                    /**
          * Get the backoff for an object-based queue handler.
          *
          * @param mixed $job
@@ -8052,7 +8024,7 @@
          */ 
         public static function getJobBackoff($job)
         {            //Method inherited from \Illuminate\Queue\Queue         
-                        /** @var \Illuminate\Queue\DatabaseQueue $instance */
+                        /** @var \Illuminate\Queue\SyncQueue $instance */
                         return $instance->getJobBackoff($job);
         }
                     /**
@@ -8064,7 +8036,7 @@
          */ 
         public static function getJobExpiration($job)
         {            //Method inherited from \Illuminate\Queue\Queue         
-                        /** @var \Illuminate\Queue\DatabaseQueue $instance */
+                        /** @var \Illuminate\Queue\SyncQueue $instance */
                         return $instance->getJobExpiration($job);
         }
                     /**
@@ -8076,7 +8048,7 @@
          */ 
         public static function createPayloadUsing($callback)
         {            //Method inherited from \Illuminate\Queue\Queue         
-                        \Illuminate\Queue\DatabaseQueue::createPayloadUsing($callback);
+                        \Illuminate\Queue\SyncQueue::createPayloadUsing($callback);
         }
                     /**
          * Set the IoC container instance.
@@ -8087,7 +8059,7 @@
          */ 
         public static function setContainer($container)
         {            //Method inherited from \Illuminate\Queue\Queue         
-                        /** @var \Illuminate\Queue\DatabaseQueue $instance */
+                        /** @var \Illuminate\Queue\SyncQueue $instance */
                         $instance->setContainer($container);
         }
          
@@ -11309,7 +11281,7 @@
                     /**
          * Get the currently dispatched route instance.
          *
-         * @return \Illuminate\Routing\Route 
+         * @return \Illuminate\Routing\Route|null 
          * @static 
          */ 
         public static function getCurrentRoute()
@@ -12630,13 +12602,14 @@
          * Assert that the given file exists.
          *
          * @param string|array $path
+         * @param string|null $content
          * @return \Illuminate\Filesystem\FilesystemAdapter 
          * @static 
          */ 
-        public static function assertExists($path)
+        public static function assertExists($path, $content = null)
         {
                         /** @var \Illuminate\Filesystem\FilesystemAdapter $instance */
-                        return $instance->assertExists($path);
+                        return $instance->assertExists($path, $content);
         }
                     /**
          * Assert that the given file does not exist.
@@ -16333,7 +16306,7 @@ namespace  {
                 /**
              * Add a polymorphic relationship count / exists condition to the query.
              *
-             * @param string $relation
+             * @param \Illuminate\Database\Eloquent\Relations\MorphTo|string $relation
              * @param string|array $types
              * @param string $operator
              * @param int $count
@@ -16351,7 +16324,7 @@ namespace  {
                 /**
              * Add a polymorphic relationship count / exists condition to the query with an "or".
              *
-             * @param string $relation
+             * @param \Illuminate\Database\Eloquent\Relations\MorphTo|string $relation
              * @param string|array $types
              * @param string $operator
              * @param int $count
@@ -16367,7 +16340,7 @@ namespace  {
                 /**
              * Add a polymorphic relationship count / exists condition to the query.
              *
-             * @param string $relation
+             * @param \Illuminate\Database\Eloquent\Relations\MorphTo|string $relation
              * @param string|array $types
              * @param string $boolean
              * @param \Closure|null $callback
@@ -16383,7 +16356,7 @@ namespace  {
                 /**
              * Add a polymorphic relationship count / exists condition to the query with an "or".
              *
-             * @param string $relation
+             * @param \Illuminate\Database\Eloquent\Relations\MorphTo|string $relation
              * @param string|array $types
              * @return \Illuminate\Database\Eloquent\Builder|static 
              * @static 
@@ -16397,7 +16370,7 @@ namespace  {
                 /**
              * Add a polymorphic relationship count / exists condition to the query with where clauses.
              *
-             * @param string $relation
+             * @param \Illuminate\Database\Eloquent\Relations\MorphTo|string $relation
              * @param string|array $types
              * @param \Closure|null $callback
              * @param string $operator
@@ -16414,7 +16387,7 @@ namespace  {
                 /**
              * Add a polymorphic relationship count / exists condition to the query with where clauses and an "or".
              *
-             * @param string $relation
+             * @param \Illuminate\Database\Eloquent\Relations\MorphTo|string $relation
              * @param string|array $types
              * @param \Closure|null $callback
              * @param string $operator
@@ -16431,7 +16404,7 @@ namespace  {
                 /**
              * Add a polymorphic relationship count / exists condition to the query with where clauses.
              *
-             * @param string $relation
+             * @param \Illuminate\Database\Eloquent\Relations\MorphTo|string $relation
              * @param string|array $types
              * @param \Closure|null $callback
              * @return \Illuminate\Database\Eloquent\Builder|static 
@@ -16446,7 +16419,7 @@ namespace  {
                 /**
              * Add a polymorphic relationship count / exists condition to the query with where clauses and an "or".
              *
-             * @param string $relation
+             * @param \Illuminate\Database\Eloquent\Relations\MorphTo|string $relation
              * @param string|array $types
              * @param \Closure|null $callback
              * @return \Illuminate\Database\Eloquent\Builder|static 
@@ -16456,6 +16429,21 @@ namespace  {
             {
                                 /** @var \Illuminate\Database\Eloquent\Builder $instance */
                                 return $instance->orWhereDoesntHaveMorph($relation, $types, $callback);
+            }
+             
+                /**
+             * Add subselect queries to include an aggregate value for a relationship.
+             *
+             * @param mixed $relations
+             * @param string $column
+             * @param string $function
+             * @return \Illuminate\Database\Eloquent\Builder|static 
+             * @static 
+             */ 
+            public static function withAggregate($relations, $column, $function = null)
+            {
+                                /** @var \Illuminate\Database\Eloquent\Builder $instance */
+                                return $instance->withAggregate($relations, $column, $function);
             }
              
                 /**
@@ -16472,6 +16460,62 @@ namespace  {
             }
              
                 /**
+             * Add subselect queries to include the max of the relation's column.
+             *
+             * @param string|array $relation
+             * @param string $column
+             * @return \Illuminate\Database\Eloquent\Builder|static 
+             * @static 
+             */ 
+            public static function withMax($relation, $column)
+            {
+                                /** @var \Illuminate\Database\Eloquent\Builder $instance */
+                                return $instance->withMax($relation, $column);
+            }
+             
+                /**
+             * Add subselect queries to include the min of the relation's column.
+             *
+             * @param string|array $relation
+             * @param string $column
+             * @return \Illuminate\Database\Eloquent\Builder|static 
+             * @static 
+             */ 
+            public static function withMin($relation, $column)
+            {
+                                /** @var \Illuminate\Database\Eloquent\Builder $instance */
+                                return $instance->withMin($relation, $column);
+            }
+             
+                /**
+             * Add subselect queries to include the sum of the relation's column.
+             *
+             * @param string|array $relation
+             * @param string $column
+             * @return \Illuminate\Database\Eloquent\Builder|static 
+             * @static 
+             */ 
+            public static function withSum($relation, $column)
+            {
+                                /** @var \Illuminate\Database\Eloquent\Builder $instance */
+                                return $instance->withSum($relation, $column);
+            }
+             
+                /**
+             * Add subselect queries to include the average of the relation's column.
+             *
+             * @param string|array $relation
+             * @param string $column
+             * @return \Illuminate\Database\Eloquent\Builder|static 
+             * @static 
+             */ 
+            public static function withAvg($relation, $column)
+            {
+                                /** @var \Illuminate\Database\Eloquent\Builder $instance */
+                                return $instance->withAvg($relation, $column);
+            }
+             
+                /**
              * Merge the where constraints from another query to the current query.
              *
              * @param \Illuminate\Database\Eloquent\Builder $from
@@ -16482,6 +16526,18 @@ namespace  {
             {
                                 /** @var \Illuminate\Database\Eloquent\Builder $instance */
                                 return $instance->mergeConstraintsFrom($from);
+            }
+             
+                /**
+             * Explains the query.
+             *
+             * @return \Illuminate\Support\Collection 
+             * @static 
+             */ 
+            public static function explain()
+            {
+                                /** @var \Illuminate\Database\Eloquent\Builder $instance */
+                                return $instance->explain();
             }
              
                 /**
@@ -16500,7 +16556,7 @@ namespace  {
                 /**
              * Add a subselect expression to the query.
              *
-             * @param \Closure|$this|string $query
+             * @param \Closure|\Illuminate\Database\Query\Builder|string $query
              * @param string $as
              * @return \Illuminate\Database\Query\Builder 
              * @throws \InvalidArgumentException

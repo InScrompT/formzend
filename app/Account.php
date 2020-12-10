@@ -39,6 +39,8 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Account whereAllowed($value)
  * @property int $plan_id
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Account wherePlanId($value)
+ * @property string|null $customer_id
+ * @method static \Illuminate\Database\Eloquent\Builder|Account whereCustomerId($value)
  */
 class Account extends Authenticatable
 {
