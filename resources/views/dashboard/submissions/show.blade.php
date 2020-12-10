@@ -14,19 +14,21 @@
                             <div class="card-header-title has-text-white">Form Data</div>
                         </div>
                         <div class="card-content">
-                            <table class="table is-fullwidth is-hoverable">
-                                <tbody>
-                                    <th>Field Name</th>
-                                    <th>Field Value</th>
+                            <div class="table-container">
+                                <table class="table is-fullwidth is-hoverable">
+                                    <tbody>
+                                        <th>Field Name</th>
+                                        <th>Field Value</th>
 
-                                    @foreach ($submission->data as $key => $value)
-                                        <tr>
-                                            <td>{{ $key }}</td>
-                                            <td>{{ $value }}</td>
-                                        </tr>
-                                    @endforeach
-                                </tbody>
-                            </table>
+                                        @foreach ($submission->data as $key => $value)
+                                            <tr>
+                                                <td>{{ $key }}</td>
+                                                <td>{{ $value }}</td>
+                                            </tr>
+                                        @endforeach
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                         <div class="card-footer">
                             <a href="{{ route('download.submission', [$submission->id]) }}"
