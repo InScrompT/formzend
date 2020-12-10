@@ -31,6 +31,8 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|Order whereCode($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Order whereCompleted($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Order whereRazorpayPaymentId($value)
+ * @property int|null $amount
+ * @method static \Illuminate\Database\Eloquent\Builder|Order whereAmount($value)
  */
 class Order extends Model
 {
