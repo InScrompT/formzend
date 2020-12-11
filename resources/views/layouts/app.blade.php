@@ -12,7 +12,7 @@
     <meta property="og:type" content="website">
     <meta property="og:title" content="{{ config('app.name') }} - Form submissions directly to your email">
     <meta property="og:description" content="Have a simple website with a form in it? Submit the form to us, we'll email it to you. No server, no signup, no database.">
-    <meta property="og:image" content="{{ asset('assets/images/formzend-desc.gif') }}">
+    <meta property="og:image" content="{{ asset('assets/images/formzend-desc.png') }}">
     <meta property="og:url" content="{{ config('app.url') }}">
 
     <meta name="twitter:image:alt" content="{{ config('app.name') }} Selling Points. A banner">
