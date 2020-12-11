@@ -52,6 +52,8 @@ Route::get('plans', 'PaymentController@showPlans')->name('plans');
 Route::get('plans/{plan}', 'PaymentController@buyPlan')->name('plans.buy');
 Route::get('plans/payment/cancel', 'PaymentController@paymentCancelled')->name('plans.payment.cancelled');
 
+Route::get('profile', 'ProfileController@showProfile')->name('profile');
+
 Route::post('plans/payment/done', 'PaymentController@paymentCallback')->name('plans.payment.done');
 Route::post('auth/login', 'AuthController@processLogin')
     ->middleware('csrf', 'guest');

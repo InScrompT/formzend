@@ -38,6 +38,7 @@ class PaymentController extends Controller
         $order = new Order();
 
         $order->account_id = auth()->id();
+        $order->amount = $plan->amount;
         $order->plan_id = $plan->id;
         $order->code = Str::uuid();
 
@@ -46,7 +47,7 @@ class PaymentController extends Controller
             'amount' => intval($plan->amount * 100),
             'currency' => 'USD',
             'notes' => [
-                'email' => session('email')
+                'email' => auth()->user()->email
             ]
         ]);
 
