@@ -15,8 +15,10 @@
     <meta property="og:image" content="{{ asset('assets/images/formzend-desc.png') }}">
     <meta property="og:url" content="{{ config('app.url') }}">
 
+    <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:image:alt" content="{{ config('app.name') }} Selling Points. A banner">
     <meta name="twitter:site" content="@xXAlphaManXx">
+    <meta name="twitter:creator" content="@xXAlphaManXx">
 
     @yield('head')
 
