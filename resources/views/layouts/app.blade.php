@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <meta name=”robots” content="index, follow">
+    <meta name="robots" content="index, follow">
     <meta name="description" content="Have a simple website with a form in it? Submit the form to us, we'll email it to you. No server, no signup, no database."/>
 
     <meta property="og:site_name" content="{{ config('app.name') }}">
