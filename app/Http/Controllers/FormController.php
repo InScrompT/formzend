@@ -21,7 +21,7 @@ class FormController extends Controller
         $account = Account::firstWhere('email', $email);
         $website = $account->websites->firstWhere('url', $url);
 
-        if ($account->cant('createSubmission', $account)) {
+        if ($account->cant('create', Submission::class)) {
             event(new CreditsExhausted($account));
 
             return response()->view('website.error', [

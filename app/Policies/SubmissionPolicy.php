@@ -29,4 +29,12 @@ class SubmissionPolicy
     {
         return $account->id === $submission->account_id;
     }
+
+    /**
+     * @param Account $account
+     * @return bool
+     */
+    public function create(Account $account) {
+        return $account->allowed > 0;
+    }
 }
