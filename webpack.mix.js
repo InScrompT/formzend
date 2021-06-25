@@ -14,4 +14,6 @@ require('laravel-mix-purgecss');
 
 mix.js('resources/js/app.js', 'public/js')
     .sass('resources/sass/app.scss', 'public/css')
-    .purgeCss();
+    .purgeCss({
+        enabled: process.env.NODE_ENV === 'production'
+    });
