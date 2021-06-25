@@ -25,7 +25,7 @@ class CheckIfEmail
             return response()->view('website.error', [
                 'title' => 'Invalid Email',
                 'error' => 'Please enter a valid email. The format is ' . $host . '/your@email.com'
-            ]);
+            ])->status(400);
         }
 
         return $next($request);

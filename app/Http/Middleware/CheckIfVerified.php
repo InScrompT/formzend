@@ -33,14 +33,14 @@ class CheckIfVerified
             return response()->view('website.verify', [
                 'email' => $email,
                 'url' => $host
-            ]);
+            ])->status(401);
         }
 
         if (!$accountWebsite->verified) {
             return response()->view('website.remind', [
                 'account' => $account->id,
                 'website' => $accountWebsite->id
-            ]);
+            ])->status(401);
         }
 
         // Basically means that everything is okay and send an email.
