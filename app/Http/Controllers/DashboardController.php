@@ -55,7 +55,7 @@ class DashboardController extends Controller
         });
 
         return response()->streamDownload(function () use ($csv) {
-            echo $csv->getContent();
+            echo $csv->toString();
         }, $fileName, [
             'Content-Type' => 'text/csv'
         ]);

@@ -58,7 +58,7 @@ class FormController extends Controller
         $csv->insertOne($submission->data->toArray());
 
         return response()->streamDownload(function () use ($csv) {
-            echo $csv->getContent();
+            echo $csv->toString();
         }, $fileName, [
             'Content-Type' => 'text/csv'
         ]);
