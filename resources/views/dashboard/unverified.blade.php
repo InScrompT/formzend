@@ -8,7 +8,7 @@
     <section class="section">
         <div class="container">
             <div class="columns">
-                <div class="column is-offset-3 is-half">
+                <div class="column is-offset-2 is-8">
                     <div class="mb-5">
                         <p class="is-size-4">Welcome back {{ auth()->user()->email }}</p>
                     </div>

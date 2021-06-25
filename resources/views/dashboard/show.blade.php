@@ -9,7 +9,7 @@
         <div class="container">
             @if(Session::has('info'))
                 <div class="columns">
-                    <div class="column is-offset-3 is-half">
+                    <div class="column is-offset-2 is-8">
                         <div class="message is-info">
                             <div class="message-body">
                                 {{ Session::get('info') }}
@@ -21,7 +21,7 @@
 
             @if(Session::has('error'))
                 <div class="columns">
-                    <div class="column is-offset-3 is-half">
+                    <div class="column is-offset-2 is-8">
                         <div class="message is-danger">
                             <div class="message-body">
                                 {{ Session::get('error') }}
@@ -33,7 +33,7 @@
 
             @if(Session::has('success'))
                 <div class="columns">
-                    <div class="column is-offset-3 is-half">
+                    <div class="column is-offset-2 is-8">
                         <div class="message is-success">
                             <div class="message-body">
                                 {{ Session::get('success') }}
@@ -44,7 +44,7 @@
             @endif
 
             <div class="columns">
-                <div class="column is-offset-3 is-half">
+                <div class="column is-offset-2 is-8">
                     <div class="mb-5">
                         <p class="is-size-4">Welcome back {{ auth()->user()->email }}</p>
                     </div>

@@ -8,7 +8,7 @@
     <section class="section">
         <div class="container">
             <div class="columns">
-                <div class="column is-half is-offset-3">
+                <div class="column is-offset-2 is-8">
                     <div class="card">
                         <div class="card-header has-background-primary">
                             <div class="card-header-title has-text-white">Form Data</div>
