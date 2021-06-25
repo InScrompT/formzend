@@ -24,7 +24,7 @@
                     </div>
                 @else
                     <div class="navbar-item">
-                        <a href="{{ route('home') }}#pricing" class="has-text-primary">Pricing</a>
+                        <a href="{{ route('plans') }}" class="has-text-primary">Pricing</a>
                     </div>
                     <div class="navbar-item">
                         <a href="{{ route('home') }}#faq" class="has-text-primary">FAQ</a>
