@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Account;
 use App\Website;
 use App\Activity;
 use App\Mail\VerifyWebsite;
@@ -51,5 +52,19 @@ class WebsiteController extends Controller
             'url' => $website->url,
             'email' => $website->account->email,
         ]);
+    }
+
+    public function remindVerification(Account $account, Website $website) {
+        return response()->view('website.remind', [
+            'account' => $account->id,
+            'website' => $website->id
+        ])->setStatusCode(401);
+    }
+
+    public function showVerificationNotice($link, $email) {
+        return response()->view('website.verify', [
+            'email' => $email,
+            'url' => $link
+        ])->setStatusCode(401);
     }
 }

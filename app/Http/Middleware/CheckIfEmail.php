@@ -16,6 +16,8 @@ class CheckIfEmail
      */
     public function handle($request, Closure $next)
     {
+        $response = $next($request);
+
         $host = $request->header('referer');
         $validator = Validator::make(['email' => $request->route('email')], [
             'email' => 'required|email'
@@ -28,6 +30,6 @@ class CheckIfEmail
             ])->status(400);
         }
 
-        return $next($request);
+        return $response;
     }
 }

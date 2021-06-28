@@ -18,6 +18,8 @@ class CheckIfVerified
      */
     public function handle($request, Closure $next)
     {
+        $response = $next($request);
+
         $host = $request->header('referer');
         $email = $request->route('email');
 
@@ -30,20 +32,16 @@ class CheckIfVerified
 
             event(new NewWebsite($newWebsite));
 
-            return response()->view('website.verify', [
-                'email' => $email,
-                'url' => $host
-            ])->status(401);
+            return redirect()->route('website.verify.show', [$host, $email]);
         }
 
         if (!$accountWebsite->verified) {
-            return response()->view('website.remind', [
-                'account' => $account->id,
-                'website' => $accountWebsite->id
-            ])->status(401);
+            return redirect()->route('website.verify.remind', [
+                $account->id, $accountWebsite->id
+            ]);
         }
 
         // Basically means that everything is okay and send an email.
-        return $next($request);
+        return $response;
     }
 }
