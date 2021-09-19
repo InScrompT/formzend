@@ -1,0 +1,42 @@
+version: '3.6'
+
+services:
+  php:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.php
+    networks:
+      - backend
+    volumes:
+      - ./:/project:rw
+
+  server:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.webserver
+    ports:
+      - 8080:80
+    networks:
+      - backend
+    volumes:
+      - ./nginx.conf:/etc/nginx/http.d/default.conf
+      - ./:/project:rw
+    depends_on:
+      - php
+    deploy:
+      replicas: 2
+
+  worker:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.worker
+    volumes:
+      - ./:/project:rw
+    networks:
+      - backend
+    depends_on:
+      - server
+    restart: "unless-stopped"
+
+networks:
+  backend:
