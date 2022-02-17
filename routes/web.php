@@ -1,18 +1,11 @@
 <?php
 
+use App\Http\Controllers\SubmissionController;
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
+Route::view('/', 'welcome');
 
-Route::get('/', function () {
-    return view('welcome');
+$domain = 'send.' . parse_url(config('app.url'), PHP_URL_HOST);
+Route::domain($domain)->group(function () {
+    Route::post('{form}', [SubmissionController::class, 'submit'])->name('form.submit');
 });

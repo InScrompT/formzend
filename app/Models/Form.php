@@ -43,4 +43,9 @@ class Form extends Model
     {
         return $this->hasMany(Submission::class);
     }
+
+    public function getRouteKeyName()
+    {
+        return 'code';
+    }
 }
