@@ -5,31 +5,6 @@ namespace App;
 use App\Enums\ActivityType;
 use Illuminate\Database\Eloquent\Model;
 
-/**
- * App\Activity
- *
- * @property int $id
- * @property int $account_id
- * @property int|null $website_id
- * @property string $type
- * @property \Illuminate\Support\Carbon|null $created_at
- * @property \Illuminate\Support\Carbon|null $updated_at
- * @property-read \App\Account $account
- * @property-read \App\Website|null $website
- * @method static \Illuminate\Database\Eloquent\Builder|Activity newModelQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|Activity newQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|Activity query()
- * @method static \Illuminate\Database\Eloquent\Builder|Activity whereAccountId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Activity whereCreatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Activity whereId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Activity whereType($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Activity whereUpdatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Activity whereWebsiteId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Activity isDayOld($days = 1)
- * @mixin \Eloquent
- * @property string|null $login_key
- * @method static \Illuminate\Database\Eloquent\Builder|Activity whereLoginKey($value)
- */
 class Activity extends Model
 {
     protected $casts = [
