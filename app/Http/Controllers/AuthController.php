@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Account;
 use App\Activity;
 use App\Events\LoginRequest;
+use Illuminate\Support\Facades\Auth;
 
 class AuthController extends Controller
 {
@@ -37,7 +38,7 @@ class AuthController extends Controller
                 ->firstOrFail()
                 ->delete();
 
-            \Auth::login($account, true);
+            Auth::login($account, true);
 
             return redirect()
                 ->route('dashboard');
@@ -51,7 +52,7 @@ class AuthController extends Controller
 
     public function logout()
     {
-        \Auth::logout();
+        Auth::logout();
 
         return redirect()
             ->route('home');

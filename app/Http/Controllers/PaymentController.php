@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Plan;
 use App\Order;
+use Illuminate\Support\Facades\Auth;
 use Razorpay\Api\Api;
 use Illuminate\Support\Str;
 use App\Events\PaymentProcessed;
@@ -70,7 +71,7 @@ class PaymentController extends Controller
 
             // Fixes the bug where user is automatically logged out.
             // reason TBD.
-            \Auth::login($order->account);
+            Auth::login($order->account);
 
             if (request()->exists('error')) {
                 session()->flash('error', 'Payment was rejected. Please try again!');

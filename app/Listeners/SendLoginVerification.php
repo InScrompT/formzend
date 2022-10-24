@@ -5,6 +5,7 @@ namespace App\Listeners;
 use App\Mail\VerifyLogin;
 use App\Events\LoginRequest;
 use App\Repositories\AccountRepository;
+use Illuminate\Support\Facades\Mail;
 
 class SendLoginVerification
 {
@@ -29,7 +30,7 @@ class SendLoginVerification
         $verificationCode = AccountRepository::generateVerification($event->account);
         $signedURL = route('login.verify', [$event->account->id, $verificationCode]);
 
-        \Mail::to($event->account->email)
+        Mail::to($event->account->email)
             ->send(new VerifyLogin($signedURL));
     }
 }
