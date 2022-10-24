@@ -5,6 +5,7 @@ namespace App\Console\Commands;
 use App\Account;
 use App\Events\LoginRequest;
 use Illuminate\Console\Command;
+use Illuminate\Support\Facades\Validator;
 
 class SendLogin extends Command
 {
@@ -35,41 +36,22 @@ class SendLogin extends Command
     /**
      * Execute the console command.
      */
-    public function handle()
+    public function handle(): int
     {
-        $userArgument = \Validator::make($this->arguments(), [
-            'user' => 'required|email'
+        $userArgument = Validator::make($this->arguments(), [
+            'user' => ['required', 'email', 'exists:accounts,email']
         ]);
 
-        $userArgument->fails() ? $this->handleUserID() : $this->handleUserEmail();
-    }
-
-    private function handleUserEmail()
-    {
-        try {
-            $account = Account::whereEmail($this->argument('user'))->firstOrFail();
-            $this->sendEmail($account);
-
-            $this->info('Magic link has been sent to ' . $account->email);
-        } catch (\Exception $e) {
-            $this->error('User (' . $this->argument('user') . ') not found');
+        if ($userArgument->fails()) {
+            $this->error('User does not exist');
+            return 1;
         }
-    }
 
-    private function handleUserID()
-    {
-        try {
-            $account = Account::findOrFail($this->argument('user'));
-            $this->sendEmail($account);
-
-            $this->info('Magic link has been sent to ' . $account->email);
-        } catch (\Exception $e) {
-            $this->error('User (' . $this->argument('user') . ') not found');
-        }
-    }
-
-    private function sendEmail(Account $account)
-    {
+        $account = Account::whereEmail($this->argument('user'))->first();
         event(new LoginRequest($account));
+
+        $this->info('Magic link has been sent to ' . $account->email);
+
+        return 0;
     }
 }

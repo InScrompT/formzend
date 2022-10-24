@@ -37,25 +37,23 @@ class AddPlan extends Command
      *
      * @return int
      */
-    public function handle()
+    public function handle(): int
     {
-        try {
-            $title = $this->ask('Enter plan name');
-            $price = (int) $this->ask('Enter the plan price');
-            $quantity = (int) $this->ask('Enter plan credits');
-            $available = $this->confirm('Make it available?');
+        $title = $this->ask('Enter plan name');
+        $price = (int) $this->ask('Enter the plan price');
+        $quantity = (int) $this->ask('Enter plan credits');
+        $available = $this->confirm('Make it available?');
 
-            $plan = new Plan();
+        $plan = new Plan();
 
-            $plan->name = $title;
-            $plan->amount = $price;
-            $plan->quantity = $quantity;
-            $plan->available = $available;
+        $plan->name = $title;
+        $plan->amount = $price;
+        $plan->quantity = $quantity;
+        $plan->available = $available;
 
-            $plan->saveOrFail();
-            $this->info('Plan with name ' . $title . ' has been created');
-        } catch (Throwable $e) {
-            $this->error('Could not create the plan');
-        }
+        $plan->save();
+        $this->info('Plan with name ' . $title . ' has been created');
+
+        return 0;
     }
 }

@@ -5,6 +5,7 @@ namespace App\Console\Commands;
 use App\Account;
 use Illuminate\Console\Command;
 use App\Repositories\AccountRepository;
+use Illuminate\Support\Facades\Validator;
 
 class MakeLogin extends Command
 {
@@ -35,35 +36,21 @@ class MakeLogin extends Command
     /**
      * Execute the console command.
      */
-    public function handle()
+    public function handle(): int
     {
-        $userArgument = \Validator::make($this->arguments(), [
-            'user' => 'required|email'
+        $userArgument = Validator::make($this->arguments(), [
+            'user' => ['required', 'email', 'exists:accounts,email']
         ]);
 
-        $userArgument->fails() ? $this->handleUserID() : $this->handleUserEmail();
-    }
-
-    private function handleUserID()
-    {
-        try {
-            $account = Account::findOrFail($this->argument('user'));
-
-            $this->info('Magic link for user ' . $account->email . ' is ' . $this->makeMagicLink($account));
-        } catch (\Exception $e) {
-            $this->error('User (' . $this->argument('user') . ') not found');
+        if ($userArgument->fails()) {
+            $this->error('User does not exist');
+            return 1;
         }
-    }
 
-    private function handleUserEmail()
-    {
-        try {
-            $account = Account::whereEmail($this->argument('user'))->firstOrFail();
+        $account = Account::whereEmail($this->argument('user'))->first();
+        $this->info('Magic link for user ' . $account->email . ' is ' . $this->makeMagicLink($account));
 
-            $this->info('Magic link for user ' . $account->email . ' is ' . $this->makeMagicLink($account));
-        } catch (\Exception $e) {
-            $this->error('User (' . $this->argument('user') . ') not found');
-        }
+        return 0;
     }
 
     private function makeMagicLink(Account $account)
