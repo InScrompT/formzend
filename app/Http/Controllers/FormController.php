@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Account;
 use App\Submission;
+use Illuminate\Support\Facades\URL;
 use League\Csv\Writer;
 use App\Events\FormSubmission;
 use App\Events\CreditsExhausted;
@@ -37,7 +38,7 @@ class FormController extends Controller
         ));
 
         $redirectTo = request('_redirect');
-        $isValidRedirect = \URL::isValidUrl($redirectTo);
+        $isValidRedirect = URL::isValidUrl($redirectTo);
 
         if ($isValidRedirect) {
             return response()->redirectTo($redirectTo, 301);

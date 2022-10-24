@@ -5,6 +5,7 @@ namespace App\Listeners;
 use App\Events\NewWebsite;
 use App\Mail\VerifyWebsite;
 use App\Repositories\WebsiteRepository;
+use Illuminate\Support\Facades\Mail;
 
 class SendVerification
 {
@@ -29,7 +30,7 @@ class SendVerification
         $verificationCode = WebsiteRepository::generateVerification($event->website);
         $signedURL = route('website.verify', [$event->website->id, $verificationCode]);
 
-        \Mail::to($event->website->account->email)
+        Mail::to($event->website->account->email)
             ->send(new VerifyWebsite($event->website, $signedURL));
     }
 }

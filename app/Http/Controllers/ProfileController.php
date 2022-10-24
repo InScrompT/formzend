@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 class ProfileController extends Controller
 {
-    public function __consturct()
+    public function __construct()
     {
         $this->middleware('auth');
     }

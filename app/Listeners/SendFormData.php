@@ -3,6 +3,7 @@
 namespace App\Listeners;
 
 use App\Events\FormSubmission;
+use Illuminate\Support\Facades\Mail;
 
 class SendFormData
 {
@@ -24,7 +25,7 @@ class SendFormData
      */
     public function handle(FormSubmission $event)
     {
-        \Mail::send(new \App\Mail\FormSubmission(
+        Mail::send(new \App\Mail\FormSubmission(
             $event->website, $event->data
         ));
     }

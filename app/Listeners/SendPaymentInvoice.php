@@ -3,6 +3,7 @@
 namespace App\Listeners;
 
 use App\Events\PaymentProcessed;
+use Illuminate\Support\Facades\Mail;
 
 class SendPaymentInvoice
 {
@@ -24,7 +25,7 @@ class SendPaymentInvoice
      */
     public function handle(PaymentProcessed $event)
     {
-        return \Mail::to($event->order->account->email)
+        Mail::to($event->order->account->email)
             ->send(new \App\Mail\SendPaymentInvoice(
                 $event->order->plan->amount,
                 $event->order->plan->quantity,

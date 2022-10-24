@@ -7,6 +7,7 @@ use App\Activity;
 use App\Enums\ActivityType;
 use App\Mail\CreditExhausted;
 use App\Events\CreditsExhausted;
+use Illuminate\Support\Facades\Mail;
 
 class SendCreditsExhausted
 {
@@ -58,7 +59,7 @@ class SendCreditsExhausted
 
     private function sendNotification(Account $account)
     {
-        \Mail::to($account->email)
+        Mail::to($account->email)
             ->send(new CreditExhausted($account));
     }
 }
