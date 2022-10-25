@@ -2,9 +2,9 @@
 
 namespace App\Repositories;
 
-use App\Account;
-use App\Activity;
 use App\Enums\ActivityType;
+use App\Models\Account;
+use App\Models\Activity;
 use Illuminate\Support\Str;
 
 class AccountRepository

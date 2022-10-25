@@ -2,9 +2,9 @@
 
 namespace Database\Factories;
 
-use App\Account;
-use App\Website;
-use App\Submission;
+use App\Models\Account;
+use App\Models\Submission;
+use App\Models\Website;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class SubmissionFactory extends Factory

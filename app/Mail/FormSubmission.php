@@ -2,7 +2,7 @@
 
 namespace App\Mail;
 
-use App\Website;
+use App\Models\Website;
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
@@ -12,7 +12,7 @@ class FormSubmission extends Mailable
     use Queueable, SerializesModels;
 
     /**
-     * @var Website
+     * @var \App\Models\Website
      */
     public $website;
 

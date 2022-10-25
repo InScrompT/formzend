@@ -2,8 +2,8 @@
 
 namespace Database\Factories;
 
-use App\Website;
-use App\Account;
+use App\Models\Account;
+use App\Models\Website;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class WebsiteFactory extends Factory

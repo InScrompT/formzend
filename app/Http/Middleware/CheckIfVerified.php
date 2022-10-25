@@ -2,10 +2,10 @@
 
 namespace App\Http\Middleware;
 
-use Closure;
-use App\Website;
-use App\Account;
 use App\Events\NewWebsite;
+use App\Models\Account;
+use App\Models\Website;
+use Closure;
 
 class CheckIfVerified
 {
