@@ -4,6 +4,7 @@ namespace App\Console\Commands;
 
 use App\Models\Plan;
 use Illuminate\Console\Command;
+use Illuminate\Support\Facades\Validator;
 
 class AddPlan extends Command
 {
@@ -39,9 +40,22 @@ class AddPlan extends Command
     public function handle(): int
     {
         $title = $this->ask('Enter plan name');
-        $price = (int) $this->ask('Enter the plan price');
-        $quantity = (int) $this->ask('Enter plan credits');
+        $price = $this->ask('Enter the plan price');
+        $quantity = $this->ask('Enter plan credits');
         $available = $this->confirm('Make it available?');
+
+        $validator = Validator::make(compact('title', 'price', 'quantity', 'available'), [
+            'title' => ['required'],
+            'price' => ['required', 'integer'],
+            'quantity' => ['required', 'integer'],
+            'available' => ['required', 'boolean']
+        ]);
+
+        if ($validator->fails()) {
+            $this->error($validator->errors()->first());
+
+            return 1;
+        }
 
         $plan = new Plan();
 

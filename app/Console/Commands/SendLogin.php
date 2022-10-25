@@ -24,16 +24,6 @@ class SendLogin extends Command
     protected $description = 'Send magic login link to a user';
 
     /**
-     * Create a new command instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        parent::__construct();
-    }
-
-    /**
      * Execute the console command.
      */
     public function handle(): int
