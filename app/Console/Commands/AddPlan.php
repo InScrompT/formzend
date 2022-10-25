@@ -2,9 +2,8 @@
 
 namespace App\Console\Commands;
 
-use App\Plan;
+use App\Models\Plan;
 use Illuminate\Console\Command;
-use Throwable;
 
 class AddPlan extends Command
 {

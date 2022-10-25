@@ -2,10 +2,10 @@
 
 namespace App\Repositories;
 
-use App\Website;
-use App\Activity;
-use Illuminate\Support\Str;
 use App\Enums\ActivityType;
+use App\Models\Activity;
+use App\Models\Website;
+use Illuminate\Support\Str;
 
 class WebsiteRepository
 {

@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Plan;
-use App\Order;
-use Illuminate\Support\Facades\Auth;
-use Razorpay\Api\Api;
-use Illuminate\Support\Str;
 use App\Events\PaymentProcessed;
+use App\Models\Order;
+use App\Models\Plan;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Str;
+use Razorpay\Api\Api;
 use Razorpay\Api\Errors\SignatureVerificationError;
 
 class PaymentController extends Controller

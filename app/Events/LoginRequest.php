@@ -2,11 +2,11 @@
 
 namespace App\Events;
 
-use App\Account;
-use Illuminate\Queue\SerializesModels;
+use App\Models\Account;
+use Illuminate\Broadcasting\InteractsWithSockets;
 use Illuminate\Broadcasting\PrivateChannel;
 use Illuminate\Foundation\Events\Dispatchable;
-use Illuminate\Broadcasting\InteractsWithSockets;
+use Illuminate\Queue\SerializesModels;
 
 class LoginRequest
 {
@@ -17,7 +17,7 @@ class LoginRequest
     /**
      * LoginRequest constructor.
      *
-     * @param Account $account
+     * @param \App\Models\Account $account
      */
     public function __construct(Account $account)
     {

@@ -2,9 +2,9 @@
 
 namespace App\Console\Commands;
 
-use App\Account;
-use Illuminate\Console\Command;
+use App\Models\Account;
 use App\Repositories\AccountRepository;
+use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Validator;
 
 class MakeLogin extends Command

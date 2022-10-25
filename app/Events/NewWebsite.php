@@ -2,7 +2,7 @@
 
 namespace App\Events;
 
-use App\Website;
+use App\Models\Website;
 use Illuminate\Broadcasting\InteractsWithSockets;
 use Illuminate\Broadcasting\PrivateChannel;
 use Illuminate\Foundation\Events\Dispatchable;
@@ -17,7 +17,7 @@ class NewWebsite
     /**
      * Create a new event instance.
      *
-     * @param Website $website
+     * @param \App\Models\Website $website
      */
     public function __construct(Website $website)
     {

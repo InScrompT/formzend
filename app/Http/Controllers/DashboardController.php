@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Website;
-use App\Submission;
+use App\Models\Submission;
+use App\Models\Website;
 use League\Csv\Writer;
 
 class DashboardController extends Controller

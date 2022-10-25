@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Account;
-use App\Submission;
+use App\Events\CreditsExhausted;
+use App\Events\FormSubmission;
+use App\Models\Account;
+use App\Models\Submission;
 use Illuminate\Support\Facades\URL;
 use League\Csv\Writer;
-use App\Events\FormSubmission;
-use App\Events\CreditsExhausted;
 
 class FormController extends Controller
 {

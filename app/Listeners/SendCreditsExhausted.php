@@ -2,11 +2,11 @@
 
 namespace App\Listeners;
 
-use App\Account;
-use App\Activity;
 use App\Enums\ActivityType;
-use App\Mail\CreditExhausted;
 use App\Events\CreditsExhausted;
+use App\Mail\CreditExhausted;
+use App\Models\Account;
+use App\Models\Activity;
 use Illuminate\Support\Facades\Mail;
 
 class SendCreditsExhausted
