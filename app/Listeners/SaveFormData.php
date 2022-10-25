@@ -2,8 +2,8 @@
 
 namespace App\Listeners;
 
-use App\Submission;
 use App\Events\FormSubmission;
+use App\Models\Submission;
 
 class SaveFormData
 {

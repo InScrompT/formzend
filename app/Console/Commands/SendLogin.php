@@ -2,8 +2,8 @@
 
 namespace App\Console\Commands;
 
-use App\Account;
 use App\Events\LoginRequest;
+use App\Models\Account;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Validator;
 

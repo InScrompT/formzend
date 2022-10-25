@@ -2,7 +2,7 @@
 
 namespace App\Mail;
 
-use App\Account;
+use App\Models\Account;
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
@@ -16,7 +16,7 @@ class CreditExhausted extends Mailable
     /**
      * Create a new message instance.
      *
-     * @param Account $account
+     * @param \App\Models\Account $account
      */
     public function __construct(Account $account)
     {

@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Account;
-use App\Website;
-use App\Activity;
-use App\Mail\VerifyWebsite;
 use App\Enums\ActivityType;
+use App\Mail\VerifyWebsite;
+use App\Models\Account;
+use App\Models\Activity;
+use App\Models\Website;
 use App\Repositories\WebsiteRepository;
 
 class WebsiteController extends Controller

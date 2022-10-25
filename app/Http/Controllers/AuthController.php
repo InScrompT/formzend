@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Account;
-use App\Activity;
 use App\Events\LoginRequest;
+use App\Models\Account;
+use App\Models\Activity;
 use Illuminate\Support\Facades\Auth;
 
 class AuthController extends Controller

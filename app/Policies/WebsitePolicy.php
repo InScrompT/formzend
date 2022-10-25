@@ -2,8 +2,8 @@
 
 namespace App\Policies;
 
-use App\Account;
-use App\Website;
+use App\Models\Account;
+use App\Models\Website;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
 class WebsitePolicy
@@ -12,7 +12,7 @@ class WebsitePolicy
 
     /**
      * @param Account $account
-     * @param Website $website
+     * @param \App\Models\Website $website
      * @return bool
      */
     public function listSubmissions(Account $account, Website $website)
@@ -21,8 +21,8 @@ class WebsitePolicy
     }
 
     /**
-     * @param Account $account
-     * @param Website $website
+     * @param \App\Models\Account $account
+     * @param \App\Models\Website $website
      * @return bool
      */
     public function exportSubmissions(Account $account, Website $website)

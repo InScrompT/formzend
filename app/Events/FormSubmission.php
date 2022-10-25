@@ -2,8 +2,8 @@
 
 namespace App\Events;
 
-use App\Account;
-use App\Website;
+use App\Models\Account;
+use App\Models\Website;
 use Illuminate\Broadcasting\InteractsWithSockets;
 use Illuminate\Broadcasting\PrivateChannel;
 use Illuminate\Foundation\Events\Dispatchable;

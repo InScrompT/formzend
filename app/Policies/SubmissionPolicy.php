@@ -2,8 +2,8 @@
 
 namespace App\Policies;
 
-use App\Account;
-use App\Submission;
+use App\Models\Account;
+use App\Models\Submission;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
 class SubmissionPolicy
@@ -12,7 +12,7 @@ class SubmissionPolicy
 
     /**
      * @param Account $account
-     * @param Submission $submission
+     * @param \App\Models\Submission $submission
      * @return bool
      */
     public function view(Account $account, Submission $submission)
@@ -22,7 +22,7 @@ class SubmissionPolicy
 
     /**
      * @param Account $account
-     * @param Submission $submission
+     * @param \App\Models\Submission $submission
      * @return bool
      */
     public function export(Account $account, Submission $submission)
