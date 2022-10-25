@@ -23,18 +23,16 @@ class WebsiteFactory extends Factory
     public function definition()
     {
         return [
-            'account_id' => Account::factory(),
-            'url' => $this->faker->domainName,
+            'account_id' => rand(1, 10),
+            'url' => fake()->unique()->domainName,
             'verified' => true,
         ];
     }
 
     public function unverified()
     {
-        return $this->state(function (array $attributes) {
-            return [
-                'verified' => false
-            ];
-        });
+        return $this->state(fn (array $attributes) => [
+            'verified' => false
+        ]);
     }
 }

@@ -3,10 +3,13 @@
 namespace App\Models;
 
 use App\Enums\ActivityType;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Activity extends Model
 {
+    use HasFactory;
+
     protected $casts = [
         'type' => ActivityType::class,
     ];

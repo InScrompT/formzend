@@ -24,13 +24,13 @@ class SubmissionFactory extends Factory
     public function definition()
     {
         return [
-            'account_id' => Account::factory(),
-            'website_id' => Website::factory(),
+            'account_id' => rand(1, 10),
+            'website_id' => rand(1, 100),
             'data' => [
-                'name' => $this->faker->name,
-                'email' => $this->faker->email,
-                'phone' => $this->faker->phoneNumber,
-                'address' => $this->faker->address,
+                'name' => fake()->name,
+                'email' => fake()->email,
+                'phone' => fake()->phoneNumber,
+                'address' => fake()->address,
             ],
         ];
     }
