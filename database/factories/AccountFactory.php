@@ -22,10 +22,10 @@ class AccountFactory extends Factory
     public function definition()
     {
         return [
-            'email' => $this->faker->unique()->safeEmail,
+            'email' => fake()->unique()->safeEmail,
+            'plan_id' => rand(1, 3),
             'recieved' => 100,
             'allowed' => 10000,
-            'plan_id' => 1
         ];
     }
 }
