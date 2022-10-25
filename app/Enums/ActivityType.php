@@ -2,8 +2,9 @@
 
 namespace App\Enums;
 
-enum ActivityType {
-    const CreditExhausted = 0;
-    const LoginRequested = 1;
-    const WebsiteVerification = 2;
+enum ActivityType: int
+{
+    case CreditExhausted = 0;
+    case LoginRequested = 1;
+    case WebsiteVerification = 2;
 }
