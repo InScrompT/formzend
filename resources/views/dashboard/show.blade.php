@@ -11,13 +11,13 @@
             <a href="#" class="is-active">Verified</a>
             <a href="{{ route('dashboard.websites.unverified') }}" class="has-text-primary">Unverified</a>
         </div>
-        @forelse (auth()->user()->websites->where('verified', true) as $website)
+        @forelse ($websites as $website)
             <a href="{{ route('dashboard.website.submissions', [
                 $website->id
             ]) }}" class="panel-block">
                 <div class="tags has-addons mr-4">
                     <div class="tag is-success is-light">Submissions</div>
-                    <div class="tag">{{ $website->submissions->count() }}</div>
+                    <div class="tag">{{ $website->submissions_count }}</div>
                 </div>
                 {{ $website->url }}
             </a>

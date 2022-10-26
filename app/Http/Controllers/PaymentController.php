@@ -19,14 +19,8 @@ class PaymentController extends Controller
 
     public function showPlans()
     {
-        $plans = Plan::all();
-
-        $normalPlan = $plans->reject(function ($plan) {
-            return $plan->is_subscription;
-        })->all();
-        $subscriptionPlans = $plans->reject(function ($plan) {
-            return !$plan->is_subscription;
-        })->all();
+        $normalPlan = Plan::whereIsSubscription(false)->get();
+        $subscriptionPlans = Plan::whereIsSubscription(true)->get();
 
         return view('plans.index')->with([
             'normalPlan' => $normalPlan,

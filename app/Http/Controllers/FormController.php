@@ -20,7 +20,7 @@ class FormController extends Controller
     {
         $url = request()->headers->get('referer');
         $account = Account::firstWhere('email', $email);
-        $website = $account->websites->firstWhere('url', $url);
+        $website = $account->websites()->firstWhere('url', $url);
 
         if ($account->cant('create', Submission::class)) {
             event(new CreditsExhausted($account));

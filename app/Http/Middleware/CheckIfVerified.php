@@ -24,7 +24,7 @@ class CheckIfVerified
         $email = $request->route('email');
 
         $account = Account::firstOrCreate(['email' => $email]);
-        $accountWebsite = $account->websites->firstWhere('url', $host);
+        $accountWebsite = $account->websites()->firstWhere('url', $host);
 
         if (is_null($accountWebsite)) {
             $newWebsite = new Website(['url' => $host, 'account_id' => $account->id]);

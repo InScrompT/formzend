@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Account;
 use App\Models\Submission;
 use App\Models\Website;
+use Illuminate\Support\Facades\Auth;
 use League\Csv\Writer;
 
 class DashboardController extends Controller
@@ -15,12 +17,27 @@ class DashboardController extends Controller
 
     public function show()
     {
-        return view('dashboard.show');
+        $verifiedWebsites = Account::find(Auth::id())
+            ->websites()
+            ->where('verified', true)
+            ->withCount('submissions')
+            ->get();
+
+        return view('dashboard.show')->with([
+            'websites' => $verifiedWebsites
+        ]);
     }
 
     public function unverified()
     {
-        return view('dashboard.unverified');
+        $unverifiedWebsites = Account::find(Auth::id())
+            ->websites()
+            ->where('verified', false)
+            ->get();
+
+        return view('dashboard.unverified')->with([
+            'websites' => $unverifiedWebsites
+        ]);
     }
 
     public function listSubmissions(Website $website)
