@@ -18,7 +18,6 @@ class CheckIfEmail
     {
         $response = $next($request);
 
-        $host = $request->header('referer');
         $validator = Validator::make(['email' => $request->route('email')], [
             'email' => 'required|email'
         ]);
@@ -26,8 +25,8 @@ class CheckIfEmail
         if ($validator->fails()) {
             return response()->view('website.error', [
                 'title' => 'Invalid Email',
-                'error' => 'Please enter a valid email. The format is ' . $host . '/your@email.com'
-            ])->status(400);
+                'error' => 'Please enter a valid email. The format is ' . route('form', 'your@email.com')
+            ])->setStatusCode(400);
         }
 
         return $response;

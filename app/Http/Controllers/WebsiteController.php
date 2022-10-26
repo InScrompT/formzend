@@ -8,6 +8,7 @@ use App\Models\Account;
 use App\Models\Activity;
 use App\Models\Website;
 use App\Repositories\WebsiteRepository;
+use Illuminate\Support\Facades\Mail;
 
 class WebsiteController extends Controller
 {
@@ -45,7 +46,7 @@ class WebsiteController extends Controller
         $verificationCode = WebsiteRepository::generateVerification($website);
         $signedURL = route('website.verify', [$website->id, $verificationCode]);
 
-        \Mail::to($website->account->email)
+        Mail::to($website->account->email)
             ->send(new VerifyWebsite($website, $signedURL));
 
         return view('website.verify')->with([
