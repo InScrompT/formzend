@@ -19,7 +19,7 @@ class FormController extends Controller
     public function handleSubmission($email)
     {
         $url = request()->headers->get('referer');
-        $account = Account::firstWhere('email', $email);
+        $account = Account::whereEmail($email)->first();
         $website = $account->websites()->firstWhere('url', $url);
 
         if ($account->cant('create', Submission::class)) {
