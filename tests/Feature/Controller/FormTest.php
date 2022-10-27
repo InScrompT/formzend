@@ -2,16 +2,19 @@
 
 namespace Tests\Feature\Controller;
 
+use App\Enums\ActivityType;
 use App\Mail\CreditExhausted;
 use App\Mail\FormSubmission;
 use App\Mail\VerifyWebsite;
 use App\Models\Account;
+use App\Models\Activity;
 use App\Models\Submission;
 use App\Models\Website;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Mail\Mailable;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Str;
 use Tests\TestCase;
 
 class FormTest extends TestCase
@@ -29,7 +32,24 @@ class FormTest extends TestCase
             ->assertStatus(400);
     }
 
-    public function test_submit_form_without_verified_host()
+    public function test_submit_form_with_unverified_host()
+    {
+        $website = Website::whereVerified(false)->first();
+        $account = $website->account;
+        $domain = $website->url;
+        $data = [
+            'name' => $this->faker->name(),
+            'phone' => $this->faker->phoneNumber()
+        ];
+
+        $this->post(route('form', $account->email), $data, [
+            'referer' => $domain
+        ])->assertRedirect(route('website.verify.remind', [
+            $account->id, $website->id
+        ]));
+    }
+
+    public function test_submit_form_with_new_host()
     {
         Mail::fake();
 
@@ -157,5 +177,96 @@ class FormTest extends TestCase
             ]);
 
         Mail::assertSent(CreditExhausted::class);
+    }
+
+    public function test_submit_form_with_no_credits_reminder_check()
+    {
+        Mail::fake();
+
+        $website = Website::whereVerified(true)->first();
+        $domain = $website->url;
+        $account = $website->account;
+        $data = [
+            'name' => $this->faker->name(),
+            'phone' => $this->faker->phoneNumber()
+        ];
+
+        $account->update([
+            'allowed' => 0,
+            'recieved' => 1000
+        ]);
+
+        $activity = new Activity;
+
+        $activity->account_id = $account->id;
+        $activity->type = ActivityType::CreditExhausted;
+        $activity->created_at = now()->subHours(72);
+
+        $activity->save();
+
+        $this->post(route('form', $account->email), $data, [
+            'referer' => $domain
+        ])->assertViewIs('website.error')
+            ->assertViewHasAll([
+                'title' => 'Credits Exhausted',
+                'error' => 'The owner has exhausted the credits. If you\'re the owner, go to dashboard and top-up credits',
+            ]);
+
+        $this->assertDatabaseHas(Account::class, [
+            'email' => $account->email,
+            'allowed' => 0,
+            'recieved' => 1000,
+        ])->assertDatabaseHas(Website::class, [
+            'url' => $domain,
+            'account_id' => $account->id,
+            'verified' => true
+        ]);
+
+        Mail::assertSent(CreditExhausted::class, function (Mailable $mail) use ($account) {
+            return $mail->hasTo($account->email);
+        });
+    }
+
+    public function test_submit_form_with_no_credits_no_reminder()
+    {
+        Mail::fake();
+
+        $website = Website::whereVerified(true)->first();
+        $domain = $website->url;
+        $account = $website->account;
+        $data = [
+            'name' => $this->faker->name(),
+            'phone' => $this->faker->phoneNumber()
+        ];
+
+        $account->update([
+            'allowed' => 0,
+            'recieved' => 1000
+        ]);
+
+        Activity::create([
+            'account_id' => $account->id,
+            'type' => ActivityType::CreditExhausted
+        ]);
+
+        $this->post(route('form', $account->email), $data, [
+            'referer' => $domain
+        ])->assertViewIs('website.error')
+            ->assertViewHasAll([
+                'title' => 'Credits Exhausted',
+                'error' => 'The owner has exhausted the credits. If you\'re the owner, go to dashboard and top-up credits',
+            ]);
+
+        $this->assertDatabaseHas(Account::class, [
+            'email' => $account->email,
+            'allowed' => 0,
+            'recieved' => 1000,
+        ])->assertDatabaseHas(Website::class, [
+            'url' => $domain,
+            'account_id' => $account->id,
+            'verified' => true
+        ]);
+
+        Mail::assertNotSent(CreditExhausted::class);
     }
 }
